@@ -14,8 +14,9 @@ func _physics_process(delta):
 	if found_wall or found_ledge:
 		direction *= -1
 
-	print(direction)
+
 	$AnimatedSprite2D.scale.x = -sign(direction.x)
+	$Hitbox.scale.x = -sign(direction.x)
 	velocity = direction * SPEED
 	move_and_slide()
 

@@ -1,6 +1,10 @@
 extends CharacterBody2D
 
+
 @onready var animation_tree := $AnimationTree
+@onready var attack_sfx := $SFX/Attack
+@onready var jump_sfx := $SFX/Jump
+@onready var land_sfx := $SFX/Land
 
 const SPEED = 500.0
 const JUMP_VELOCITY = -600.0
@@ -14,6 +18,7 @@ var state:= STATE.READY
 
 func _ready():
 	animation_tree.active = true
+	
 
 func _process(_delta):
 	update_animation_parameters()
@@ -43,6 +48,9 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
+	
+	#if Input.is_action_just_pressed("attack") && state == STATE.READY:
+		#attack()
 
 func change_state(new_state: STATE):
 	state = new_state
@@ -50,9 +58,10 @@ func change_state(new_state: STATE):
 func attack():
 	if state == STATE.ATTACKING:
 		return
-	
+	#attack_sfx.play()
 	change_state(STATE.ATTACKING)
 	$AttackTimer.start()
+
 
 func _on_attack_timer_timeout():
 	change_state(STATE.READY)

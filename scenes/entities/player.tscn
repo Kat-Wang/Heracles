@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://fyw1uols0ael"]
+[gd_scene load_steps=41 format=3 uid="uid://fyw1uols0ael"]
 
 [ext_resource type="Script" path="res://scenes/entities/player.gd" id="1_6xt7c"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc_idle.png" id="1_qs2yt"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://pk0fjwa4iecp" path="res://assets/sprites/entities/herc_fall.png" id="4_7kmal"]
 [ext_resource type="Texture2D" uid="uid://br51t68mdjen8" path="res://assets/sprites/entities/herc_take_damage.png" id="5_1apcd"]
 [ext_resource type="Texture2D" uid="uid://7u387e4kqqn8" path="res://assets/sprites/entities/herc_attack.png" id="6_t01dy"]
+[ext_resource type="AudioStream" uid="uid://dr6dln46t37le" path="res://assets/music/sfx/attack_sound.mp3" id="8_ewff7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmd02"]
 size = Vector2(85, 157.5)
@@ -546,8 +547,17 @@ parameters/conditions/jumping = false
 parameters/conditions/moving = false
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 0.276
+wait_time = 0.296
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("8_ewff7")
+
+[node name="Land" type="AudioStreamPlayer2D" parent="SFX"]
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://d247tlok1c7st"]
+[gd_scene load_steps=10 format=3 uid="uid://d247tlok1c7st"]
 
 [ext_resource type="Script" path="res://scenes/entities/eagle.gd" id="1_0skhw"]
 [ext_resource type="Texture2D" uid="uid://df3ssfj11f5sq" path="res://assets/sprites/entities/eagle/Vulture_walk.png" id="1_sl46h"]
+[ext_resource type="PackedScene" uid="uid://b3sawrinmrskc" path="res://scenes/utilities/hitbox.tscn" id="3_5wjc6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1nmkj"]
 atlas = ExtResource("1_sl46h")
@@ -40,7 +41,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35rhp"]
-size = Vector2(36, 20)
+size = Vector2(36, 22)
 
 [node name="Eagle" type="CharacterBody2D"]
 scale = Vector2(4, 4)
@@ -50,6 +51,8 @@ script = ExtResource("1_0skhw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7n1hy")
 animation = &"move"
+frame = 3
+frame_progress = 0.868053
 
 [node name="LedgeCheckRight" type="RayCast2D" parent="."]
 position = Vector2(22, 14)
@@ -60,5 +63,10 @@ position = Vector2(-14, 14)
 target_position = Vector2(0, 82)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 6)
+position = Vector2(4, 7)
 shape = SubResource("RectangleShape2D_35rhp")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_5wjc6")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-14, 4, -8, 0, -2, 0, -2, -2, 20, -4, 24, 10, 22, 20, 6, 18, -2, 6, -14, 6)
