@@ -34,3 +34,8 @@ func _physics_process(delta):
 func update_animation_parameters(direction):
 	#Sets idling or walking
 	animation_tree.set("parameters/move/blend_position", direction.x)
+
+
+
+func _on_sword_hit_box_body_entered(body):
+	print(body.name)
