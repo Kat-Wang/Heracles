@@ -7,6 +7,7 @@ class_name player
 @onready var attack_sfx := $SFX/Attack
 @onready var jump_sfx := $SFX/Jump
 @onready var land_sfx := $SFX/Land
+@export var damage : int = 1
 
 const SPEED = 500.0
 
@@ -20,7 +21,6 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		velocity.y = min(velocity.y, 980)
-
 		
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
@@ -37,7 +37,8 @@ func update_animation_parameters(direction):
 	#Sets idling or walking
 	animation_tree.set("parameters/move/blend_position", direction.x)
 
-
-
 func _on_sword_hit_box_body_entered(body):
-	print(body.name)
+	print("sword BODY entered")
+	for child in body.get_children():
+		if child is Damageable:
+			child.hit(damage)

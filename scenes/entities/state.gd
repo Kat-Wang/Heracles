@@ -2,6 +2,8 @@ extends Node
 
 class_name State
 
+signal interrupt_state(new_state : State)
+
 @export var can_move : bool = true
 
 var player : CharacterBody2D
