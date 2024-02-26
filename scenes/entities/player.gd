@@ -28,16 +28,18 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		velocity.y = min(velocity.y, 980)
 	#
-	#if is_on_floor():
+	if is_on_floor():
 		jumps_remaining = max_jumps
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		#jumps_remaining -= 1
+		jumps_remaining -= 1
+		jump_sfx.play()
 		
 	if Input.is_action_just_pressed("jump") and !is_on_floor() and jumps_remaining > 0:
 		velocity.y = JUMP_VELOCITY
 		jumps_remaining -= 1
+		jump_sfx.play()
 		
 	var direction = Input.get_axis("left", "right")
 	
