@@ -5,7 +5,6 @@ extends State
 @export var landing_state: State
 @export var attack_sfx: AudioStreamPlayer2D
 
-@onready var timer := $Timer
 
 func state_input(event : InputEvent):
 	if event.is_action_pressed("attack"):

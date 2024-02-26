@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name player
+
 @onready var state_machine := $PlayerStateMachine
 @onready var animation_tree := $AnimationTree
 @onready var attack_sfx := $SFX/Attack
