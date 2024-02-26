@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://fyw1uols0ael"]
+[gd_scene load_steps=45 format=3 uid="uid://fyw1uols0ael"]
 
 [ext_resource type="Script" path="res://scenes/entities/player.gd" id="1_6xt7c"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc_idle.png" id="1_qs2yt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://7u387e4kqqn8" path="res://assets/sprites/entities/herc_attack.png" id="6_t01dy"]
 [ext_resource type="AudioStream" uid="uid://dr6dln46t37le" path="res://assets/music/sfx/attack_sound.mp3" id="8_ewff7"]
 [ext_resource type="AudioStream" uid="uid://o6c2ncxnlj8w" path="res://assets/music/sfx/jump_sound.wav" id="8_lpgyv"]
+[ext_resource type="AudioStream" uid="uid://bja3mbw86lslx" path="res://assets/music/sfx/land_sound.wav" id="10_bjalo"]
 [ext_resource type="Script" path="res://scenes/entities/player_state_machine.gd" id="10_c1krj"]
 [ext_resource type="Script" path="res://scenes/entities/ground_state.gd" id="11_beks4"]
 [ext_resource type="Script" path="res://scenes/entities/air_state.gd" id="12_6g2ud"]
@@ -539,6 +540,7 @@ stream = ExtResource("8_ewff7")
 bus = &"SFX"
 
 [node name="Land" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("10_bjalo")
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "player", "animation_tree")]
 script = ExtResource("10_c1krj")
@@ -546,15 +548,17 @@ current_state = NodePath("Ground")
 player = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="Ground" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("air_state", "attack_state")]
+[node name="Ground" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("air_state", "attack_state", "jump_sfx")]
 script = ExtResource("11_beks4")
 air_state = NodePath("../Air")
 attack_state = NodePath("../Attack")
+jump_sfx = NodePath("../../SFX/Jump")
 
-[node name="Air" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("landing_state", "attack_state")]
+[node name="Air" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("landing_state", "attack_state", "landing_sfx")]
 script = ExtResource("12_6g2ud")
 landing_state = NodePath("../Landing")
 attack_state = NodePath("../Attack")
+landing_sfx = NodePath("../../SFX/Land")
 
 [node name="Landing" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("ground_state")]
 script = ExtResource("13_pu10e")
