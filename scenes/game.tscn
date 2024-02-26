@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6rt7fhwcs7ot"]
+[gd_scene load_steps=4 format=3 uid="uid://c6rt7fhwcs7ot"]
 
 [ext_resource type="PackedScene" uid="uid://fyw1uols0ael" path="res://scenes/entities/player.tscn" id="1_umrrs"]
 [ext_resource type="PackedScene" uid="uid://wfctjdfqlxtj" path="res://scenes/levels/sky_level.tscn" id="2_fyebt"]
+[ext_resource type="PackedScene" uid="uid://d247tlok1c7st" path="res://scenes/entities/eagle.tscn" id="3_phq8b"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_umrrs")]
+position = Vector2(150, 701)
 
 [node name="SkyLevel" parent="." instance=ExtResource("2_fyebt")]
+
+[node name="Eagle" parent="." instance=ExtResource("3_phq8b")]
+position = Vector2(1713, 390)

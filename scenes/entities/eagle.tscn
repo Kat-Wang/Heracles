@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://d247tlok1c7st"]
+
+[ext_resource type="Script" path="res://scenes/entities/eagle.gd" id="1_0skhw"]
+[ext_resource type="Texture2D" uid="uid://df3ssfj11f5sq" path="res://assets/sprites/entities/eagle/Vulture_walk.png" id="1_sl46h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nmkj"]
+atlas = ExtResource("1_sl46h")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x5ao"]
+atlas = ExtResource("1_sl46h")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntdgc"]
+atlas = ExtResource("1_sl46h")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hymuj"]
+atlas = ExtResource("1_sl46h")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7n1hy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nmkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x5ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntdgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hymuj")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35rhp"]
+size = Vector2(36, 20)
+
+[node name="Eagle" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+collision_layer = 2
+script = ExtResource("1_0skhw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7n1hy")
+animation = &"move"
+
+[node name="LedgeCheckRight" type="RayCast2D" parent="."]
+position = Vector2(22, 14)
+target_position = Vector2(0, 82)
+
+[node name="LedgeCheckLeft" type="RayCast2D" parent="."]
+position = Vector2(-14, 14)
+target_position = Vector2(0, 82)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 6)
+shape = SubResource("RectangleShape2D_35rhp")
