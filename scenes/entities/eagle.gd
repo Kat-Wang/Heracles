@@ -8,6 +8,7 @@ var direction = Vector2.LEFT
 @onready var ledgeCheckLeft := $LedgeCheckLeft
 
 func _physics_process(delta):
+	$AnimatedSprite2D.play("move")
 	var found_wall = is_on_wall()
 	var found_ledge = not ledgeCheckLeft.is_colliding() or not ledgeCheckRight.is_colliding()
 	
