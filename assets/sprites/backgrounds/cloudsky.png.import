@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsqktf27kfont"
-path="res://.godot/imported/herc_jump_down.png-880a61f5c48813763483dc2f62b6b642.ctex"
+uid="uid://1htcwo658w3w"
+path="res://.godot/imported/cloudsky.png-729d62f41f319e084295dfa7e8403ce9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/entities/herc_jump_down.png"
-dest_files=["res://.godot/imported/herc_jump_down.png-880a61f5c48813763483dc2f62b6b642.ctex"]
+source_file="res://assets/sprites/backgrounds/cloudsky.png"
+dest_files=["res://.godot/imported/cloudsky.png-729d62f41f319e084295dfa7e8403ce9.ctex"]
 
 [params]
 

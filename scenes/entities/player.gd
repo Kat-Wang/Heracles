@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 @onready var animation_tree := $AnimationTree
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 500.0
+const JUMP_VELOCITY = -600.0
 
-#var max_jumps = 2
-#var jumps_remaining = max_jumps
+var max_jumps = 2
+var jumps_remaining = max_jumps
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 enum STATE {READY, ATTACKING}
@@ -21,17 +21,18 @@ func _process(_delta):
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		velocity.y = min(velocity.y, 980)
 	#
 	#if is_on_floor():
-		#jumps_remaining = max_jumps
+		jumps_remaining = max_jumps
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		#jumps_remaining -= 1
 		
-	#if Input.is_action_just_pressed("jump") and !is_on_floor() and jumps_remaining > 0:
-		#velocity.y = JUMP_VELOCITY
-		#jumps_remaining -= 1
+	if Input.is_action_just_pressed("jump") and !is_on_floor() and jumps_remaining > 0:
+		velocity.y = JUMP_VELOCITY
+		jumps_remaining -= 1
 		
 	var direction = Input.get_axis("left", "right")
 	
@@ -77,7 +78,6 @@ func update_animation_parameters():
 		animation_tree["parameters/conditions/falling"] = false
 		animation_tree["parameters/conditions/grounded"] = false
 	if velocity.y > 0 :
-		print("i should be falling here")
 		animation_tree["parameters/conditions/jumping"] = false
 		animation_tree["parameters/conditions/falling"] = true
 		animation_tree["parameters/conditions/grounded"] = false
@@ -85,7 +85,3 @@ func update_animation_parameters():
 		animation_tree["parameters/conditions/jumping"] = false
 		animation_tree["parameters/conditions/falling"] = false
 		animation_tree["parameters/conditions/grounded"] = true
-	
-	#print(velocity.y)
-	#print(animation_tree["parameters/conditions/jumping"])
-

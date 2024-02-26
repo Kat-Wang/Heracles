@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://wfctjdfqlxtj"]
+
+[ext_resource type="PackedScene" uid="uid://c7sfo0gpswmv7" path="res://scenes/tile_map_forest.tscn" id="1_asavr"]
+[ext_resource type="Texture2D" uid="uid://1htcwo658w3w" path="res://assets/sprites/backgrounds/cloudsky.png" id="2_de774"]
+[ext_resource type="Texture2D" uid="uid://c8ntkqbgb3xo7" path="res://assets/sprites/backgrounds/clouds.png" id="3_y316r"]
+
+[node name="SkyLevel" type="Node2D"]
+
+[node name="ForestTileMap" parent="." instance=ExtResource("1_asavr")]
+layer_0/tile_data = PackedInt32Array(720895, 131072, 1, 786431, 131072, 2, 851967, 131072, 3, 917503, 131072, 4, 655360, 196608, 1, 720896, 196608, 2, 786432, 196608, 3, 851968, 196608, 4, 655361, 262144, 1, 720897, 262144, 2, 786433, 262144, 3, 851969, 262144, 4, 655362, 196608, 1, 720898, 196608, 2, 786434, 196608, 3, 851970, 196608, 4, 655363, 262144, 1, 720899, 262144, 2, 786435, 262144, 3, 851971, 262144, 4, 655364, 196608, 1, 720900, 196608, 2, 786436, 196608, 3, 851972, 196608, 4, 655365, 262144, 1, 720901, 262144, 2, 786437, 262144, 3, 851973, 262144, 4, 655366, 196608, 1, 720902, 196608, 2, 786438, 196608, 3, 851974, 196608, 4, 655367, 262144, 1, 720903, 262144, 2, 786439, 262144, 3, 851975, 262144, 4, 655368, 327680, 1, 720904, 327680, 3, 786440, 327680, 3, 851976, 327680, 4, 720905, 393216, 2, 786441, 393216, 3, 851977, 393216, 4, 458769, 131072, 1, 458770, 196608, 1, 458771, 262144, 1, 458772, 196608, 1, 458773, 262144, 1, 458774, 327680, 1, 524306, 131072, 4, 524307, 131072, 4, 524308, 196608, 4, 524309, 262144, 4, 524305, 65536, 4, 524310, 393216, 4, 524300, 524288, 3, 524301, 589824, 3, 524302, 655360, 3, 262169, 524288, 3, 262170, 589824, 3, 458781, 589824, 3, 458782, 589824, 3, 720929, 589824, 3, 720930, 589824, 3, 458789, 589824, 3, 458790, 589824, 3, 786430, 65536, 2, 851966, 65536, 3, 917502, 65536, 4)
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1890, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sky"]
+position = Vector2(0, 7.62939e-06)
+scale = Vector2(1.92, 1.74475)
+texture = ExtResource("2_de774")
+centered = false
+
+[node name="Cloud" type="ParallaxLayer" parent="Background"]
+motion_mirroring = Vector2(2160, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Cloud"]
+scale = Vector2(8.4375, 8.4375)
+texture = ExtResource("3_y316r")
+centered = false

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6rt7fhwcs7ot"]
+
+[ext_resource type="PackedScene" uid="uid://fyw1uols0ael" path="res://scenes/entities/player.tscn" id="1_umrrs"]
+[ext_resource type="PackedScene" uid="uid://wfctjdfqlxtj" path="res://scenes/levels/sky_level.tscn" id="2_fyebt"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_umrrs")]
+
+[node name="SkyLevel" parent="." instance=ExtResource("2_fyebt")]
