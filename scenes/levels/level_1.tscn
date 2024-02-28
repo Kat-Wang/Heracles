@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4b4qp6riqrte"]
+
+[ext_resource type="PackedScene" uid="uid://c7sfo0gpswmv7" path="res://scenes/levels/tile_map_forest.tscn" id="1_7ld7m"]
+[ext_resource type="Texture2D" uid="uid://cwlk3c7lem7xb" path="res://assets/sprites/backgrounds/Boss 1 background.png" id="2_y480r"]
+[ext_resource type="PackedScene" uid="uid://fyw1uols0ael" path="res://scenes/entities/player.tscn" id="3_wsdn7"]
+[ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://portal.tscn" id="4_8sl3g"]
+
+[node name="level2" type="Node2D"]
+
+[node name="ForestTileMap" parent="." instance=ExtResource("1_7ld7m")]
+layer_0/tile_data = PackedInt32Array(655360, 131072, 0, 720896, 131072, 1, 655361, 196608, 0, 720897, 196608, 1, 720898, 262144, 1, 655363, 327680, 0, 720899, 327680, 1, 655364, 131072, 0, 720900, 131072, 1, 655365, 196608, 0, 720901, 196608, 1, 720902, 262144, 1, 655367, 327680, 0, 720903, 327680, 1, 655368, 131072, 0, 720904, 131072, 1, 655369, 196608, 0, 720905, 196608, 1, 720906, 262144, 1, 655371, 327680, 0, 720907, 327680, 1, 655372, 131072, 0, 720908, 131072, 1, 655373, 196608, 0, 720909, 196608, 1, 720910, 262144, 1, 655375, 327680, 0, 720911, 327680, 1, 655376, 131072, 0, 720912, 131072, 1, 655377, 196608, 0, 720913, 196608, 1, 720914, 262144, 1, 655379, 327680, 0, 720915, 327680, 1, 655380, 131072, 0, 720916, 131072, 1, 655381, 196608, 0, 720917, 196608, 1, 720918, 262144, 1, 655383, 327680, 0, 720919, 327680, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="dungeon" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/dungeon"]
+position = Vector2(954, 536.5)
+scale = Vector2(2.72571, 3.07714)
+texture = ExtResource("2_y480r")
+
+[node name="Player" parent="." instance=ExtResource("3_wsdn7")]
+position = Vector2(121, 42)
+
+[node name="portal" parent="." instance=ExtResource("4_8sl3g")]
+position = Vector2(1782, 717)
