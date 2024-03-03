@@ -7,12 +7,9 @@
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_umrrs")]
-position = Vector2(150, 701)
+position = Vector2(230, 699)
 
 [node name="SkyLevel" parent="." instance=ExtResource("2_fyebt")]
 
 [node name="Eagle" parent="." instance=ExtResource("3_phq8b")]
-position = Vector2(1713, 390)
-
-[node name="Eagle2" parent="." instance=ExtResource("3_phq8b")]
-position = Vector2(4218, 418)
+position = Vector2(500, 591)

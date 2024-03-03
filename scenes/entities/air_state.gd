@@ -4,13 +4,13 @@ class_name AirState
 
 @export var landing_state : State
 @export var attack_state : State
-@export var double_jump_velocity : float = -400.0
+@export var double_jump_velocity : float = -600.0
 @export var landing_sfx : AudioStreamPlayer2D
 
 var has_doubled_jumped = false
 
 func state_process(delta):
-	if player.is_on_floor():
+	if character.is_on_floor():
 		landing_sfx.play()
 		next_state = landing_state
 
@@ -27,6 +27,6 @@ func on_exit():
 		has_doubled_jumped = false
 
 func double_jump():
-	player.velocity.y = double_jump_velocity
+	character.velocity.y = double_jump_velocity
 	has_doubled_jumped = true
 	playback.travel("jump")

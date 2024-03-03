@@ -2,13 +2,13 @@ extends State
 
 class_name GroundState
 
-@export var jump_velocity = -600.0
+@export var jump_velocity = -800.0
 @export var air_state : State
 @export var attack_state : State
 @export var jump_sfx : AudioStreamPlayer2D
 
 func state_process(delta):
-	if !player.is_on_floor():
+	if !character.is_on_floor():
 		next_state = air_state
 
 func state_input(event: InputEvent):
@@ -18,7 +18,7 @@ func state_input(event: InputEvent):
 		attack()
 	
 func jump():
-	player.velocity.y = jump_velocity
+	character.velocity.y = jump_velocity
 	jump_sfx.play()
 	next_state = air_state
 	playback.travel("jump")

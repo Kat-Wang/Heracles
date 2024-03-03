@@ -6,7 +6,7 @@ signal interrupt_state(new_state : State)
 
 @export var can_move : bool = true
 
-var player : CharacterBody2D
+var character : CharacterBody2D
 var playback : AnimationNodeStateMachinePlayback
 var next_state : State
 

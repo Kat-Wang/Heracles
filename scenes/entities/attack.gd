@@ -13,7 +13,7 @@ func state_input(event : InputEvent):
 func _on_animation_tree_animation_finished(anim_name):
 	if anim_name == "attack":
 		attack_sfx.play()
-		return_state =  ground_state if player.velocity.y == 0 else landing_state
+		return_state =  ground_state if character.velocity.y == 0 else landing_state
 		next_state = return_state
 		playback.travel("move")
 		

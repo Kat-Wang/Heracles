@@ -3,23 +3,23 @@ extends Node
 class_name PlayerStateMachine
 
 @export var current_state : State
-@export var player : CharacterBody2D
+@export var character : CharacterBody2D
 @export var animation_tree : AnimationTree
 
 var states : Array[State]
 
 func _ready():
-	print("Current State: ", current_state)
+	#print("Current State: ", current_state)
 	
 	for child in get_children():
 		if(child is State):
 			states.append(child)
 			
-			child.player = player
+			child.character = character
 			child.playback = animation_tree["parameters/playback"]
 			
 			#Connect each type of State to the interrupt signal
-			#Allows state interruption for all the states (which playerstatemachine handles)
+			#Allows state interruption for all the states (which characterstatemachine handles)
 			child.connect("interrupt_state", on_state_interrupt_state)
 			
 		else:
