@@ -12,3 +12,4 @@ func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : V
 	else:
 		emit_signal("interrupt_state", dead_state)
 		playback.travel("death")
+		

@@ -358,13 +358,13 @@ parameters/jump/blend_position = 0
 script = ExtResource("4_v4xmb")
 
 [node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(-210, 155)
+position = Vector2(-210, 216)
 
 [node name="LaserContainer" type="Node2D" parent="."]
 position = Vector2(-689, 126)
 
 [node name="LaserEye" parent="LaserContainer" instance=ExtResource("5_k8ujg")]
-position = Vector2(485, 40)
+position = Vector2(479, 104)
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]
 script = ExtResource("7_1t0lw")
