@@ -4,7 +4,7 @@ class_name Damageable
 
 signal on_hit(node : Node, damage_taken : int, knockback_direction : Vector2)
 
-@export var health : float = 5
+@export var health : float = 4
 @export var dead_animation_name : String = "death"
 
 func hit(damage : int, knockback_direction : Vector2):

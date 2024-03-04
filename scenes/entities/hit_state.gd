@@ -25,6 +25,7 @@ func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : V
 			character.velocity = knockback_speed * knockback_direction
 		print("charcter velocity: ", character.velocity)
 		emit_signal("interrupt_state", self)
+		#playback.travel("hit")
 	else:
 		emit_signal("interrupt_state", dead_state)
 		playback.travel("death")
