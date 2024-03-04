@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name player
+class_name Player
 
 @onready var direction = Vector2.LEFT
 @onready var state_machine := $PlayerStateMachine
@@ -55,7 +55,7 @@ func _on_sword_hit_box_body_entered(body):
 				child.hit(damage, Vector2.ZERO)
 
 func _on_hurt_box_body_entered(body):
-	print("player body entered")
+	print("Player body entered")
 	var direction_to_enemy = (body.global_position - $Sprite2D/HurtBox.global_position)
 	
 	var direction_sign = sign(direction_to_enemy.x)
