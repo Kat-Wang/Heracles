@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://4tiamfbrvinl"]
+
+[node name="argus_arena" type="TileMap"]
+format = 2
