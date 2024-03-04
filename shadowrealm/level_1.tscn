@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4b4qp6riqrte"]
+
+[ext_resource type="Script" path="res://scenes/levels/argus_level.gd" id="1_0rj67"]
+[ext_resource type="Texture2D" uid="uid://cwlk3c7lem7xb" path="res://assets/sprites/backgrounds/argus_background.png" id="2_y480r"]
+[ext_resource type="PackedScene" uid="uid://fyw1uols0ael" path="res://scenes/entities/player.tscn" id="3_wsdn7"]
+[ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="4_8sl3g"]
+[ext_resource type="AudioStream" path="res://assets/music/bgm/argus_level_bgm.mp3" id="5_3efan"]
+[ext_resource type="PackedScene" uid="uid://4xjb5rm8sljr" path="res://scenes/entities/argus.tscn" id="6_qjti3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n822q"]
+size = Vector2(229, 1193.38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rnqw"]
+size = Vector2(1933.25, 154.125)
+
+[node name="level_1" type="Node2D"]
+script = ExtResource("1_0rj67")
+
+[node name="Player" parent="." instance=ExtResource("3_wsdn7")]
+position = Vector2(269, 977)
+
+[node name="argus" parent="." instance=ExtResource("6_qjti3")]
+position = Vector2(1264, 689)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_limit_end = Vector2(1940, 1080)
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2(967.5, 539.25)
+scale = Vector2(2.75857, 3.07857)
+texture = ExtResource("2_y480r")
+
+[node name="portal" parent="." instance=ExtResource("4_8sl3g")]
+position = Vector2(2178, 970)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3efan")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1967, 594)
+shape = SubResource("RectangleShape2D_n822q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-42, 599)
+shape = SubResource("RectangleShape2D_n822q")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(958, 1155)
+shape = SubResource("RectangleShape2D_0rnqw")
+
+[connection signal="laser_shot" from="argus" to="argus" method="_on_laser_shot"]

@@ -1,15 +1,15 @@
 [gd_scene load_steps=56 format=3 uid="uid://fyw1uols0ael"]
 
 [ext_resource type="Script" path="res://scenes/entities/player.gd" id="1_6xt7c"]
-[ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc_idle.png" id="1_qs2yt"]
-[ext_resource type="Texture2D" uid="uid://dq77d6tu7uxid" path="res://assets/sprites/entities/herc_walk.png" id="2_kmqsm"]
-[ext_resource type="Texture2D" uid="uid://ddukdy1ns6f88" path="res://assets/sprites/entities/herc_jump_up.png" id="3_lxqan"]
-[ext_resource type="Texture2D" uid="uid://pk0fjwa4iecp" path="res://assets/sprites/entities/herc_fall.png" id="4_7kmal"]
-[ext_resource type="Texture2D" uid="uid://br51t68mdjen8" path="res://assets/sprites/entities/herc_take_damage.png" id="5_1apcd"]
-[ext_resource type="Texture2D" uid="uid://7u387e4kqqn8" path="res://assets/sprites/entities/herc_attack.png" id="6_t01dy"]
-[ext_resource type="AudioStream" uid="uid://dr6dln46t37le" path="res://assets/music/sfx/attack_sound.mp3" id="8_ewff7"]
+[ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="1_qs2yt"]
+[ext_resource type="Texture2D" uid="uid://dq77d6tu7uxid" path="res://assets/sprites/entities/herc/herc_walk.png" id="2_kmqsm"]
+[ext_resource type="Texture2D" uid="uid://ddukdy1ns6f88" path="res://assets/sprites/entities/herc/herc_jump_up.png" id="3_lxqan"]
+[ext_resource type="Texture2D" uid="uid://pk0fjwa4iecp" path="res://assets/sprites/entities/herc/herc_fall.png" id="4_7kmal"]
+[ext_resource type="Texture2D" uid="uid://br51t68mdjen8" path="res://assets/sprites/entities/herc/herc_take_damage.png" id="5_1apcd"]
+[ext_resource type="Texture2D" uid="uid://7u387e4kqqn8" path="res://assets/sprites/entities/herc/herc_attack.png" id="6_t01dy"]
 [ext_resource type="AudioStream" uid="uid://o6c2ncxnlj8w" path="res://assets/music/sfx/jump_sound.wav" id="8_lpgyv"]
-[ext_resource type="Texture2D" uid="uid://5hfig8ui1bkx" path="res://assets/sprites/entities/herc_death.png" id="8_uxxxx"]
+[ext_resource type="Texture2D" uid="uid://5hfig8ui1bkx" path="res://assets/sprites/entities/herc/herc_death.png" id="8_uxxxx"]
+[ext_resource type="AudioStream" uid="uid://ds3sypbf0ss51" path="res://assets/music/sfx/attack_sound.wav" id="10_3gtlg"]
 [ext_resource type="AudioStream" uid="uid://bja3mbw86lslx" path="res://assets/music/sfx/land_sound.wav" id="10_bjalo"]
 [ext_resource type="Script" path="res://scenes/entities/player_state_machine.gd" id="10_c1krj"]
 [ext_resource type="Script" path="res://scenes/entities/ground_state.gd" id="11_beks4"]
@@ -623,7 +623,7 @@ drag_vertical_enabled = true
 stream = ExtResource("8_lpgyv")
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource("8_ewff7")
+stream = ExtResource("10_3gtlg")
 bus = &"SFX"
 
 [node name="Land" type="AudioStreamPlayer2D" parent="SFX"]
@@ -679,7 +679,9 @@ script = ExtResource("18_oqi7w")
 can_move = false
 
 [connection signal="body_entered" from="Sprite2D/SwordHitBox" to="." method="_on_sword_hit_box_body_entered"]
+[connection signal="area_entered" from="Sprite2D/HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="Sprite2D/HurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Attack" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="PlayerStateMachine/Hit/Timer" to="PlayerStateMachine/Hit" method="_on_timer_timeout"]
