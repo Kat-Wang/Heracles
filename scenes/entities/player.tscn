@@ -13,8 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://bja3mbw86lslx" path="res://assets/music/sfx/land_sound.wav" id="10_bjalo"]
 [ext_resource type="Script" path="res://scenes/entities/player_state_machine.gd" id="10_c1krj"]
 [ext_resource type="Script" path="res://scenes/entities/ground_state.gd" id="11_beks4"]
-[ext_resource type="Script" path="res://scenes/entities/damageable.gd" id="11_wa36p"]
 [ext_resource type="Script" path="res://scenes/entities/air_state.gd" id="12_6g2ud"]
+[ext_resource type="Script" path="res://scenes/entities/player_damageable.gd" id="12_j3nu0"]
 [ext_resource type="Script" path="res://scenes/entities/landing_state.gd" id="13_pu10e"]
 [ext_resource type="Script" path="res://scenes/entities/attack.gd" id="14_030g6"]
 [ext_resource type="Script" path="res://scenes/entities/player_hit_state.gd" id="18_clpaf"]
@@ -631,7 +631,8 @@ stream = ExtResource("10_bjalo")
 volume_db = -13.697
 
 [node name="Damageable" type="Node" parent="."]
-script = ExtResource("11_wa36p")
+script = ExtResource("12_j3nu0")
+health = 3.0
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]
 script = ExtResource("10_c1krj")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://clc5g15mu30br"]
+
+[ext_resource type="PackedScene" uid="uid://4377eatdqyha" path="res://scenes/ui/pom_shard.tscn" id="1_de7xs"]
+
+[node name="HealthBar" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PomShard" parent="." instance=ExtResource("1_de7xs")]
+layout_mode = 2
+
+[node name="PomShard2" parent="." instance=ExtResource("1_de7xs")]
+layout_mode = 2
+
+[node name="PomShard3" parent="." instance=ExtResource("1_de7xs")]
+layout_mode = 2

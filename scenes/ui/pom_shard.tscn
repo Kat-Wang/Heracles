@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://4377eatdqyha"]
+
+[ext_resource type="Texture2D" uid="uid://c5cy14xvljmnd" path="res://assets/sprites/hud/pom_shard_sheet.png" id="1_f4oem"]
+
+[node name="PomShard" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(72, 72)
+offset_right = 72.0
+offset_bottom = 72.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f4oem")
+centered = false
+hframes = 3
