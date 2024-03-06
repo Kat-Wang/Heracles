@@ -588,7 +588,7 @@ disabled = true
 
 [node name="HurtBox" type="Area2D" parent="Sprite2D"]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
 position = Vector2(11, -23.5)

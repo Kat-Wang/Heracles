@@ -9,6 +9,8 @@ class_name Player
 @onready var jump_sfx := $SFX/Jump
 @onready var land_sfx := $SFX/Land
 
+@onready var coin_count = 0
+
 @export var damage : int = 1
 @export var hit_state : State
 
@@ -40,6 +42,7 @@ func update_animation_parameters(direction):
 	#Sets idling or walking
 	animation_tree.set("parameters/move/blend_position", direction.x)
 
+#dmg to others
 func _on_sword_hit_box_body_entered(body):
 	for child in body.get_children():
 		if child is Damageable:
@@ -54,6 +57,7 @@ func _on_sword_hit_box_body_entered(body):
 			else:
 				child.hit(damage, Vector2.ZERO)
 
+#dmg to self
 func _on_hurt_box_body_entered(body):
 	var direction_to_enemy = (body.global_position - $Sprite2D/HurtBox.global_position)
 	
@@ -68,4 +72,8 @@ func _on_hurt_box_body_entered(body):
 		
 
 func _on_hurt_box_area_entered(area):
-	$Damageable.hit(damage, Vector2.LEFT)
+	if area is Coin:
+		coin_count += 1
+		area.collected()
+	else:
+		$Damageable.hit(damage, Vector2.LEFT)
