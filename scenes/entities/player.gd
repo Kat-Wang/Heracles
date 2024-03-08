@@ -2,25 +2,29 @@ extends CharacterBody2D
 
 class_name Player
 
+signal healthChanged(current_health: int, healing: bool)
+
 @onready var direction = Vector2.LEFT
 @onready var state_machine := $PlayerStateMachine
 @onready var animation_tree := $AnimationTree
 @onready var attack_sfx := $SFX/Attack
 @onready var jump_sfx := $SFX/Jump
 @onready var land_sfx := $SFX/Land
+@onready var coin_count : int = 0
+@onready var damagable := $Damageable
 
-@onready var coin_count = 0
-
+@export var max_health : int = 3
 @export var damage : int = 1
 @export var hit_state : State
 
 const SPEED = 500.0
 
+var current_health : int = 3
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	animation_tree.active = true
-
+	damagable.health = max_health
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -69,6 +73,11 @@ func _on_hurt_box_body_entered(body):
 		$Damageable.hit(damage, Vector2.RIGHT)
 	else:
 		$Damageable.hit(damage, Vector2.ZERO)
+	
+	current_health -= damage
+	print(current_health)
+	
+	healthChanged.emit(current_health, false)
 		
 
 func _on_hurt_box_area_entered(area):

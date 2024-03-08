@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6rt7fhwcs7ot"]
+[gd_scene load_steps=6 format=3 uid="uid://c6rt7fhwcs7ot"]
 
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_qtf5s"]
 [ext_resource type="PackedScene" uid="uid://fyw1uols0ael" path="res://scenes/entities/player.tscn" id="1_umrrs"]
 [ext_resource type="PackedScene" uid="uid://wfctjdfqlxtj" path="res://scenes/levels/sky_level.tscn" id="2_fyebt"]
 [ext_resource type="PackedScene" uid="uid://bkovulglqveud" path="res://scenes/ui/hud.tscn" id="3_spq7a"]
 [ext_resource type="PackedScene" uid="uid://clc5g15mu30br" path="res://scenes/ui/health_bar.tscn" id="4_epssp"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_qtf5s")
 
 [node name="SkyLevel" parent="." instance=ExtResource("2_fyebt")]
 
