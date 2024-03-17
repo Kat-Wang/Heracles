@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 
 buses/default_bus_layout="res://scenes/utilities/default_bus_layout.tres"
 
+[autoload]
+
+SceneManager="*res://managers/scene_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920

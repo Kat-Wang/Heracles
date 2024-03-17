@@ -1,4 +1,3 @@
-'''
 extends Node
 
 # Bacon and Games on YouTube: https://www.youtube.com/watch?v=2uYaoQj_6o0
@@ -160,4 +159,3 @@ func on_zelda_content_finished_loading(content) -> void:
 	outgoing_scene.queue_free()
 	# Add and set the new scene to current - so we can get its data obj next time we move between Levels
 	get_tree().current_scene = content
-'''
