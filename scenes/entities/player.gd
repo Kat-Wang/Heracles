@@ -66,3 +66,18 @@ func _on_hurt_box_body_entered(body):
 		$Damageable.hit(damage, Vector2.RIGHT)
 	else:
 		$Damageable.hit(damage, Vector2.ZERO)
+<<<<<<< Updated upstream
+=======
+	
+	current_health -= damage
+	
+	healthChanged.emit(current_health, false)
+		
+
+func _on_hurt_box_area_entered(area):
+	if area is Coin:
+		coin_count += 1
+		area.collected()
+	else:
+		$Damageable.hit(damage, Vector2.LEFT)
+>>>>>>> Stashed changes
