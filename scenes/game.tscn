@@ -9,8 +9,6 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_qtf5s")
 
-[node name="SkyLevel" parent="." instance=ExtResource("2_fyebt")]
-
 [node name="Player" parent="." instance=ExtResource("1_umrrs")]
 z_index = 1
 position = Vector2(161, 706)
@@ -18,3 +16,7 @@ position = Vector2(161, 706)
 [node name="HUD" parent="." instance=ExtResource("3_spq7a")]
 
 [node name="HealthBar" parent="HUD" instance=ExtResource("4_epssp")]
+
+[node name="CurrentLevel" type="Node" parent="."]
+
+[node name="SkyLevel" parent="CurrentLevel" instance=ExtResource("2_fyebt")]

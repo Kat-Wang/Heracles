@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://40jkwxa4lnde"]
+[gd_scene load_steps=5 format=3 uid="uid://b7iuswecghdll"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_kc1ry"]
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_kc1ry"]
 [ext_resource type="Texture2D" uid="uid://dut32250hf8pa" path="res://assets/sprites/backgrounds/Menu.png" id="2_oc4od"]
 [ext_resource type="AudioStream" uid="uid://jdxlqipqc7bp" path="res://assets/music/bgm/life-of-a-wandering-wizard-15549.mp3" id="2_y3qkj"]
 [ext_resource type="FontFile" uid="uid://babsda8gvxkey" path="res://assets/Font/PressStart2P-Regular.ttf" id="3_dj8q6"]

@@ -8,7 +8,11 @@ signal player_entered_door(door:Door,transition_type:String)
 @export var path_to_new_scene:String
 @export var entry_door_name:String
 
+func _ready():
+	$AnimatedSprite2D.play()
+
 func _on_body_entered(body: Node2D) -> void:
+	print("hi")
 	if not body is Player:
 		return
 	player_entered_door.emit(self)
@@ -17,6 +21,7 @@ func _on_body_entered(body: Node2D) -> void:
 	else:
 		SceneManager.load_new_scene(path_to_new_scene,transition_type)
 	queue_free()
+
 # // UTILITY FUNCTIONS //
 
 # returns the starting location of the player based on this door's location and the 

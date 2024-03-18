@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c1peh3ibjfsxt"]
 
-[ext_resource type="Script" path="res://Coin.gd" id="1_uyh4q"]
+[ext_resource type="Script" path="res://scenes/ui/coin.gd" id="1_gvtqu"]
 [ext_resource type="Texture2D" uid="uid://cts10b3u7jt1s" path="res://assets/sprites/hud/coin_sheet.png" id="2_2kng6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jljj4"]
@@ -47,7 +47,7 @@ height = 240.0
 scale = Vector2(0.2, 0.2)
 collision_layer = 8
 collision_mask = 0
-script = ExtResource("1_uyh4q")
+script = ExtResource("1_gvtqu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ucvhu")

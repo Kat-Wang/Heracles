@@ -68,10 +68,13 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7637"]
-radius = 19.0
+radius = 19.3333
 height = 120.0
 
 [node name="Door" type="Area2D"]
+scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_2wyh2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
