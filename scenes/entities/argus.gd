@@ -28,12 +28,13 @@ func _process(delta):
 	if timer >= interval:
 		timer = 0.0
 		shoot(laser_scene)
-		print("argus shooting")
 
 func _physics_process(delta):
 	# Add the gravity.
-	#if not is_on_floor():
-		#velocity.y += gravity * delta
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		velocity.y = min(velocity.y, 980)
+
 	var found_wall = is_on_wall()
 	
 	if found_wall:
@@ -58,6 +59,5 @@ func shoot(laser_scene):
 	#location.x = 970.0
 	#location.y = 540.0
 	laser.global_position = $Muzzle.global_position
-	print("laser position: ", laser.global_position)
 	$Muzzle.add_child(laser)
 
