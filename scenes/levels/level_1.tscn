@@ -54,6 +54,7 @@ shape = SubResource("RectangleShape2D_tmv38")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamMP3_lfybw")
+volume_db = -10.0
 max_distance = 6000.0
 
 [node name="StartingPosition" type="Marker2D" parent="."]
