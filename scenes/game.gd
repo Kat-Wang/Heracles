@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player := $Player
 @onready var health_bar := $HUD/HealthBar
+@onready var coin_counter := $HUD/CoinCounter/Label
 @onready var current_level := $CurrentLevel
 
 # Called when the node enters the scene tree for the first time.
@@ -13,10 +14,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	coin_counter.text = str(player.coin_count)
 
 func transition(next_level:PackedScene):
 	var scene_instance = next_level.instantiate()
 	current_level.get_child(0).queue_free()
 	current_level.add_child(scene_instance)
+	#player.position = current_level.get_child(0)
 	

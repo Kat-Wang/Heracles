@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://scenes/entities/argus_jump_state.gd" id="13_pnij0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxun7"]
-size = Vector2(767.5, 691)
+size = Vector2(767.5, 669)
 
 [sub_resource type="Animation" id="Animation_3nswp"]
 length = 0.001
@@ -449,17 +449,17 @@ states/walk/position = Vector2(192.733, 93)
 transitions = ["idle", "jump", SubResource("AnimationNodeStateMachineTransition_cq5ni"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_wyh7q"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_57lna"), "Start", "walk", SubResource("AnimationNodeStateMachineTransition_uovii"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_u7g3e"), "idle", "damage", SubResource("AnimationNodeStateMachineTransition_lbibi"), "damage", "death", SubResource("AnimationNodeStateMachineTransition_3l8ol"), "damage", "idle", SubResource("AnimationNodeStateMachineTransition_imlpp"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_0jikt"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_j8ws4"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_q51w8"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_8bmuq")]
 graph_offset = Vector2(-229.069, 59.6378)
 
-[node name="argus" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 2
+[node name="argus" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
+collision_layer = 4
 script = ExtResource("1_edgr4")
+hit_state = NodePath("PlayerStateMachine/Hit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.25, 58.5)
+position = Vector2(0.25, 47.5)
 shape = SubResource("RectangleShape2D_jxun7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4tjql")
+texture = ExtResource("6_pnqnx")
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -488,7 +488,7 @@ position = Vector2(-210, 155)
 [node name="laser_container" type="Node2D" parent="."]
 position = Vector2(-689, 126)
 
-[node name="LaserEye" parent="LaserContainer" instance=ExtResource("5_k8ujg")]
+[node name="LaserContainer#LaserEye" parent="." instance=ExtResource("5_k8ujg")]
 position = Vector2(479, 104)
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]

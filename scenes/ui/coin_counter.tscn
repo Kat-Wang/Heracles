@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://crcliepm5jq1n"]
+
+[ext_resource type="Texture2D" uid="uid://4ejkndeixrw7" path="res://assets/sprites/hud/coin.png" id="1_wff77"]
+
+[node name="CoinCounter" type="HBoxContainer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(85, 10)
+layout_mode = 2
+texture = ExtResource("1_wff77")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "
+"
