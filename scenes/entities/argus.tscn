@@ -449,7 +449,7 @@ states/walk/position = Vector2(192.733, 93)
 transitions = ["idle", "jump", SubResource("AnimationNodeStateMachineTransition_cq5ni"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_wyh7q"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_57lna"), "Start", "walk", SubResource("AnimationNodeStateMachineTransition_uovii"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_u7g3e"), "idle", "damage", SubResource("AnimationNodeStateMachineTransition_lbibi"), "damage", "death", SubResource("AnimationNodeStateMachineTransition_3l8ol"), "damage", "idle", SubResource("AnimationNodeStateMachineTransition_imlpp"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_0jikt"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_j8ws4"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_q51w8"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_8bmuq")]
 graph_offset = Vector2(-229.069, 59.6378)
 
-[node name="argus" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
+[node name="Argus" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 collision_layer = 4
 script = ExtResource("1_edgr4")
 hit_state = NodePath("PlayerStateMachine/Hit")

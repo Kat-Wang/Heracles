@@ -17,8 +17,17 @@ func _process(delta):
 	coin_counter.text = str(player.coin_count)
 
 func transition(next_level:PackedScene):
+	print("transitioning to the next scene")
+	# Instantiating next level
 	var scene_instance = next_level.instantiate()
-	current_level.get_child(0).queue_free()
+
+	# Discarding old level
+	var old_level = current_level.get_child(0)
+	old_level.queue_free()
+
+	# Adding new level
 	current_level.add_child(scene_instance)
-	#player.position = current_level.get_child(0)
-	
+
+	# Connect new level to transition function
+	var new_level = current_level.get_child(0)
+	scene_instance.connect("level_complete", transition)

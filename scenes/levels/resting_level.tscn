@@ -1,11 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://btvpmjrd26fce"]
+[gd_scene load_steps=36 format=3 uid="uid://btvpmjrd26fce"]
 
 [ext_resource type="Script" path="res://scenes/levels/resting_level.gd" id="1_frhjw"]
 [ext_resource type="Texture2D" uid="uid://c4ypds883xqpe" path="res://assets/sprites/backgrounds/terrain_tileset.png" id="1_hcr1w"]
 [ext_resource type="PackedScene" uid="uid://cp730h4axm6xo" path="res://scenes/levels/cloud_tile_map.tscn" id="1_nbjvs"]
 [ext_resource type="Script" path="res://scenes/levels/fountain.gd" id="2_0rwg0"]
 [ext_resource type="Texture2D" uid="uid://3evpsajrv8n0" path="res://assets/sprites/backgrounds/decorations_tileset.png" id="2_jsv5f"]
-[ext_resource type="PackedScene" uid="uid://fyw1uols0ael" path="res://scenes/entities/player.tscn" id="2_p6p8q"]
 [ext_resource type="Texture2D" uid="uid://d3lqu5nrc123y" path="res://assets/sprites/backgrounds/fountain_sheet.png" id="2_r5olh"]
 [ext_resource type="Texture2D" uid="uid://02jhslsgavy6" path="res://assets/sprites/tutorial/tutorial_interact.png" id="3_7ntyq"]
 [ext_resource type="Texture2D" uid="uid://3iyge1eobvta" path="res://assets/sprites/backgrounds/statue.png" id="3_r23gn"]
@@ -664,9 +663,6 @@ texture = ExtResource("3_r23gn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Statue"]
 position = Vector2(2.5, 4.5)
 shape = SubResource("RectangleShape2D_p82s7")
-
-[node name="Player" parent="." instance=ExtResource("2_p6p8q")]
-position = Vector2(714, 860)
 
 [node name="Portal" parent="." instance=ExtResource("10_xobin")]
 position = Vector2(1604, 780)
