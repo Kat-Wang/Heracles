@@ -13,17 +13,18 @@ signal healthChanged(current_health: int, healing: bool)
 @onready var coin_count : int = 0
 @onready var damagable := $Damageable
 
-@export var max_health : int = 3
+@export var max_health : int = 5
 @export var damage : int = 1
 @export var hit_state : State
 
 const SPEED = 500.0
 
-var current_health : int = 3
+var current_health : int = 5
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	animation_tree.active = true
+	print(current_health)
 	damagable.health = max_health
 
 func _physics_process(delta):
@@ -74,8 +75,10 @@ func _on_hurt_box_body_entered(body):
 	else:
 		$Damageable.hit(damage, Vector2.ZERO)
 	
-	current_health -= damage
-	print(current_health)
+	current_health = current_health - damage
+	print("current health: ", current_health)
+	print("damage taken: ", damage)
+	print("player health: ", current_health)
 	
 	healthChanged.emit(current_health, false)
 		

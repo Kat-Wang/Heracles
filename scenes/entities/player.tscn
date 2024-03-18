@@ -633,7 +633,7 @@ volume_db = -13.697
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("12_j3nu0")
-health = 3.0
+health = 5.0
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]
 script = ExtResource("10_c1krj")
