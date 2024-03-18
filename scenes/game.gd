@@ -4,30 +4,41 @@ extends Node2D
 @onready var health_bar := $HUD/HealthBar
 @onready var coin_counter := $HUD/CoinCounter/Label
 @onready var current_level := $CurrentLevel
+@onready var gos := $HUD/GameOver
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_bar.setMaxPoms(player.max_health)
 	player.healthChanged.connect(health_bar.updatePoms)
 	current_level.get_child(0).level_complete.connect(transition)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	coin_counter.text = str(player.coin_count)
-
+	player.position = current_level.get_child(0).starting_position.position
+	player.player_death.connect(game_over)
+	coin_counter.text = "0"
+	player.coin_collected.connect(update_coin_count)
+	
 func transition(next_level:PackedScene):
-	print("transitioning to the next scene")
-	# Instantiating next level
-	var scene_instance = next_level.instantiate()
+	if next_level:
+		# Instantiating next level
+		var scene_instance = next_level.instantiate()
 
-	# Discarding old level
-	var old_level = current_level.get_child(0)
-	old_level.queue_free()
+		# Discarding old level
+		var old_level = current_level.get_child(0)
+		old_level.queue_free()
 
-	# Adding new level
-	current_level.add_child(scene_instance)
+		# Adding new level
+		current_level.add_child(scene_instance)
 
-	# Connect new level to transition function
-	var new_level = current_level.get_child(0)
-	scene_instance.connect("level_complete", transition)
+		# Connect new level to transition function
+		var new_level = current_level.get_child(0)
+		scene_instance.connect("level_complete", transition)
+		
+		player.position = scene_instance.starting_position.position
+		print("new player position: ", player.position)
+	else:
+		print("there's not another level")
+
+func game_over():
+	gos.visible = true
+
+func update_coin_count():
+	coin_counter.text = str(player.coin_count)

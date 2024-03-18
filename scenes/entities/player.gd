@@ -3,6 +3,8 @@ extends CharacterBody2D
 class_name Player
 
 signal healthChanged(current_health: int, healing: bool)
+signal player_death
+signal coin_collected
 
 @onready var direction = Vector2.LEFT
 @onready var state_machine := $PlayerStateMachine
@@ -26,6 +28,7 @@ func _ready():
 	animation_tree.active = true
 	print(current_health)
 	damagable.health = max_health
+	damagable.player_died.connect(signal_player_died)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -87,5 +90,9 @@ func _on_hurt_box_area_entered(area):
 	if area is Coin:
 		coin_count += 1
 		area.collected()
+		coin_collected.emit()
 	else:
 		$Damageable.hit(damage, Vector2.LEFT)
+
+func signal_player_died():
+	player_death.emit()

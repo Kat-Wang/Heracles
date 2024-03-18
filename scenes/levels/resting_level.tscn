@@ -603,9 +603,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p82s7"]
 size = Vector2(171, 397)
 
-[node name="RestingLevel" type="Node2D"]
+[node name="RestingLevel" type="Node2D" node_paths=PackedStringArray("starting_position")]
 position = Vector2(0, 1)
 script = ExtResource("1_frhjw")
+starting_position = NodePath("Marker2D")
 
 [node name="Background" type="TileMap" parent="."]
 scale = Vector2(5, 5)
@@ -664,8 +665,11 @@ texture = ExtResource("3_r23gn")
 position = Vector2(2.5, 4.5)
 shape = SubResource("RectangleShape2D_p82s7")
 
-[node name="Portal" parent="." instance=ExtResource("10_xobin")]
+[node name="RestingPortal" parent="." instance=ExtResource("10_xobin")]
 position = Vector2(1604, 780)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-178, 724)
 
 [connection signal="body_entered" from="Fountain" to="Fountain" method="_on_body_entered"]
 [connection signal="body_exited" from="Fountain" to="Fountain" method="_on_body_exited"]
