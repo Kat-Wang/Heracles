@@ -1,5 +1,7 @@
 extends Area2D
 
+var in_fountain := false
+var player:Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,15 +10,25 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
+	if in_fountain and Input.is_action_just_pressed("interact"):
+		#player.current_health = player.max_health
+		player.heal()
+		print("heal player")
 
 
 func _on_body_entered(body):
-	$Interaction.visible = true
-	$Interaction.play()
+	if body is Player:
+		$Interaction.visible = true
+		$Interaction.play()
+		in_fountain = true
+		player = body
+	
 
 
 func _on_body_exited(body):
-	$Interaction.visible = false
-	$Interaction.stop()
+	if body is Player:
+		$Interaction.visible = false
+		$Interaction.stop()
+		in_fountain = false
+		player = null
+	

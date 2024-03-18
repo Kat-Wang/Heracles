@@ -18,7 +18,8 @@ func updatePoms(current_health: int, healing: bool):
 	var poms = get_children()
 	
 	if healing:
-		pass
+		for i in current_health:
+			poms[i].update(true)
 	else:
 		for i in current_health:
 			poms[i].update(true)
