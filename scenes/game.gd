@@ -35,7 +35,7 @@ func transition(next_level:PackedScene):
 		player.position = scene_instance.starting_position.position
 		print("new player position: ", player.position)
 	else:
-		print("there's not another level")
+		game_over()
 
 func game_over():
 	gos.visible = true
