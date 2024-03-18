@@ -96,7 +96,7 @@ func _on_hurt_box_area_entered(area):
 
 func signal_player_died():
 	player_death.emit()
-d
+
 func heal():
 	current_health = max_health
 	healthChanged.emit(current_health, true)

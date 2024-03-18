@@ -3,6 +3,8 @@ extends Area2D
 var in_fountain := false
 var player:Player
 
+@onready var healing_sfx := $AudioStreamPlayer2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite2D.play()
@@ -13,7 +15,7 @@ func _process(delta):
 	if in_fountain and Input.is_action_just_pressed("interact"):
 		#player.current_health = player.max_health
 		player.heal()
-		print("heal player")
+		healing_sfx.play()
 
 
 func _on_body_entered(body):

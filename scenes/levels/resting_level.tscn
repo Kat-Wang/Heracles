@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://btvpmjrd26fce"]
+[gd_scene load_steps=37 format=3 uid="uid://btvpmjrd26fce"]
 
 [ext_resource type="Script" path="res://scenes/levels/resting_level.gd" id="1_frhjw"]
 [ext_resource type="Texture2D" uid="uid://c4ypds883xqpe" path="res://assets/sprites/backgrounds/terrain_tileset.png" id="1_hcr1w"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://02jhslsgavy6" path="res://assets/sprites/tutorial/tutorial_interact.png" id="3_7ntyq"]
 [ext_resource type="Texture2D" uid="uid://3iyge1eobvta" path="res://assets/sprites/backgrounds/statue.png" id="3_r23gn"]
 [ext_resource type="Script" path="res://scenes/levels/statue.gd" id="5_ul447"]
+[ext_resource type="AudioStream" uid="uid://y7bm75yoodg6" path="res://assets/music/sfx/heal.mp3" id="8_e0jep"]
 [ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="10_xobin"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kxcly"]
@@ -644,6 +645,10 @@ frame_progress = 0.96059
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fountain"]
 position = Vector2(0, 46)
 shape = SubResource("RectangleShape2D_f83qv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Fountain"]
+position = Vector2(-379, -718)
+stream = ExtResource("8_e0jep")
 
 [node name="Statue" type="Area2D" parent="."]
 position = Vector2(993, 757)
