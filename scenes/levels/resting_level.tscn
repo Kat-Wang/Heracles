@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://btvpmjrd26fce"]
+[gd_scene load_steps=38 format=3 uid="uid://btvpmjrd26fce"]
 
 [ext_resource type="Script" path="res://scenes/levels/resting_level.gd" id="1_frhjw"]
 [ext_resource type="Texture2D" uid="uid://c4ypds883xqpe" path="res://assets/sprites/backgrounds/terrain_tileset.png" id="1_hcr1w"]
 [ext_resource type="PackedScene" uid="uid://cp730h4axm6xo" path="res://scenes/levels/cloud_tile_map.tscn" id="1_nbjvs"]
 [ext_resource type="Script" path="res://scenes/levels/fountain.gd" id="2_0rwg0"]
+[ext_resource type="PackedScene" uid="uid://bcv8eomsds22m" path="res://scenes/levels/hell_level.tscn" id="2_fcta8"]
 [ext_resource type="Texture2D" uid="uid://3evpsajrv8n0" path="res://assets/sprites/backgrounds/decorations_tileset.png" id="2_jsv5f"]
 [ext_resource type="Texture2D" uid="uid://d3lqu5nrc123y" path="res://assets/sprites/backgrounds/fountain_sheet.png" id="2_r5olh"]
 [ext_resource type="Texture2D" uid="uid://02jhslsgavy6" path="res://assets/sprites/tutorial/tutorial_interact.png" id="3_7ntyq"]
@@ -607,6 +608,7 @@ size = Vector2(171, 397)
 [node name="RestingLevel" type="Node2D" node_paths=PackedStringArray("starting_position")]
 position = Vector2(0, 1)
 script = ExtResource("1_frhjw")
+next_level = ExtResource("2_fcta8")
 starting_position = NodePath("Marker2D")
 
 [node name="Background" type="TileMap" parent="."]
