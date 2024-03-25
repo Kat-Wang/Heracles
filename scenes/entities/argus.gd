@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 #signal laser_shot(laser_scene, location)
 
-@onready var direction = Vector2.LEFT 
+@onready var direction = Vector2.RIGHT 
 @onready var laser_container = $LaserContainer
-@onready var muzzle = $Muzzle
+@onready var muzzle = $Sprite2D/Muzzle
 @onready var animation_tree := $AnimationTree
 @onready var state_machine := $PlayerStateMachine
 
@@ -27,7 +27,10 @@ func _process(delta):
 	timer += delta
 	if timer >= interval:
 		timer = 0.0
-		shoot(laser_scene)
+		if direction == Vector2.RIGHT:
+			shoot(-1)
+		else:
+			shoot(1)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -48,16 +51,10 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	move_and_slide()
-	
-#func shoot():
-	#laser_shot.emit(laser_scene, muzzle.global_position)
-	#print(muzzle.global_position)
 
-func shoot(laser_scene):
+func shoot(laser_direction):
 	var laser = laser_scene.instantiate()
-	#hardcoding location for now -- *FIX ME*
-	#location.x = 970.0
-	#location.y = 540.0
-	laser.global_position = $Muzzle.global_position
-	$Muzzle.add_child(laser)
+	laser.direction = laser_direction
+	laser.position = muzzle.position
+	laser_container.add_child(laser)
 

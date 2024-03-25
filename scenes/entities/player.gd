@@ -93,6 +93,8 @@ func _on_hurt_box_area_entered(area):
 		coin_collected.emit()
 	else:
 		$Damageable.hit(damage, Vector2.LEFT)
+		current_health = current_health - damage
+		healthChanged.emit(current_health, false)
 
 func signal_player_died():
 	player_death.emit()

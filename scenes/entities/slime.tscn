@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://vogdpnv72pdg"]
+[gd_scene load_steps=21 format=3 uid="uid://vogdpnv72pdg"]
 
 [ext_resource type="Script" path="res://scenes/entities/slime.gd" id="1_802xd"]
 [ext_resource type="Texture2D" uid="uid://ckcinl0bym0qr" path="res://assets/sprites/entities/slime/Slime Sprite Sheet.png" id="1_rlcjx"]
@@ -60,6 +60,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [Vector2i(0, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
 
 [sub_resource type="Animation" id="Animation_4pslh"]
 resource_name = "death"
@@ -115,6 +127,43 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_icycs"]
 resource_name = "hit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
 
 [sub_resource type="Animation" id="Animation_5l2lg"]
 resource_name = "walk"
@@ -180,6 +229,9 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o41or"]
 animation = &"death"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h8yjg"]
+animation = &"hit"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cro6g"]
 animation = &"walk"
 
@@ -188,12 +240,21 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w55qt"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cvktb"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_byvvc"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_qat5d"]
 states/death/node = SubResource("AnimationNodeAnimation_o41or")
 states/death/position = Vector2(564.667, 91.3333)
+states/hit/node = SubResource("AnimationNodeAnimation_h8yjg")
+states/hit/position = Vector2(428, 188.667)
 states/walk/node = SubResource("AnimationNodeAnimation_cro6g")
 states/walk/position = Vector2(373.333, 92)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_cixc1"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_w55qt")]
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_cixc1"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_w55qt"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_cvktb"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_byvvc")]
+graph_offset = Vector2(-163.53, -30.6)
 
 [node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 scale = Vector2(7, 7)
@@ -205,7 +266,7 @@ hit_state = NodePath("PlayerStateMachine/Hit")
 texture = ExtResource("1_rlcjx")
 hframes = 8
 vframes = 5
-frame = 8
+frame = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11.5)
@@ -217,6 +278,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_thdsb")
 }

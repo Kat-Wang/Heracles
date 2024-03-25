@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://4xjb5rm8sljr"]
+[gd_scene load_steps=47 format=3 uid="uid://4xjb5rm8sljr"]
 
 [ext_resource type="Texture2D" uid="uid://5mtk45565eus" path="res://assets/sprites/entities/argus/argus_jump.png" id="1_4tjql"]
 [ext_resource type="Script" path="res://scenes/entities/argus.gd" id="1_edgr4"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bdcm5ivp44hu7" path="res://assets/sprites/entities/argus/argus_death.png" id="2_fkuk6"]
 [ext_resource type="Texture2D" uid="uid://85gxbayfxkd" path="res://assets/sprites/entities/argus/argus_attack.png" id="3_21d2n"]
 [ext_resource type="Script" path="res://scenes/entities/damageable.gd" id="4_v4xmb"]
-[ext_resource type="PackedScene" uid="uid://cr66co3nuvq5j" path="res://scenes/entities/laser_eyes.tscn" id="5_k8ujg"]
 [ext_resource type="Texture2D" uid="uid://caua27ggunecr" path="res://assets/sprites/entities/argus/argus_walk.png" id="6_pnqnx"]
 [ext_resource type="Script" path="res://scenes/entities/player_state_machine.gd" id="7_1t0lw"]
 [ext_resource type="Texture2D" uid="uid://dqpryfa7q8teg" path="res://assets/sprites/entities/argus/argus_damaged.png" id="7_fwc5r"]
@@ -88,7 +87,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_uwivt"]
 resource_name = "damage"
-length = 0.75
+length = 0.35
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -462,6 +461,9 @@ shape = SubResource("RectangleShape2D_jxun7")
 texture = ExtResource("6_pnqnx")
 hframes = 2
 
+[node name="Muzzle" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-84, 28)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_chaui")
@@ -479,17 +481,11 @@ parameters/idle/blend_position = 0
 parameters/jump/blend_position = 0
 parameters/walk/blend_position = 0
 
+[node name="LaserContainer" type="Node2D" parent="."]
+position = Vector2(-84, 28)
+
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("4_v4xmb")
-
-[node name="Muzzle" type="Marker2D" parent="."]
-position = Vector2(-210, 155)
-
-[node name="laser_container" type="Node2D" parent="."]
-position = Vector2(-689, 126)
-
-[node name="LaserContainer#LaserEye" parent="." instance=ExtResource("5_k8ujg")]
-position = Vector2(479, 104)
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]
 script = ExtResource("7_1t0lw")
