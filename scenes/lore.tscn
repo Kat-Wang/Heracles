@@ -12,7 +12,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hera:position")
+tracks/0/path = NodePath("Main/Hera:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -168,7 +168,7 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Hera:flip_h")
+tracks/13/path = NodePath("Main/Hera:flip_h")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -340,7 +340,7 @@ length = 17.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hera:position")
+tracks/0/path = NodePath("Main/Hera:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -448,7 +448,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Hera:flip_h")
+tracks/9/path = NodePath("Main/Hera:flip_h")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -494,7 +494,6 @@ volume_db = -1.0
 
 [node name="Intro" type="Control" parent="."]
 visible = false
-z_index = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -651,6 +650,18 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Skip"
 
+[node name="Herc" type="Sprite2D" parent="Main"]
+position = Vector2(715, 570)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_pu56v")
+hframes = 2
+
+[node name="Hera" type="Sprite2D" parent="Main"]
+position = Vector2(2145, 463)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_jdbfp")
+flip_h = true
+
 [node name="Ending" type="Control" parent="."]
 z_index = 1
 layout_mode = 3
@@ -684,16 +695,4 @@ autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="Herc" type="Sprite2D" parent="."]
-position = Vector2(715, 570)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_pu56v")
-hframes = 2
-
-[node name="Hera" type="Sprite2D" parent="."]
-position = Vector2(2145, 463)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("5_jdbfp")
-flip_h = true
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[connection signal="pressed" from="Main/Skip" to="." method="_on_skip_pressed"]
