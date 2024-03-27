@@ -4,9 +4,18 @@ extends CharacterBody2D
 
 @onready var direction = Vector2.LEFT 
 @onready var laser_container = $LaserContainer
+<<<<<<< Updated upstream
 @onready var muzzle = $Muzzle
+=======
+@onready var muzzle_1 = $Sprite2D/Muzzle1
+@onready var muzzle_2 = $Sprite2D/Muzzle2
+@onready var muzzle_3 = $Sprite2D/Muzzle3
+@onready var muzzle_idx = 0
+>>>>>>> Stashed changes
 @onready var animation_tree := $AnimationTree
 @onready var state_machine := $PlayerStateMachine
+
+@onready var muzzle_array = [muzzle_1, muzzle_2, muzzle_3]
 
 @export var hit_state : State
 
@@ -55,9 +64,16 @@ func _physics_process(delta):
 
 func shoot(laser_scene):
 	var laser = laser_scene.instantiate()
+<<<<<<< Updated upstream
 	#hardcoding location for now -- *FIX ME*
 	#location.x = 970.0
 	#location.y = 540.0
 	laser.global_position = $Muzzle.global_position
 	$Muzzle.add_child(laser)
 
+=======
+	laser.direction = laser_direction
+	laser.position = muzzle_array[muzzle_idx].position
+	laser_container.add_child(laser)
+	muzzle_idx = randi_range(0, muzzle_array.size() - 1)
+>>>>>>> Stashed changes

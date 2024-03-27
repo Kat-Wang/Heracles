@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7iuswecghdll"]
+
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_kc1ry"]
+[ext_resource type="Texture2D" uid="uid://dut32250hf8pa" path="res://assets/sprites/backgrounds/Menu.png" id="2_oc4od"]
+[ext_resource type="AudioStream" uid="uid://jdxlqipqc7bp" path="res://assets/music/bgm/life-of-a-wandering-wizard-15549.mp3" id="2_y3qkj"]
+[ext_resource type="FontFile" uid="uid://babsda8gvxkey" path="res://assets/Font/PressStart2P-Regular.ttf" id="3_dj8q6"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kc1ry")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_y3qkj")
+volume_db = -8.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 11.0
+offset_right = 1895.0
+offset_bottom = 1091.0
+texture = ExtResource("2_oc4od")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 736.0
+offset_top = 470.0
+offset_right = 1480.0
+offset_bottom = 864.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Play" type="Button" parent="MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_dj8q6")
+theme_override_font_sizes/font_size = 95
+text = "Play"
+
+[node name="Quit" type="Button" parent="MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dj8q6")
+theme_override_font_sizes/font_size = 95
+text = "Quit"
+icon_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -536.0
+offset_top = -823.0
+offset_right = 898.0
+offset_bottom = -593.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.827451, 0, 0.0901961, 1)
+theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.34902, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dj8q6")
+theme_override_font_sizes/font_size = 150
+text = "Hercules"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -13,7 +13,6 @@ func state_process(delta):
 	if character.is_on_floor():
 		landing_sfx.play()
 		next_state = landing_state
-	
 
 func state_input(event : InputEvent):
 	if event.is_action_pressed("up") && !has_doubled_jumped:

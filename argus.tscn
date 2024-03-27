@@ -489,6 +489,18 @@ shape = SubResource("RectangleShape2D_jxun7")
 texture = ExtResource("1_4tjql")
 hframes = 2
 
+<<<<<<< Updated upstream:argus.tscn
+=======
+[node name="Muzzle1" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-84, 28)
+
+[node name="Muzzle2" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-100, 252)
+
+[node name="Muzzle3" type="Marker2D" parent="Sprite2D"]
+position = Vector2(185, 90)
+
+>>>>>>> Stashed changes:scenes/entities/argus.tscn
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_chaui")
