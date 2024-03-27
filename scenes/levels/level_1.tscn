@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_yx3k0"]
 [ext_resource type="PackedScene" uid="uid://c7sfo0gpswmv7" path="res://scenes/levels/tile_map_forest.tscn" id="2_j0xdx"]
 [ext_resource type="PackedScene" uid="uid://btvpmjrd26fce" path="res://scenes/levels/resting_level.tscn" id="2_wyqmu"]
+[ext_resource type="Texture2D" uid="uid://bvbgglyhlkckp" path="res://assets/sprites/backgrounds/argus_background_new.png" id="3_hoqdn"]
 [ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="3_s4ifw"]
 [ext_resource type="PackedScene" uid="uid://4xjb5rm8sljr" path="res://scenes/entities/argus.tscn" id="4_mxyni"]
-[ext_resource type="Texture2D" uid="uid://cwlk3c7lem7xb" path="res://assets/sprites/backgrounds/argus_background.png" id="5_h16r1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmv38"]
 size = Vector2(213, 1426)
@@ -27,8 +27,8 @@ motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1920, 2.08165e-12)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(2.74286, 2.74286)
-texture = ExtResource("5_h16r1")
+scale = Vector2(1.51944, 1.51944)
+texture = ExtResource("3_hoqdn")
 centered = false
 
 [node name="ForestTileMap" parent="." instance=ExtResource("2_j0xdx")]

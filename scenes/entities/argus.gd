@@ -4,9 +4,14 @@ extends CharacterBody2D
 
 @onready var direction = Vector2.RIGHT 
 @onready var laser_container = $LaserContainer
-@onready var muzzle = $Sprite2D/Muzzle
+@onready var muzzle_1 = $Sprite2D/Muzzle1
+@onready var muzzle_2 = $Sprite2D/Muzzle2
+@onready var muzzle_3 = $Sprite2D/Muzzle3
+@onready var muzzle_array = [muzzle_1, muzzle_2, muzzle_3]
+@onready var muzzle_idx = 0
 @onready var animation_tree := $AnimationTree
 @onready var state_machine := $PlayerStateMachine
+@onready var attack_sfx := $SFX/Attack
 
 @export var hit_state : State
 
@@ -51,10 +56,12 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	move_and_slide()
-
+	
 func shoot(laser_direction):
 	var laser = laser_scene.instantiate()
 	laser.direction = laser_direction
-	laser.position = muzzle.position
+	laser.position = muzzle_array[muzzle_idx].position
+	muzzle_idx = randi_range(0, muzzle_array.size() - 1)
 	laser_container.add_child(laser)
+	attack_sfx.play()
 

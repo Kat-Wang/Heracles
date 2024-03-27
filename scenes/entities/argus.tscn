@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://4xjb5rm8sljr"]
+[gd_scene load_steps=48 format=3 uid="uid://4xjb5rm8sljr"]
 
 [ext_resource type="Texture2D" uid="uid://5mtk45565eus" path="res://assets/sprites/entities/argus/argus_jump.png" id="1_4tjql"]
 [ext_resource type="Script" path="res://scenes/entities/argus.gd" id="1_edgr4"]
@@ -13,9 +13,10 @@
 [ext_resource type="Script" path="res://scenes/entities/argus_walk_state.gd" id="11_6xlh4"]
 [ext_resource type="Script" path="res://scenes/entities/argus_hit_state.gd" id="12_8g3pd"]
 [ext_resource type="Script" path="res://scenes/entities/argus_jump_state.gd" id="13_pnij0"]
+[ext_resource type="AudioStream" uid="uid://ch2tefwuqfmd4" path="res://assets/music/sfx/laser_noise.mp3" id="14_6aud7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxun7"]
-size = Vector2(767.5, 669)
+size = Vector2(686, 511)
 
 [sub_resource type="Animation" id="Animation_3nswp"]
 length = 0.001
@@ -454,15 +455,23 @@ script = ExtResource("1_edgr4")
 hit_state = NodePath("PlayerStateMachine/Hit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.25, 47.5)
+position = Vector2(12, 72.5)
 shape = SubResource("RectangleShape2D_jxun7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-20.5, -36)
+scale = Vector2(0.921111, 0.928889)
 texture = ExtResource("6_pnqnx")
 hframes = 2
 
-[node name="Muzzle" type="Marker2D" parent="Sprite2D"]
+[node name="Muzzle1" type="Marker2D" parent="Sprite2D"]
 position = Vector2(-84, 28)
+
+[node name="Muzzle2" type="Marker2D" parent="Sprite2D"]
+position = Vector2(179, 93)
+
+[node name="Muzzle3" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-43.1889, 178.037)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -514,6 +523,12 @@ one_shot = true
 [node name="Jump" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("landing_state")]
 script = ExtResource("13_pnij0")
 landing_state = NodePath("../Walk")
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("14_6aud7")
+volume_db = -15.0
 
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="on_hit" from="Damageable" to="PlayerStateMachine/Hit" method="_on_damageable_on_hit"]
