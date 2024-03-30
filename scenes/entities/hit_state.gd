@@ -7,7 +7,7 @@ class_name HitState
 @export var damageable : Damageable
 @export var playerStateMachine : PlayerStateMachine
 @export var dead_state : State
-@export var knockback_speed : float = 100.0
+@export var knockback_speed : float
 @export var return_state : State
 
 func _ready():

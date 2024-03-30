@@ -6,7 +6,8 @@ signal healthChanged(current_health: int, healing: bool)
 signal player_death
 signal coin_collected
 
-@onready var direction = Vector2.LEFT
+@onready var direction = Vector2.RIGHT
+@onready var last_direction = 1
 @onready var state_machine := $PlayerStateMachine
 @onready var animation_tree := $AnimationTree
 @onready var attack_sfx := $SFX/Attack
@@ -18,9 +19,13 @@ signal coin_collected
 @export var max_health : int = 5
 @export var damage : int = 1
 @export var hit_state : State
+@export var wall_state : State
 
-const SPEED = 500.0
+const SPEED = 500
+const DASH_SPEED = 4000
 
+var dash_available = true
+var dashing = false
 var current_health : int = 5
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -37,18 +42,28 @@ func _physics_process(delta):
 		
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
-	if direction.x != 0 && state_machine.check_if_can_move():
+	if dash_available and Input.is_action_just_pressed("dash"):
+		velocity.x = last_direction * DASH_SPEED
+		$DashCooldown.start()
+		$Dashing.start()
+		dash_available = false
+		dashing = true
+	elif direction.x != 0 && state_machine.check_if_can_move() && !dashing && state_machine.current_state != wall_state:
 		velocity.x = direction.x * SPEED
 		$Sprite2D.scale.x = sign(direction.x) 
+		last_direction = sign(direction.x)
 	elif state_machine.current_state != hit_state:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
+	
 	move_and_slide()
 	update_animation_parameters(direction)
 
 func update_animation_parameters(direction):
 	#Sets idling or walking
 	animation_tree.set("parameters/move/blend_position", direction.x)
+	
+func is_near_wall():
+	return $Sprite2D/WallChecker.is_colliding()
 
 #dmg to others
 func _on_sword_hit_box_body_entered(body):
@@ -84,7 +99,6 @@ func _on_hurt_box_body_entered(body):
 	print("player health: ", current_health)
 	
 	healthChanged.emit(current_health, false)
-		
 
 func _on_hurt_box_area_entered(area):
 	if area is Coin:
@@ -102,3 +116,9 @@ func signal_player_died():
 func heal():
 	current_health = max_health
 	healthChanged.emit(current_health, true)
+
+func _on_dash_timer_timeout():
+	dash_available = true
+
+func _on_dashing_timeout():
+	dashing = false

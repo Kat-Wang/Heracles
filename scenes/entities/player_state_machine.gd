@@ -18,6 +18,10 @@ func _ready():
 			child.character = character
 			child.playback = animation_tree["parameters/playback"]
 			
+			if child is AirState || child is WallState:
+				child.knockback_speed = 2000.0
+			if child is HitState:
+				child.knockback_speed = 400.0
 			#Connect each type of State to the interrupt signal
 			#Allows state interruption for all the states (which characterstatemachine handles)
 			child.connect("interrupt_state", on_state_interrupt_state)
@@ -30,6 +34,8 @@ func _physics_process(delta):
 		switch_states(current_state.next_state)
 	
 	current_state.state_process(delta)
+	if character is Player:
+		print(current_state)
 	
 func check_if_can_move():
 	return current_state.can_move

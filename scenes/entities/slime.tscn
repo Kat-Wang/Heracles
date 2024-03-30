@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://vogdpnv72pdg"]
 
 [ext_resource type="Script" path="res://scenes/entities/slime.gd" id="1_802xd"]
-[ext_resource type="Texture2D" uid="uid://ckcinl0bym0qr" path="res://assets/sprites/entities/slime/Slime Sprite Sheet.png" id="1_rlcjx"]
 [ext_resource type="Script" path="res://scenes/entities/damageable.gd" id="2_cyo14"]
+[ext_resource type="Texture2D" uid="uid://ckcinl0bym0qr" path="res://assets/sprites/entities/slime/slime_sheet.png" id="2_fsl8f"]
 [ext_resource type="Script" path="res://scenes/entities/player_state_machine.gd" id="3_gu5ss"]
 [ext_resource type="Script" path="res://scenes/entities/state.gd" id="4_w6jvl"]
 [ext_resource type="Script" path="res://scenes/entities/hit_state.gd" id="6_48d2o"]
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_rlcjx")]
+"values": [ExtResource("2_fsl8f")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_rlcjx")]
+"values": [ExtResource("2_fsl8f")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -179,7 +179,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_rlcjx")]
+"values": [ExtResource("2_fsl8f")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -254,7 +254,7 @@ states/hit/position = Vector2(428, 188.667)
 states/walk/node = SubResource("AnimationNodeAnimation_cro6g")
 states/walk/position = Vector2(373.333, 92)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_cixc1"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_w55qt"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_cvktb"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_byvvc")]
-graph_offset = Vector2(-163.53, -30.6)
+graph_offset = Vector2(-272.55, 53.76)
 
 [node name="Slime" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 scale = Vector2(7, 7)
@@ -263,7 +263,7 @@ script = ExtResource("1_802xd")
 hit_state = NodePath("PlayerStateMachine/Hit")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_rlcjx")
+texture = ExtResource("2_fsl8f")
 hframes = 8
 vframes = 5
 frame = 17

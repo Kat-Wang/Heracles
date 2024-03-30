@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://fyw1uols0ael"]
+[gd_scene load_steps=62 format=3 uid="uid://fyw1uols0ael"]
 
 [ext_resource type="Script" path="res://scenes/entities/player.gd" id="1_6xt7c"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="1_qs2yt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://7u387e4kqqn8" path="res://assets/sprites/entities/herc/herc_attack.png" id="6_t01dy"]
 [ext_resource type="AudioStream" uid="uid://o6c2ncxnlj8w" path="res://assets/music/sfx/jump_sound.wav" id="8_lpgyv"]
 [ext_resource type="Texture2D" uid="uid://5hfig8ui1bkx" path="res://assets/sprites/entities/herc/herc_death.png" id="8_uxxxx"]
+[ext_resource type="Texture2D" uid="uid://cyy4pap4hboir" path="res://assets/sprites/entities/herc/herc_wall.png" id="9_y6441"]
 [ext_resource type="AudioStream" uid="uid://ds3sypbf0ss51" path="res://assets/music/sfx/attack_sound.wav" id="10_3gtlg"]
 [ext_resource type="AudioStream" uid="uid://bja3mbw86lslx" path="res://assets/music/sfx/land_sound.wav" id="10_bjalo"]
 [ext_resource type="Script" path="res://scenes/entities/player_state_machine.gd" id="10_c1krj"]
@@ -17,6 +18,7 @@
 [ext_resource type="Script" path="res://scenes/entities/player_damageable.gd" id="12_j3nu0"]
 [ext_resource type="Script" path="res://scenes/entities/landing_state.gd" id="13_pu10e"]
 [ext_resource type="Script" path="res://scenes/entities/attack.gd" id="14_030g6"]
+[ext_resource type="Script" path="res://scenes/entities/wall_state.gd" id="16_wy706"]
 [ext_resource type="Script" path="res://scenes/entities/player_hit_state.gd" id="18_clpaf"]
 [ext_resource type="Script" path="res://scenes/entities/state.gd" id="18_oqi7w"]
 
@@ -262,7 +264,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_mhgbj"]
 resource_name = "hit"
-length = 0.4
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -306,7 +308,7 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -470,6 +472,58 @@ tracks/3/keys = {
 "values": [1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_4tgo6"]
+resource_name = "wall"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_y6441")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_suirk"]
 _data = {
 "RESET": SubResource("Animation_vpbah"),
@@ -479,7 +533,8 @@ _data = {
 "hit": SubResource("Animation_mhgbj"),
 "idle": SubResource("Animation_ba0h3"),
 "jump": SubResource("Animation_jjpk8"),
-"walk": SubResource("Animation_2lh8v")
+"walk": SubResource("Animation_2lh8v"),
+"wall": SubResource("Animation_4tgo6")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kse1e"]
@@ -518,6 +573,9 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_hnat5")
 blend_point_2/pos = -1.0
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k1dtu"]
+animation = &"wall"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3ubnr"]
 advance_mode = 2
 
@@ -545,8 +603,14 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i56wk"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hi0xd"]
+switch_mode = 2
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5rw0h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gqicu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pwxn7"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6mmfy"]
 states/End/position = Vector2(674, 249.333)
@@ -556,7 +620,7 @@ states/attack/position = Vector2(23.6779, 5.581)
 states/death/node = SubResource("AnimationNodeAnimation_2ufqb")
 states/death/position = Vector2(-52.6392, 389.061)
 states/double_jump/node = SubResource("AnimationNodeAnimation_4vy04")
-states/double_jump/position = Vector2(403.2, 95.9243)
+states/double_jump/position = Vector2(490.533, 145.924)
 states/fall/node = SubResource("AnimationNodeAnimation_tlsg7")
 states/fall/position = Vector2(208.267, 214.981)
 states/hit/node = SubResource("AnimationNodeAnimation_rwsgw")
@@ -565,18 +629,27 @@ states/jump/node = SubResource("AnimationNodeAnimation_o6e4t")
 states/jump/position = Vector2(226.267, 40.3143)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_4u05h")
 states/move/position = Vector2(22.9332, 206.621)
-transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_3ubnr"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_801vq"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_2np8l"), "fall", "move", SubResource("AnimationNodeStateMachineTransition_pdd1a"), "jump", "double_jump", SubResource("AnimationNodeStateMachineTransition_r1p5g"), "double_jump", "fall", SubResource("AnimationNodeStateMachineTransition_srrve"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_4wdb4"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_7af5n"), "jump", "attack", SubResource("AnimationNodeStateMachineTransition_h4o5n"), "attack", "fall", SubResource("AnimationNodeStateMachineTransition_ptype"), "move", "hit", SubResource("AnimationNodeStateMachineTransition_i56wk"), "hit", "move", SubResource("AnimationNodeStateMachineTransition_hi0xd"), "hit", "death", SubResource("AnimationNodeStateMachineTransition_5rw0h")]
-graph_offset = Vector2(-632.639, 71.0615)
+states/wall/node = SubResource("AnimationNodeAnimation_k1dtu")
+states/wall/position = Vector2(322.205, 139.86)
+transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_3ubnr"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_801vq"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_2np8l"), "fall", "move", SubResource("AnimationNodeStateMachineTransition_pdd1a"), "jump", "double_jump", SubResource("AnimationNodeStateMachineTransition_r1p5g"), "double_jump", "fall", SubResource("AnimationNodeStateMachineTransition_srrve"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_4wdb4"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_7af5n"), "jump", "attack", SubResource("AnimationNodeStateMachineTransition_h4o5n"), "attack", "fall", SubResource("AnimationNodeStateMachineTransition_ptype"), "move", "hit", SubResource("AnimationNodeStateMachineTransition_i56wk"), "hit", "move", SubResource("AnimationNodeStateMachineTransition_hi0xd"), "hit", "death", SubResource("AnimationNodeStateMachineTransition_5rw0h"), "jump", "wall", SubResource("AnimationNodeStateMachineTransition_gqicu"), "wall", "fall", SubResource("AnimationNodeStateMachineTransition_pwxn7")]
+graph_offset = Vector2(-346.462, -147.127)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hit_state", "wall_state")]
 z_index = 1
+scale = Vector2(0.7, 0.7)
 collision_layer = 2
 script = ExtResource("1_6xt7c")
 hit_state = NodePath("PlayerStateMachine/Hit")
+wall_state = NodePath("PlayerStateMachine/Wall")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qs2yt")
 hframes = 2
+
+[node name="WallChecker" type="RayCast2D" parent="Sprite2D"]
+rotation = -1.5708
+scale = Vector2(1, 1)
+target_position = Vector2(-4.18381e-06, 95.7143)
 
 [node name="SwordHitBox" type="Area2D" parent="Sprite2D"]
 collision_layer = 0
@@ -614,7 +687,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/move/blend_position = -0.0340425
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -117)
+position = Vector2(0, 2.85714)
 process_callback = 0
 position_smoothing_enabled = true
 drag_vertical_enabled = true
@@ -648,10 +721,19 @@ air_state = NodePath("../Air")
 attack_state = NodePath("../Attack")
 jump_sfx = NodePath("../../SFX/Jump")
 
-[node name="Air" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("landing_state", "attack_state", "landing_sfx")]
+[node name="Air" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("landing_state", "attack_state", "wall_state", "landing_sfx")]
 script = ExtResource("12_6g2ud")
 landing_state = NodePath("../Landing")
 attack_state = NodePath("../Attack")
+wall_state = NodePath("../Wall")
+landing_sfx = NodePath("../../SFX/Land")
+
+[node name="Wall" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("landing_state", "attack_state", "wall_state", "air_state", "landing_sfx")]
+script = ExtResource("16_wy706")
+landing_state = NodePath("../Landing")
+attack_state = NodePath("../Attack")
+wall_state = NodePath(".")
+air_state = NodePath("../Air")
 landing_sfx = NodePath("../../SFX/Land")
 
 [node name="Landing" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("ground_state")]
@@ -681,6 +763,13 @@ one_shot = true
 script = ExtResource("18_oqi7w")
 can_move = false
 
+[node name="Dashing" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="body_entered" from="Sprite2D/SwordHitBox" to="." method="_on_sword_hit_box_body_entered"]
 [connection signal="area_entered" from="Sprite2D/HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="body_entered" from="Sprite2D/HurtBox" to="." method="_on_hurt_box_body_entered"]
@@ -688,3 +777,5 @@ can_move = false
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Landing" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="PlayerStateMachine/Attack" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="PlayerStateMachine/Hit/Timer" to="PlayerStateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="timeout" from="Dashing" to="." method="_on_dashing_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_timer_timeout"]
