@@ -47,7 +47,7 @@ position = Vector2(6873, 1874)
 [node name="DeathZone4" parent="DeathZones" instance=ExtResource("6_j12at")]
 position = Vector2(9852, 1874)
 
-[node name="HellPortal" parent="." instance=ExtResource("7_yo15n")]
+[node name="ToHeraPortal" parent="." instance=ExtResource("7_yo15n")]
 position = Vector2(7768, 1352)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
