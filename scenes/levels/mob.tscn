@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cym6o507phked"]
+
+[ext_resource type="Script" path="res://scenes/levels/mob.gd" id="1_7itcm"]
+[ext_resource type="Texture2D" uid="uid://bksqoekiuw6wx" path="res://assets/sprites/entities/challenge_room/fireball.png" id="2_lwdja"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opw0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lwdja")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ktoa"]
+radius = 38.0
+height = 100.0
+
+[node name="Mob" type="RigidBody2D"]
+position = Vector2(22, 18)
+script = ExtResource("1_7itcm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(31, 34)
+scale = Vector2(0.135, 0.135)
+sprite_frames = SubResource("SpriteFrames_opw0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(35, 37)
+shape = SubResource("CapsuleShape2D_3ktoa")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(39, 48)
+scale = Vector2(1.75, 1.7)
