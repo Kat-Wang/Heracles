@@ -3,7 +3,7 @@ extends Level
 signal level_complete(next_level:PackedScene)
 
 @onready var bgm := $AudioStreamPlayer2D
-@onready var hell_portal := $HellPortal
+@onready var room_portal := $RoomPortal
 @export var mob_scene: PackedScene
 
 var score
@@ -11,8 +11,8 @@ var score
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bgm.play()
-	hell_portal.portal_entered.connect(transition)
-	_on_mob_timer_timeout()
+	room_portal.portal_entered.connect(transition)
+#	_on_mob_timer_timeout()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,11 +24,24 @@ func transition():
 
 func _on_mob_timer_timeout():
 	var mob = mob_scene.instantiate()
-	print("drop")
-	
-	var screen_width = get_viewport_rect().size.x
-	var random_x_position = randf_range(0, screen_width)
-	var spawn_height = get_viewport_rect().size.y * -0.1
-	mob.position = Vector2(random_x_position, spawn_height)
-	
+
+	# Choose a random location on Path2D.
+	var mob_spawn_location = $MobPath/MobSpawnLocation
+	mob_spawn_location.progress_ratio = randf()
+
+	# Set the mob's direction perpendicular to the path direction.
+	var direction = mob_spawn_location.rotation + PI / 2
+
+	# Set the mob's position to a random location.
+	mob.position = mob_spawn_location.position
+
+	# Add some randomness to the direction.
+	direction += randf_range(-PI / 4, PI / 4)
+	mob.rotation = direction
+
+	# Choose the velocity for the mob.
+	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+	mob.linear_velocity = velocity.rotated(direction)
+
+	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)

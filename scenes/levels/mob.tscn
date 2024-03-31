@@ -28,9 +28,12 @@ scale = Vector2(0.135, 0.135)
 sprite_frames = SubResource("SpriteFrames_opw0t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(35, 37)
+position = Vector2(32, 37)
 shape = SubResource("CapsuleShape2D_3ktoa")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(39, 48)
-scale = Vector2(1.75, 1.7)
+position = Vector2(30.5, 40.5)
+scale = Vector2(4.55, 5.75)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
