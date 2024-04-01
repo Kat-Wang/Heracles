@@ -107,6 +107,8 @@ func _on_hurt_box_area_entered(area):
 	elif area is PomPickup:
 		heal(true)
 		area.collected()
+	elif area is Wreath:
+		area.collected()
 	else:
 		$Damageable.hit(damage, Vector2.LEFT)
 		current_health = current_health - damage

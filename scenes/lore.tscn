@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2v3xou2ldy5w"]
+[gd_scene load_steps=13 format=3 uid="uid://c2v3xou2ldy5w"]
 
 [ext_resource type="Script" path="res://scenes/lore.gd" id="1_0pstl"]
 [ext_resource type="Texture2D" uid="uid://bbd08fureus3f" path="res://assets/sprites/entities/herc/neutral_herc.png" id="2_frqw1"]
+[ext_resource type="Texture2D" uid="uid://dldcoc5yf3v28" path="res://assets/sprites/backgrounds/lore_background.png" id="2_mxhou"]
 [ext_resource type="AudioStream" uid="uid://cfnwwavkbrj8r" path="res://assets/music/bgm/farm_life.wav" id="2_uv7yc"]
 [ext_resource type="Texture2D" uid="uid://dl4klmi2hwhch" path="res://assets/sprites/entities/hera/hera_pfp.png" id="3_33prs"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="4_pu56v"]
@@ -483,6 +484,21 @@ _data = {
 [node name="Lore" type="Node"]
 script = ExtResource("1_0pstl")
 
+[node name="TextRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1077.0
+offset_top = -679.0
+offset_right = 1097.0
+offset_bottom = 537.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mxhou")
+expand_mode = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_unhto")
@@ -530,6 +546,22 @@ text = "Somewhere in ancient Greece, some very canon events were unfolding. . ."
 autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="Skip" type="Button" parent="Intro"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1771.0
+offset_top = 964.0
+offset_right = 1880.0
+offset_bottom = 1041.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Skip"
 
 [node name="Main" type="Control" parent="."]
 layout_mode = 3
@@ -634,22 +666,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_33prs")
 
-[node name="Skip" type="Button" parent="Main"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1771.0
-offset_top = 964.0
-offset_right = 1880.0
-offset_bottom = 1041.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "Skip"
-
 [node name="Herc" type="Sprite2D" parent="Main"]
 position = Vector2(715, 570)
 scale = Vector2(1.5, 1.5)
@@ -674,7 +690,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1877.0
+offset_right = 1887.0
 offset_bottom = 1042.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -695,4 +711,4 @@ autowrap_mode = 2
 visible_characters = 0
 visible_ratio = 0.0
 
-[connection signal="pressed" from="Main/Skip" to="." method="_on_skip_pressed"]
+[connection signal="pressed" from="Intro/Skip" to="." method="_on_skip_pressed"]
