@@ -1,9 +1,14 @@
 extends Level
 
+class_name ChallengeRoom
+
 signal level_complete(next_level:PackedScene)
+signal timeout
 
 @onready var bgm := $AudioStreamPlayer2D
 @onready var room_portal := $RoomPortal
+@onready var countdown := $Countdown
+@onready var countdown_label := $CanvasLayer/Label
 @export var mob_scene: PackedScene
 
 var score
@@ -12,12 +17,12 @@ var score
 func _ready():
 	bgm.play()
 	room_portal.portal_entered.connect(transition)
+	countdown.start()
 #	_on_mob_timer_timeout()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
+	countdown_label.text = str(round(countdown.time_left))
 
 func transition():
 	level_complete.emit(next_level)
@@ -45,3 +50,8 @@ func _on_mob_timer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+
+
+
+func _on_countdown_timeout():
+	timeout.emit()

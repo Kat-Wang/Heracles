@@ -5,6 +5,7 @@ extends Node2D
 @onready var coin_counter := $HUD/CoinCounter/Label
 @onready var current_level := $CurrentLevel
 @onready var gos := $HUD/GameOver
+@onready var checkpoint = $CurrentLevel/SkyLevel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 	player.player_death.connect(game_over)
 	coin_counter.text = "0"
 	player.coin_collected.connect(update_coin_count)
+	gos.checkpoint = checkpoint
 	
 func transition(next_level:PackedScene):
 	if next_level:
@@ -33,7 +35,13 @@ func transition(next_level:PackedScene):
 		scene_instance.connect("level_complete", transition)
 		
 		player.position = scene_instance.starting_position.position
-		print("new player position: ", player.position)
+		
+		checkpoint = scene_instance
+		gos.checkpoint = scene_instance
+		print(checkpoint)
+		
+		if scene_instance is ChallengeRoom:
+			scene_instance.timeout.connect(game_over)
 	else:
 		game_over()
 
