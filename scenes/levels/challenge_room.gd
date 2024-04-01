@@ -70,3 +70,4 @@ func _on_intro_timer_timeout():
 	countdown.start()
 	countdown_label.visible = true
 	intro_label.visible = false
+	$MobTimer.start()
