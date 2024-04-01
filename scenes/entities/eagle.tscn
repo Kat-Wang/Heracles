@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d247tlok1c7st"]
+[gd_scene load_steps=23 format=3 uid="uid://d247tlok1c7st"]
 
 [ext_resource type="Script" path="res://scenes/entities/eagle.gd" id="1_jl6kq"]
 [ext_resource type="Texture2D" uid="uid://df3ssfj11f5sq" path="res://assets/sprites/entities/eagle/Vulture_walk.png" id="1_sl46h"]
@@ -219,6 +219,9 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1t837"]
 animation = &"death"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j0i7d"]
+animation = &"hit"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h6ky8"]
 animation = &"walk"
 
@@ -227,12 +230,20 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3p4hw"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vmuu1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m6l7i"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_aq6da"]
 states/death/node = SubResource("AnimationNodeAnimation_1t837")
 states/death/position = Vector2(605.333, 99.5556)
+states/hit/node = SubResource("AnimationNodeAnimation_j0i7d")
+states/hit/position = Vector2(429.333, 232)
 states/walk/node = SubResource("AnimationNodeAnimation_h6ky8")
 states/walk/position = Vector2(380, 100.667)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_16eva"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_3p4hw")]
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_16eva"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_3p4hw"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_vmuu1"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_m6l7i")]
 
 [node name="Eagle" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 scale = Vector2(4, 4)
@@ -254,15 +265,16 @@ libraries = {
 }
 
 [node name="LedgeCheckRight" type="RayCast2D" parent="."]
-position = Vector2(26, 14)
+position = Vector2(32, 14)
 target_position = Vector2(0, 82)
 
 [node name="LedgeCheckLeft" type="RayCast2D" parent="."]
-position = Vector2(-16, 14)
+position = Vector2(-22, 14)
 target_position = Vector2(0, 82)
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_fg2mx")
+health = 2.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false

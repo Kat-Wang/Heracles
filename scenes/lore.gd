@@ -34,5 +34,4 @@ func ending_finished():
 
 
 func _on_skip_pressed():
-	print("hi")
 	get_tree().change_scene_to_file("res://scenes/game.tscn")

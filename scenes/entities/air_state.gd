@@ -17,7 +17,7 @@ func state_process(delta):
 	if character.is_on_floor():
 		landing_sfx.play()
 		next_state = landing_state
-	if character.is_on_wall():
+	if character.is_near_wall():
 		next_state = wall_state
 
 func state_input(event : InputEvent):
@@ -36,3 +36,11 @@ func double_jump():
 	character.velocity.y = double_jump_velocity
 	has_doubled_jumped = true
 	playback.travel("jump")
+
+
+func wall_jump():
+	#velocity defined twice in ground and air states, make sure equal
+	character.velocity.y = wall_jump_velocity
+	character.velocity.x = knockback_speed * -character.last_direction
+	playback.travel("wall")
+	

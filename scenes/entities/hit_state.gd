@@ -17,7 +17,8 @@ func on_enter():
 	timer.start()
 	
 func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : Vector2):
-	if damageable.health >= 0:
+	if damageable.health > 0:
+		print(damageable.health)
 		if knockback_direction == character.direction:
 			character.velocity += knockback_speed * knockback_direction
 		else:

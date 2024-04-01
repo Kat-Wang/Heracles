@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	if in_fountain and Input.is_action_just_pressed("interact"):
 		#player.current_health = player.max_health
-		player.heal()
+		player.heal(true)
 		healing_sfx.play()
 
 

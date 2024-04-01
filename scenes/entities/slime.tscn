@@ -286,15 +286,16 @@ tree_root = SubResource("AnimationNodeStateMachine_qat5d")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="LedgeCheckLeft" type="RayCast2D" parent="."]
-position = Vector2(-6, 15)
+position = Vector2(-7.28571, 15)
 target_position = Vector2(0, 41)
 
 [node name="LedgeCheckRight" type="RayCast2D" parent="."]
-position = Vector2(6, 15)
+position = Vector2(7.42857, 15)
 target_position = Vector2(0, 41)
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_cyo14")
+health = 2.0
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state", "character", "animation_tree")]
 script = ExtResource("3_gu5ss")

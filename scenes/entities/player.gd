@@ -22,7 +22,7 @@ signal coin_collected
 @export var wall_state : State
 
 const SPEED = 500
-const DASH_SPEED = 4000
+const DASH_SPEED = 1500
 
 var dash_available = true
 var dashing = false
@@ -31,7 +31,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	animation_tree.active = true
-	print(current_health)
 	damagable.health = max_health
 	damagable.player_died.connect(signal_player_died)
 
@@ -42,7 +41,7 @@ func _physics_process(delta):
 		
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
-	if dash_available and Input.is_action_just_pressed("dash"):
+	if dash_available and Input.is_action_pressed("dash"):
 		velocity.x = last_direction * DASH_SPEED
 		$DashCooldown.start()
 		$Dashing.start()
@@ -52,7 +51,7 @@ func _physics_process(delta):
 		velocity.x = direction.x * SPEED
 		$Sprite2D.scale.x = sign(direction.x) 
 		last_direction = sign(direction.x)
-	elif state_machine.current_state != hit_state:
+	elif state_machine.current_state != hit_state and !dashing:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	move_and_slide()
@@ -63,7 +62,7 @@ func update_animation_parameters(direction):
 	animation_tree.set("parameters/move/blend_position", direction.x)
 	
 func is_near_wall():
-	return $Sprite2D/WallChecker.is_colliding()
+	return $Sprite2D/WallChecker.is_colliding() or $Sprite2D/WallChecker2.is_colliding()
 
 #dmg to others
 func _on_sword_hit_box_body_entered(body):
@@ -105,6 +104,9 @@ func _on_hurt_box_area_entered(area):
 		coin_count += 1
 		area.collected()
 		coin_collected.emit()
+	elif area is PomPickup:
+		heal(true)
+		area.collected()
 	else:
 		$Damageable.hit(damage, Vector2.LEFT)
 		current_health = current_health - damage
@@ -113,9 +115,12 @@ func _on_hurt_box_area_entered(area):
 func signal_player_died():
 	player_death.emit()
 
-func heal():
-	current_health = max_health
-	healthChanged.emit(current_health, true)
+func heal(full: bool):
+	if full:
+		current_health = max_health
+		healthChanged.emit(current_health, true)
+	else:
+		current_health += 1
 
 func _on_dash_timer_timeout():
 	dash_available = true

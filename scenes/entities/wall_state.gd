@@ -17,9 +17,9 @@ func state_process(delta):
 	if character.is_on_floor():
 		landing_sfx.play()
 		next_state = landing_state
-	elif !character.is_on_wall():
+	elif !character.is_near_wall():
 		next_state = air_state
-	elif character.is_on_wall():
+	elif character.is_near_wall():
 		next_state = wall_state
 
 func state_input(event : InputEvent):

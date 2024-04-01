@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6rt7fhwcs7ot"]
+[gd_scene load_steps=7 format=3 uid="uid://c6rt7fhwcs7ot"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_qtf5s"]
 [ext_resource type="PackedScene" uid="uid://fyw1uols0ael" path="res://scenes/entities/player.tscn" id="1_umrrs"]
 [ext_resource type="PackedScene" uid="uid://wfctjdfqlxtj" path="res://scenes/levels/sky_level.tscn" id="2_fyebt"]
-[ext_resource type="PackedScene" uid="uid://bkovulglqveud" path="res://scenes/ui/hud.tscn" id="3_spq7a"]
 [ext_resource type="PackedScene" uid="uid://clc5g15mu30br" path="res://scenes/ui/health_bar.tscn" id="4_epssp"]
 [ext_resource type="PackedScene" uid="uid://crcliepm5jq1n" path="res://scenes/ui/coin_counter.tscn" id="5_yutst"]
 [ext_resource type="PackedScene" uid="uid://dfb6feukw2vur" path="res://scenes/ui/game_over.tscn" id="6_srbjg"]
@@ -12,18 +11,24 @@
 script = ExtResource("1_qtf5s")
 
 [node name="Player" parent="." instance=ExtResource("1_umrrs")]
+position = Vector2(-109, 481)
 
-[node name="HUD" parent="." instance=ExtResource("3_spq7a")]
+[node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="HealthBar" parent="HUD" instance=ExtResource("4_epssp")]
-offset_right = 40.0
+offset_left = 28.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 28.0
 
 [node name="CoinCounter" parent="HUD" instance=ExtResource("5_yutst")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -123.0
-offset_bottom = 83.0
+offset_left = -161.0
+offset_top = 28.0
+offset_right = -38.0
+offset_bottom = 111.0
 grow_horizontal = 0
 
 [node name="GameOver" parent="HUD" instance=ExtResource("6_srbjg")]
