@@ -123,6 +123,7 @@ func heal(full: bool):
 		healthChanged.emit(current_health, true)
 	else:
 		current_health += 1
+		healthChanged.emit(current_health, true)
 
 func _on_dash_timer_timeout():
 	dash_available = true

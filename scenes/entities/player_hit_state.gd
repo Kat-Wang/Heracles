@@ -7,5 +7,6 @@ func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : V
 		playback.travel("hit")
 	else:
 		emit_signal("interrupt_state", dead_state)
+		print("player should die")
 		playback.travel("death")
 		

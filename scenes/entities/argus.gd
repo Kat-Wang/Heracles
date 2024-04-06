@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+#signal laser_shot(laser_scene, location)
+
 @onready var direction = Vector2.RIGHT 
 @onready var laser_container = $LaserContainer
 @onready var muzzle_1 = $Sprite2D/Muzzle1
