@@ -15,31 +15,32 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ktoa"]
-radius = 38.0
-height = 100.0
+radius = 25.0
+height = 68.0
 
 [node name="Mob" type="RigidBody2D"]
 position = Vector2(22, 18)
+can_sleep = false
 script = ExtResource("1_7itcm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(31, 34)
-scale = Vector2(0.135, 0.135)
+light_mask = 8
+visibility_layer = 8
+position = Vector2(16.5625, 11)
+scale = Vector2(0.0905769, 0.0775)
 sprite_frames = SubResource("SpriteFrames_opw0t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(32, 37)
+light_mask = 8
+visibility_layer = 8
+position = Vector2(18, 14)
 shape = SubResource("CapsuleShape2D_3ktoa")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-light_mask = 3
-visibility_layer = 3
-position = Vector2(30.5, 40.5)
-scale = Vector2(4.55, 5.75)
+light_mask = 8
+visibility_layer = 8
+position = Vector2(18.75, 14.75)
+scale = Vector2(2.925, 3.625)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
