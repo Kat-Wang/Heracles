@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cym6o507phked"]
 
-[ext_resource type="Script" path="res://scenes/levels/mob.gd" id="1_7itcm"]
-[ext_resource type="Texture2D" uid="uid://bksqoekiuw6wx" path="res://assets/sprites/entities/challenge_room/fireball.png" id="2_lwdja"]
+[ext_resource type="Script" path="res://scenes/levels/lava.gd" id="1_8h8un"]
+[ext_resource type="Texture2D" uid="uid://bksqoekiuw6wx" path="res://assets/sprites/entities/challenge_room/fireball.png" id="2_yl0r7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_opw0t"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_lwdja")
+"texture": ExtResource("2_yl0r7")
 }],
 "loop": true,
 "name": &"default",
@@ -18,10 +18,11 @@ animations = [{
 radius = 25.0
 height = 68.0
 
-[node name="Mob" type="RigidBody2D"]
+[node name="lava" type="RigidBody2D"]
 position = Vector2(22, 18)
+collision_mask = 0
 can_sleep = false
-script = ExtResource("1_7itcm")
+script = ExtResource("1_8h8un")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 8
@@ -43,4 +44,5 @@ position = Vector2(18.75, 14.75)
 scale = Vector2(2.925, 3.625)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
