@@ -636,7 +636,7 @@ graph_offset = Vector2(-360.089, 112.748)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hit_state", "wall_state")]
 z_index = 1
-scale = Vector2(0.68, 0.68)
+scale = Vector2(0.6, 0.6)
 collision_layer = 2
 script = ExtResource("1_6xt7c")
 hit_state = NodePath("PlayerStateMachine/Hit")
