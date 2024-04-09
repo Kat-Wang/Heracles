@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qqcq2wxuolmk"
-path="res://.godot/imported/hera.png-f6a4b8941c02e015279e37af61af2396.ctex"
+uid="uid://d2xlsyflpvjf3"
+path="res://.godot/imported/hera_idle.png-c199edd5de09321fd3e84285dab795a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/entities/hera/hera.png"
-dest_files=["res://.godot/imported/hera.png-f6a4b8941c02e015279e37af61af2396.ctex"]
+source_file="res://assets/sprites/entities/hera/hera_idle.png"
+dest_files=["res://.godot/imported/hera_idle.png-c199edd5de09321fd3e84285dab795a2.ctex"]
 
 [params]
 

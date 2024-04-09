@@ -632,7 +632,7 @@ states/move/position = Vector2(22.9332, 206.621)
 states/wall/node = SubResource("AnimationNodeAnimation_k1dtu")
 states/wall/position = Vector2(322.205, 139.86)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_3ubnr"), "move", "jump", SubResource("AnimationNodeStateMachineTransition_801vq"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_2np8l"), "fall", "move", SubResource("AnimationNodeStateMachineTransition_pdd1a"), "jump", "double_jump", SubResource("AnimationNodeStateMachineTransition_r1p5g"), "double_jump", "fall", SubResource("AnimationNodeStateMachineTransition_srrve"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_4wdb4"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_7af5n"), "jump", "attack", SubResource("AnimationNodeStateMachineTransition_h4o5n"), "attack", "fall", SubResource("AnimationNodeStateMachineTransition_ptype"), "move", "hit", SubResource("AnimationNodeStateMachineTransition_i56wk"), "hit", "move", SubResource("AnimationNodeStateMachineTransition_hi0xd"), "jump", "wall", SubResource("AnimationNodeStateMachineTransition_gqicu"), "wall", "fall", SubResource("AnimationNodeStateMachineTransition_pwxn7"), "move", "death", SubResource("AnimationNodeStateMachineTransition_13x3f")]
-graph_offset = Vector2(-360.089, 112.748)
+graph_offset = Vector2(-360.089, 153.029)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hit_state", "wall_state")]
 z_index = 1
