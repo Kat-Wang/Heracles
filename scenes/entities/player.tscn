@@ -23,7 +23,7 @@
 [ext_resource type="Script" path="res://scenes/entities/state.gd" id="18_oqi7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmd02"]
-size = Vector2(105.109, 179.513)
+size = Vector2(168.344, 217.748)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pxlw"]
 size = Vector2(94, 235)
@@ -662,7 +662,8 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/SwordHitBox"]
-position = Vector2(135.555, -21.7563)
+position = Vector2(167.172, -40.8738)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fmd02")
 disabled = true
 

@@ -113,7 +113,7 @@ theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.34902, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_dj8q6")
 theme_override_font_sizes/font_size = 130
-text = "Hercules"
+text = "Heracles"
 horizontal_alignment = 1
 vertical_alignment = 1
 

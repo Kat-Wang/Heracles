@@ -84,6 +84,8 @@ func _on_hurt_box_body_entered(body):
 	var direction_to_enemy = (body.global_position - $Sprite2D/HurtBox.global_position)
 	
 	var direction_sign = sign(direction_to_enemy.x)
+	
+	current_health = current_health - damage
 			
 	if(direction_sign > 0):
 		$Damageable.hit(damage, Vector2.LEFT)
@@ -92,7 +94,6 @@ func _on_hurt_box_body_entered(body):
 	else:
 		$Damageable.hit(damage, Vector2.ZERO)
 	
-	current_health = current_health - damage
 	print("current health: ", current_health)
 	print("damage taken: ", damage)
 	print("player health: ", current_health)
@@ -110,8 +111,8 @@ func _on_hurt_box_area_entered(area):
 	elif area is Wreath:
 		area.collected()
 	else:
-		$Damageable.hit(damage, Vector2.LEFT)
 		current_health = current_health - damage
+		$Damageable.hit(damage, Vector2.LEFT)
 		healthChanged.emit(current_health, false)
 
 func signal_player_died():
