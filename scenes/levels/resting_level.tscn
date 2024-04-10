@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://btvpmjrd26fce"]
+[gd_scene load_steps=39 format=3 uid="uid://btvpmjrd26fce"]
 
 [ext_resource type="Script" path="res://scenes/levels/resting_level.gd" id="1_frhjw"]
 [ext_resource type="Texture2D" uid="uid://c4ypds883xqpe" path="res://assets/sprites/backgrounds/terrain_tileset.png" id="1_hcr1w"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scenes/levels/statue.gd" id="5_ul447"]
 [ext_resource type="AudioStream" uid="uid://y7bm75yoodg6" path="res://assets/music/sfx/heal.mp3" id="8_e0jep"]
 [ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="10_xobin"]
+[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/font/PixelifySans-Regular.ttf" id="12_7rbrv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kxcly"]
 texture = ExtResource("1_hcr1w")
@@ -673,6 +674,21 @@ texture = ExtResource("3_r23gn")
 position = Vector2(2.5, 4.5)
 shape = SubResource("RectangleShape2D_p82s7")
 
+[node name="Label" type="Label" parent="Statue"]
+visible = false
+offset_left = -146.0
+offset_top = 195.0
+offset_right = 157.0
+offset_bottom = 238.0
+theme_override_colors/font_color = Color(0.168627, 0.105882, 0.184314, 1)
+theme_override_fonts/font = ExtResource("12_7rbrv")
+theme_override_font_sizes/font_size = 35
+text = "Checkpoint Saved"
+
+[node name="Timer" type="Timer" parent="Statue"]
+wait_time = 3.0
+one_shot = true
+
 [node name="RestingPortal" parent="." instance=ExtResource("10_xobin")]
 position = Vector2(1604, 780)
 
@@ -683,3 +699,4 @@ position = Vector2(-178, 724)
 [connection signal="body_exited" from="Fountain" to="Fountain" method="_on_body_exited"]
 [connection signal="body_entered" from="Statue" to="Statue" method="_on_body_entered"]
 [connection signal="body_exited" from="Statue" to="Statue" method="_on_body_exited"]
+[connection signal="timeout" from="Statue/Timer" to="Statue" method="_on_timer_timeout"]
