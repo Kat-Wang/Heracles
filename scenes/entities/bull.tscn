@@ -248,7 +248,7 @@ transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-666.227, 56.4757)
 
 [node name="Bull" type="CharacterBody2D"]
-scale = Vector2(4, 4)
+scale = Vector2(4.5, 4.5)
 collision_layer = 4
 script = ExtResource("1_riula")
 

@@ -59,3 +59,7 @@ position = Vector2(629, 1667)
 
 [node name="StartingPoint" type="Marker2D" parent="."]
 position = Vector2(323, 1813)
+
+[node name="Portal" parent="." instance=ExtResource("2_duhd8")]
+visible = false
+position = Vector2(11012, 1715)
