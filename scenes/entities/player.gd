@@ -108,7 +108,7 @@ func _on_hurt_box_area_entered(area):
 		area.collected()
 		coin_collected.emit()
 	elif area is PomPickup:
-		heal(true)
+		heal(false)
 		area.collected()
 	elif area is Wreath:
 		area.collected()

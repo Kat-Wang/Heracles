@@ -354,7 +354,8 @@ position = Vector2(29.5, 18)
 shape = SubResource("RectangleShape2D_6ijne")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_axnrg")
+texture = ExtResource("1_u01f5")
+hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
