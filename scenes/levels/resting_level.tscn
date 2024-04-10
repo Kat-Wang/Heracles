@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://btvpmjrd26fce"]
+[gd_scene load_steps=40 format=3 uid="uid://btvpmjrd26fce"]
 
 [ext_resource type="Script" path="res://scenes/levels/resting_level.gd" id="1_frhjw"]
 [ext_resource type="Texture2D" uid="uid://c4ypds883xqpe" path="res://assets/sprites/backgrounds/terrain_tileset.png" id="1_hcr1w"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" path="res://scenes/levels/statue.gd" id="5_ul447"]
 [ext_resource type="AudioStream" uid="uid://y7bm75yoodg6" path="res://assets/music/sfx/heal.mp3" id="8_e0jep"]
 [ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="10_xobin"]
+[ext_resource type="PackedScene" uid="uid://c1gwppnavdibh" path="res://scenes/entities/volcano_pup.tscn" id="13_fsxg3"]
+[ext_resource type="PackedScene" uid="uid://fyw1uols0ael" path="res://scenes/entities/player.tscn" id="14_6r73g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kxcly"]
 texture = ExtResource("1_hcr1w")
@@ -677,6 +679,12 @@ position = Vector2(1604, 780)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-178, 724)
+
+[node name="VolcanoPup" parent="." instance=ExtResource("13_fsxg3")]
+position = Vector2(187, 879)
+
+[node name="Player" parent="VolcanoPup" instance=ExtResource("14_6r73g")]
+position = Vector2(-532, 8)
 
 [connection signal="body_entered" from="Fountain" to="Fountain" method="_on_body_entered"]
 [connection signal="body_exited" from="Fountain" to="Fountain" method="_on_body_exited"]
