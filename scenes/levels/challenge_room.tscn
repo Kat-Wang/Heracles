@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://b24puxxrewvrx"]
+[gd_scene load_steps=15 format=3 uid="uid://b24puxxrewvrx"]
 
 [ext_resource type="Script" path="res://scenes/levels/challenge_room.gd" id="1_xd8we"]
 [ext_resource type="PackedScene" uid="uid://cym6o507phked" path="res://scenes/levels/lava.tscn" id="2_c6cwl"]
 [ext_resource type="PackedScene" uid="uid://d3mr66n77ogkx" path="res://scenes/levels/hell_tile_map.tscn" id="2_yb8vs"]
+[ext_resource type="PackedScene" uid="uid://4kwi8gl8esbb" path="res://scenes/levels/hell_resting_level.tscn" id="3_cj2hn"]
 [ext_resource type="Texture2D" uid="uid://bk6yb64041y16" path="res://assets/sprites/deco/sign_arrow.png" id="3_p5e6k"]
 [ext_resource type="Texture2D" uid="uid://dab4hvcfvyuu5" path="res://assets/sprites/backgrounds/challenge_room_background.png" id="3_rgl6x"]
 [ext_resource type="PackedScene" uid="uid://cjpnpsxhjmfxs" path="res://scenes/levels/death_zone.tscn" id="4_k6qh6"]
 [ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="5_2oof6"]
 [ext_resource type="AudioStream" uid="uid://y3sxul5ih5jl" path="res://assets/music/bgm/ancient-ruins-136473.mp3" id="6_e0ce3"]
-[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/Font/PixelifySans-Regular.ttf" id="8_qt10f"]
+[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/font/PixelifySans-Regular.ttf" id="8_qt10f"]
 [ext_resource type="AudioStream" uid="uid://ds5wnjnpbfmrk" path="res://assets/music/sfx/challenge_room_victory.mp3" id="9_gi6w2"]
 [ext_resource type="PackedScene" uid="uid://dm2kens52e5f0" path="res://scenes/ui/wreath.tscn" id="9_svcsb"]
 [ext_resource type="PackedScene" uid="uid://c1peh3ibjfsxt" path="res://scenes/ui/coin.tscn" id="10_5mrlb"]
@@ -22,6 +23,7 @@ point_count = 7
 [node name="ChallengeRoom" type="Node2D" node_paths=PackedStringArray("starting_position")]
 script = ExtResource("1_xd8we")
 mob_scene = ExtResource("2_c6cwl")
+next_level = ExtResource("3_cj2hn")
 starting_position = NodePath("StartingPosition")
 
 [node name="HellTileMap" parent="." instance=ExtResource("2_yb8vs")]
