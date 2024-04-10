@@ -9,7 +9,7 @@ class_name PlayerStateMachine
 var states : Array[State]
 
 func _ready():
-	#print("Current State: ", current_state)
+	#print(character.name, "Current State: ", current_state)
 	
 	for child in get_children():
 		if(child is State):
