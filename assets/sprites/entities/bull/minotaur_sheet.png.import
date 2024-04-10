@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bekb6tq5a4b7e"
-path="res://.godot/imported/Minotaur - Sprite Sheet.png-79f4ad6bc3c5bb9991268b482643cdb8.ctex"
+path="res://.godot/imported/minotaur_sheet.png-f5c8ca37a7ec92eb4747545030fdd5aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/entities/bull/Minotaur - Sprite Sheet.png"
-dest_files=["res://.godot/imported/Minotaur - Sprite Sheet.png-79f4ad6bc3c5bb9991268b482643cdb8.ctex"]
+source_file="res://assets/sprites/entities/bull/minotaur_sheet.png"
+dest_files=["res://.godot/imported/minotaur_sheet.png-f5c8ca37a7ec92eb4747545030fdd5aa.ctex"]
 
 [params]
 

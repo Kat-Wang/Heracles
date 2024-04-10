@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://scenes/entities/hit_state.gd" id="8_gu5rf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_it46g"]
-size = Vector2(38, 24)
+size = Vector2(38, 26.5)
 
 [sub_resource type="Animation" id="Animation_dvaun"]
 length = 0.001
@@ -253,7 +253,7 @@ collision_layer = 4
 script = ExtResource("1_riula")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 8)
+position = Vector2(5, 9.25)
 shape = SubResource("RectangleShape2D_it46g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

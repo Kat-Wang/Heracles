@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://jdxlqipqc7bp" path="res://assets/music/bgm/life-of-a-wandering-wizard-15549.mp3" id="2_y3qkj"]
 [ext_resource type="Texture2D" uid="uid://cksy4tnk4lq8t" path="res://assets/sprites/backgrounds/menu_background.png" id="3_ebv31"]
 [ext_resource type="Texture2D" uid="uid://dlcsau82x4weu" path="res://assets/sprites/entities/herc/herc.png" id="4_lx1g6"]
-[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/Font/PixelifySans-Regular.ttf" id="6_aro4n"]
+[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/font/PixelifySans-Regular.ttf" id="6_aro4n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7hkq"]
 bg_color = Color(0.780392, 0.54902, 0.219608, 0)
