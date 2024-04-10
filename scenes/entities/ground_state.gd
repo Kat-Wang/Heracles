@@ -2,7 +2,7 @@ extends State
 
 class_name GroundState
 
-@export var jump_velocity = -900.0
+@export var jump_velocity = -1000.0
 @export var air_state : State
 @export var attack_state : State
 @export var jump_sfx : AudioStreamPlayer2D

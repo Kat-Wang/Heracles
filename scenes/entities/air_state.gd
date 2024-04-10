@@ -12,7 +12,6 @@ class_name AirState
 
 var has_doubled_jumped = false
 
-
 func state_process(delta):
 	if character.is_on_floor():
 		landing_sfx.play()

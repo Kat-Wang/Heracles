@@ -1,24 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://b24puxxrewvrx"]
+[gd_scene load_steps=14 format=3 uid="uid://b24puxxrewvrx"]
 
 [ext_resource type="Script" path="res://scenes/levels/challenge_room.gd" id="1_xd8we"]
+[ext_resource type="PackedScene" uid="uid://cym6o507phked" path="res://scenes/levels/lava.tscn" id="2_c6cwl"]
 [ext_resource type="PackedScene" uid="uid://d3mr66n77ogkx" path="res://scenes/levels/hell_tile_map.tscn" id="2_yb8vs"]
 [ext_resource type="Texture2D" uid="uid://bk6yb64041y16" path="res://assets/sprites/deco/sign_arrow.png" id="3_p5e6k"]
 [ext_resource type="Texture2D" uid="uid://dab4hvcfvyuu5" path="res://assets/sprites/backgrounds/challenge_room_background.png" id="3_rgl6x"]
 [ext_resource type="PackedScene" uid="uid://cjpnpsxhjmfxs" path="res://scenes/levels/death_zone.tscn" id="4_k6qh6"]
 [ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="5_2oof6"]
 [ext_resource type="AudioStream" uid="uid://y3sxul5ih5jl" path="res://assets/music/bgm/ancient-ruins-136473.mp3" id="6_e0ce3"]
+[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/Font/PixelifySans-Regular.ttf" id="8_qt10f"]
 [ext_resource type="AudioStream" uid="uid://ds5wnjnpbfmrk" path="res://assets/music/sfx/challenge_room_victory.mp3" id="9_gi6w2"]
 [ext_resource type="PackedScene" uid="uid://dm2kens52e5f0" path="res://scenes/ui/wreath.tscn" id="9_svcsb"]
 [ext_resource type="PackedScene" uid="uid://c1peh3ibjfsxt" path="res://scenes/ui/coin.tscn" id="10_5mrlb"]
 
 [sub_resource type="Curve2D" id="Curve2D_7pdqr"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 2520, 0, 0, 0, 0, 0, 6280, 8, 0, 0, 0, 0, 8784, 0, 0, 0, 0, 0, 8776, 1736, 0, 0, 0, 0, -8, 1744, 0, 0, 0, 0, -8, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 21.7231, -4357.25, 0, 0, 0, 0, 6196.92, -4383.44, 0, 0, 0, 0, 8836.87, -4299.65, 0, 0, 0, 0, 8836.87, -3587.4, 0, 0, 0, 0, 27.1274, -3734.04, 0, 0, 0, 0, -4.39697, -4210.62, 0, 0, 0, 0, 21.7231, -4179.19)
 }
-point_count = 6
+point_count = 7
 
 [node name="ChallengeRoom" type="Node2D" node_paths=PackedStringArray("starting_position")]
 script = ExtResource("1_xd8we")
+mob_scene = ExtResource("2_c6cwl")
 starting_position = NodePath("StartingPosition")
 
 [node name="HellTileMap" parent="." instance=ExtResource("2_yb8vs")]
@@ -32,7 +35,7 @@ motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(2060, 1080)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Sky"]
-position = Vector2(-6.10352e-05, 7.62939e-06)
+position = Vector2(-25, -1879)
 scale = Vector2(6.728, 2.25521)
 texture = ExtResource("3_rgl6x")
 centered = false
@@ -40,19 +43,19 @@ centered = false
 [node name="DeathZones" type="Node" parent="."]
 
 [node name="DeathZone" parent="DeathZones" instance=ExtResource("4_k6qh6")]
-position = Vector2(914, 1874)
+position = Vector2(1022, 1880)
 
 [node name="DeathZone5" parent="DeathZones" instance=ExtResource("4_k6qh6")]
-position = Vector2(-2072, 1874)
+position = Vector2(-1894, 1887)
 
 [node name="DeathZone6" parent="DeathZones" instance=ExtResource("4_k6qh6")]
-position = Vector2(-5033, 1883)
+position = Vector2(-4767, 1894)
 
 [node name="DeathZone2" parent="DeathZones" instance=ExtResource("4_k6qh6")]
-position = Vector2(3881, 1883)
+position = Vector2(4002, 1884)
 
 [node name="DeathZone3" parent="DeathZones" instance=ExtResource("4_k6qh6")]
-position = Vector2(6873, 1874)
+position = Vector2(6974, 1874)
 
 [node name="DeathZone4" parent="DeathZones" instance=ExtResource("4_k6qh6")]
 position = Vector2(9852, 1874)
@@ -69,7 +72,7 @@ max_distance = 10000.0
 position = Vector2(348, 793)
 
 [node name="MobTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.2
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
@@ -78,12 +81,13 @@ wait_time = 60.0
 one_shot = true
 
 [node name="MobPath" type="Path2D" parent="."]
-position = Vector2(8, 0)
+position = Vector2(-2409.12, -2005)
+scale = Vector2(1.11025, 0.190946)
 curve = SubResource("Curve2D_7pdqr")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2(2520, 0)
-rotation = 0.00212766
+position = Vector2(21.7231, -4357.25)
+rotation = -0.00424113
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -95,6 +99,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_qt10f")
 theme_override_font_sizes/font_size = 40
 
 [node name="IntroLabel" type="Label" parent="CanvasLayer"]
@@ -109,6 +114,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_qt10f")
 theme_override_font_sizes/font_size = 50
 text = "Collect all 5 wreaths before time runs out!"
 
@@ -128,10 +134,12 @@ offset_right = 173.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_qt10f")
 theme_override_font_sizes/font_size = 50
 text = "Good job! Progress to the portal on the right."
 
 [node name="VictorySFX" type="AudioStreamPlayer2D" parent="CanvasLayer"]
+position = Vector2(85, 0)
 stream = ExtResource("9_gi6w2")
 volume_db = -2.0
 

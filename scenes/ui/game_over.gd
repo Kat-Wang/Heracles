@@ -1,6 +1,6 @@
 extends Control
 
-var checkpoint
+signal load_checkpoint
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,10 +13,8 @@ func _process(delta):
 
 func _on_retry_pressed():
 	get_tree().reload_current_scene()
-	#$Game/CurrentLevel.add_child(checkpoint)
-	#$Game/CurrentLevel.add_child(checkpoint)
+	load_checkpoint.emit()
 	
-
 
 func _on_exit_pressed():
 	get_tree().quit()
