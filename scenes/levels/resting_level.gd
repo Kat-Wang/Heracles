@@ -1,7 +1,10 @@
 extends Level
 
+class_name RestingLevel
+
 signal level_complete(next_level:PackedScene)
 
+@onready var statue := $Statue
 @onready var resting_portal := $RestingPortal
 
 # Called when the node enters the scene tree for the first time.

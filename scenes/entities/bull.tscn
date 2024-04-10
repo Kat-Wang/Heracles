@@ -276,7 +276,7 @@ target_position = Vector2(0, 82)
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("5_c1d87")
-health = 2.0
+health = 4.0
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 active = false

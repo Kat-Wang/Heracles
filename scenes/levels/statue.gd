@@ -1,5 +1,7 @@
 extends Area2D
 
+signal save_checkpoint
+
 var in_statue := false
 
 # Called when the node enters the scene tree for the first time.
@@ -10,7 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if in_statue and Input.is_action_just_pressed("interact"):
-		print("give boon")
+		save_checkpoint.emit()
 
 
 func _on_body_entered(body):
