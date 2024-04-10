@@ -1,6 +1,6 @@
 extends Control
 
-signal load_checkpoint
+signal retry
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,8 +12,8 @@ func _process(delta):
 	pass
 
 func _on_retry_pressed():
-	get_tree().reload_current_scene()
-	load_checkpoint.emit()
+	#get_tree().reload_current_scene()
+	retry.emit()
 	
 
 func _on_exit_pressed():

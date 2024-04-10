@@ -1,6 +1,6 @@
 extends Area2D
 
-signal save_checkpoint
+signal save_checkpoint(id)
 
 var in_statue := false
 
@@ -12,7 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if in_statue and Input.is_action_just_pressed("interact"):
-		save_checkpoint.emit()
+		save_checkpoint.emit(get_parent().id)
 
 
 func _on_body_entered(body):

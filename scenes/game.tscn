@@ -10,7 +10,9 @@
 [node name="Game" type="Node2D"]
 script = ExtResource("1_qtf5s")
 
-[node name="Player" parent="." instance=ExtResource("1_umrrs")]
+[node name="Player" type="Node" parent="."]
+
+[node name="Player" parent="Player" instance=ExtResource("1_umrrs")]
 position = Vector2(-109, 481)
 
 [node name="HUD" type="CanvasLayer" parent="."]

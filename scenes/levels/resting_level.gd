@@ -6,6 +6,7 @@ signal level_complete(next_level:PackedScene)
 
 @onready var statue := $Statue
 @onready var resting_portal := $RestingPortal
+@export var id: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

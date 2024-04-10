@@ -608,6 +608,7 @@ size = Vector2(171, 397)
 [node name="RestingLevel" type="Node2D" node_paths=PackedStringArray("starting_position")]
 position = Vector2(0, 1)
 script = ExtResource("1_frhjw")
+id = 1
 next_level = ExtResource("2_fcta8")
 starting_position = NodePath("Marker2D")
 
