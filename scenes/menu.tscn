@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scenes/menu.gd" id="1_kc1ry"]
 [ext_resource type="AudioStream" uid="uid://jdxlqipqc7bp" path="res://assets/music/bgm/life-of-a-wandering-wizard-15549.mp3" id="2_y3qkj"]
-[ext_resource type="FontFile" uid="uid://babsda8gvxkey" path="res://assets/font/PressStart2P-Regular.ttf" id="3_dj8q6"]
 [ext_resource type="Texture2D" uid="uid://cksy4tnk4lq8t" path="res://assets/sprites/backgrounds/menu_background.png" id="3_ebv31"]
 [ext_resource type="Texture2D" uid="uid://dlcsau82x4weu" path="res://assets/sprites/entities/herc/herc.png" id="4_lx1g6"]
+[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/Font/PixelifySans-Regular.ttf" id="6_aro4n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7hkq"]
 bg_color = Color(0.780392, 0.54902, 0.219608, 0)
@@ -72,7 +72,7 @@ size_flags_vertical = 8
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("3_dj8q6")
+theme_override_fonts/font = ExtResource("6_aro4n")
 theme_override_font_sizes/font_size = 95
 theme_override_styles/normal = SubResource("StyleBoxFlat_w7hkq")
 text = "Play"
@@ -80,7 +80,7 @@ text = "Play"
 [node name="Quit" type="Button" parent="MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_dj8q6")
+theme_override_fonts/font = ExtResource("6_aro4n")
 theme_override_font_sizes/font_size = 95
 theme_override_styles/normal = SubResource("StyleBoxFlat_w7hkq")
 text = "Quit"
@@ -111,7 +111,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.454902, 0.309804, 0.172549, 1)
 theme_override_colors/font_shadow_color = Color(0.462745, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.34902, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_dj8q6")
+theme_override_fonts/font = ExtResource("6_aro4n")
 theme_override_font_sizes/font_size = 130
 text = "Heracles"
 horizontal_alignment = 1
