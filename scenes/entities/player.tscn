@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://fyw1uols0ael"]
+[gd_scene load_steps=61 format=3 uid="uid://fyw1uols0ael"]
 
 [ext_resource type="Script" path="res://scenes/entities/player.gd" id="1_6xt7c"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="1_qs2yt"]
@@ -24,9 +24,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmd02"]
 size = Vector2(168.344, 217.748)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pxlw"]
-size = Vector2(94, 235)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcyqs"]
 size = Vector2(101, 242)
@@ -670,9 +667,9 @@ disabled = true
 collision_layer = 0
 collision_mask = 12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Sprite2D/HurtBox"]
 position = Vector2(11, -23.5)
-shape = SubResource("RectangleShape2D_3pxlw")
+polygon = PackedVector2Array(46.619, -118.405, 46.619, 121.595, -46.7143, 121.595, -46.7143, 41.5952, -86.7143, -118.405)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11.5, -23)
@@ -693,7 +690,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/move/blend_position = -0.0340425
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 2.85714)
+position = Vector2(0, -186.667)
 process_callback = 0
 position_smoothing_enabled = true
 drag_vertical_enabled = true

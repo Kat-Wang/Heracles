@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ilta4uhsvjd7" path="res://assets/sprites/entities/hera/hera_sceptre.png" id="1_rndyk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njocl"]
-size = Vector2(106, 969)
+size = Vector2(106, 962.333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvrqb"]
 size = Vector2(255, 167.5)
@@ -21,7 +21,7 @@ position = Vector2(67, 380)
 texture = ExtResource("1_rndyk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 490.5)
+position = Vector2(1, 487.167)
 shape = SubResource("RectangleShape2D_njocl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
