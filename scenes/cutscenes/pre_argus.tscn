@@ -1,0 +1,196 @@
+[gd_scene load_steps=13 format=3 uid="uid://b0m87e55wtm6m"]
+
+[ext_resource type="Texture2D" uid="uid://bvbgglyhlkckp" path="res://assets/sprites/backgrounds/argus_background_new.png" id="1_s0c7k"]
+[ext_resource type="PackedScene" uid="uid://c7sfo0gpswmv7" path="res://scenes/levels/tile_map_forest.tscn" id="2_4ebpm"]
+[ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="3_f7m86"]
+[ext_resource type="Texture2D" uid="uid://bdncrpqt1t0l3" path="res://assets/sprites/entities/hera/hera_teleport_appear.png" id="4_w6r4r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g0pt"]
+atlas = ExtResource("4_w6r4r")
+region = Rect2(0, 0, 1200, 1200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axbmv"]
+atlas = ExtResource("4_w6r4r")
+region = Rect2(1200, 0, 1200, 1200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40dyb"]
+atlas = ExtResource("4_w6r4r")
+region = Rect2(2400, 0, 1200, 1200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usd7c"]
+atlas = ExtResource("4_w6r4r")
+region = Rect2(3600, 0, 1200, 1200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bepah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g0pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axbmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40dyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usd7c")
+}],
+"loop": true,
+"name": &"appear",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"disappear",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_obb0x"]
+resource_name = "pre_argus"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Herc:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_f7m86")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Herc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-205, 546), Vector2(628, 546)]
+}
+
+[sub_resource type="Animation" id="Animation_g1bww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Herc:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_f7m86")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Herc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-205, 546)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkxsr"]
+_data = {
+"RESET": SubResource("Animation_g1bww"),
+"pre_argus": SubResource("Animation_obb0x")
+}
+
+[node name="Node" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -214.0
+offset_right = 207.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_s0c7k")
+
+[node name="ForestTileMap" parent="Control" instance=ExtResource("2_4ebpm")]
+layer_0/tile_data = PackedInt32Array(524288, 524288, 3, 524289, 589824, 3, 524290, 655360, 3, 524291, 524288, 3, 524292, 589824, 3, 524293, 655360, 3, 524294, 524288, 3, 524295, 589824, 3, 524296, 655360, 3, 524297, 524288, 3, 524298, 589824, 3, 524299, 655360, 3, 524300, 524288, 3, 524301, 589824, 3, 524302, 655360, 3, 524303, 524288, 3, 524304, 589824, 3, 524305, 655360, 3, 524306, 524288, 3, 524307, 589824, 3, 524308, 655360, 3, 524309, 524288, 3, 524310, 589824, 3, 524311, 655360, 3)
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = 769.0
+offset_right = -127.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0196078, 0.0196078, 0.0980392, 0.368627)
+
+[node name="HercDialogue" type="Label" parent="Control/ColorRect"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 133.0
+offset_top = -34.5
+offset_right = 509.0
+offset_bottom = 34.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = ". . ."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="HeraDialogue" type="Label" parent="Control/ColorRect"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 137.0
+offset_top = -34.5
+offset_right = 1107.0
+offset_bottom = 34.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "As of right now. . . you are cursed to die."
+
+[node name="Herc" type="Sprite2D" parent="Control"]
+position = Vector2(-205, 546)
+texture = ExtResource("3_f7m86")
+hframes = 2
+
+[node name="Hera" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(1468, 389)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_bepah")
+animation = &"disappear"
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dkxsr")
+}
