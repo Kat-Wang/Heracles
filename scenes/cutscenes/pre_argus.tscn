@@ -53,7 +53,7 @@ length = 20.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Herc:texture")
+tracks/0/path = NodePath("Cutscene/Herc:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -65,7 +65,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/Herc:position")
+tracks/1/path = NodePath("Cutscene/Herc:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -80,7 +80,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Herc:texture")
+tracks/0/path = NodePath("Cutscene/Herc:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -92,7 +92,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/Herc:position")
+tracks/1/path = NodePath("Cutscene/Herc:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -108,47 +108,54 @@ _data = {
 "pre_argus": SubResource("Animation_obb0x")
 }
 
-[node name="PreArgus" type="Node"]
+[node name="PreArgus" type="Node2D"]
 script = ExtResource("1_a2axj")
 
-[node name="Control" type="Control" parent="."]
+[node name="Cutscene" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="Cutscene"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -131.0
-offset_top = -214.0
-offset_right = 207.0
-offset_bottom = 3.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1909.0
+offset_bottom = 1074.0
 texture = ExtResource("1_s0c7k")
 
-[node name="ForestTileMap" parent="Control" instance=ExtResource("2_4ebpm")]
+[node name="ForestTileMap" parent="Cutscene" instance=ExtResource("2_4ebpm")]
+position = Vector2(9.53674e-07, 5.96046e-08)
 layer_0/tile_data = PackedInt32Array(524288, 524288, 3, 524289, 589824, 3, 524290, 655360, 3, 524291, 524288, 3, 524292, 589824, 3, 524293, 655360, 3, 524294, 524288, 3, 524295, 589824, 3, 524296, 655360, 3, 524297, 524288, 3, 524298, 589824, 3, 524299, 655360, 3, 524300, 524288, 3, 524301, 589824, 3, 524302, 655360, 3, 524303, 524288, 3, 524304, 589824, 3, 524305, 655360, 3, 524306, 524288, 3, 524307, 589824, 3, 524308, 655360, 3, 524309, 524288, 3, 524310, 589824, 3, 524311, 655360, 3)
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="Herc" type="Sprite2D" parent="Cutscene"]
+position = Vector2(-205, 546)
+texture = ExtResource("3_f7m86")
+hframes = 2
+
+[node name="Hera" type="AnimatedSprite2D" parent="Cutscene"]
+position = Vector2(1468, 389)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_bepah")
+animation = &"appear"
+flip_h = true
+
+[node name="ColorRect" type="ColorRect" parent="Cutscene"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 127.0
 offset_top = 769.0
-offset_right = -127.0
-offset_bottom = -59.0
+offset_right = 1793.0
+offset_bottom = 1021.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0196078, 0.0196078, 0.0980392, 0.368627)
 
-[node name="HercDialogue" type="Label" parent="Control/ColorRect"]
+[node name="HercDialogue" type="Label" parent="Cutscene/ColorRect"]
 visible = false
 z_index = 1
 layout_mode = 1
@@ -165,7 +172,7 @@ text = ". . ."
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="HeraDialogue" type="Label" parent="Control/ColorRect"]
+[node name="HeraDialogue" type="Label" parent="Cutscene/ColorRect"]
 visible = false
 z_index = 1
 layout_mode = 1
@@ -179,18 +186,6 @@ offset_bottom = 34.5
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "As of right now. . . you are cursed to die."
-
-[node name="Herc" type="Sprite2D" parent="Control"]
-position = Vector2(-205, 546)
-texture = ExtResource("3_f7m86")
-hframes = 2
-
-[node name="Hera" type="AnimatedSprite2D" parent="Control"]
-position = Vector2(1468, 389)
-scale = Vector2(0.7, 0.7)
-sprite_frames = SubResource("SpriteFrames_bepah")
-animation = &"disappear"
-flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -15,11 +15,13 @@ signal coin_collected
 @onready var land_sfx := $SFX/Land
 @onready var coin_count : int = 0
 @onready var damagable := $Damageable
+@onready var camera := $Camera2D
 
 @export var max_health : int = 5
 @export var damage : int = 1
 @export var hit_state : State
 @export var wall_state : State
+
 
 const SPEED = 500
 const DASH_SPEED = 1500
@@ -42,6 +44,7 @@ func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
 	if dash_available and Input.is_action_pressed("dash"):
+		print(camera.position)
 		velocity.x = last_direction * DASH_SPEED
 		$DashCooldown.start()
 		$Dashing.start()

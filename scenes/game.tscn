@@ -39,5 +39,3 @@ visible = false
 [node name="CurrentLevel" type="Node" parent="."]
 
 [node name="SkyLevel" parent="CurrentLevel" instance=ExtResource("2_fyebt")]
-
-[node name="Cutscenes" type="Node" parent="."]

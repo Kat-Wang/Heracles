@@ -690,7 +690,7 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/move/blend_position = -0.0340425
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -186.667)
+position = Vector2(2.08165e-12, -186)
 process_callback = 0
 position_smoothing_enabled = true
 drag_vertical_enabled = true
