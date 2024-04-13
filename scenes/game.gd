@@ -64,7 +64,7 @@ func load_checkpoint(id):
 
 		gos.visible = false
 
-func transition(next_level:PackedScene):
+func transition(next_level:PackedScene):	
 	if next_level:
 		# Instantiating next level
 		var scene_instance = next_level.instantiate()

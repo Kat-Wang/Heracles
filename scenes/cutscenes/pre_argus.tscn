@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0m87e55wtm6m"]
+[gd_scene load_steps=14 format=3 uid="uid://b0m87e55wtm6m"]
 
+[ext_resource type="Script" path="res://scenes/cutscenes/pre_argus.gd" id="1_a2axj"]
 [ext_resource type="Texture2D" uid="uid://bvbgglyhlkckp" path="res://assets/sprites/backgrounds/argus_background_new.png" id="1_s0c7k"]
 [ext_resource type="PackedScene" uid="uid://c7sfo0gpswmv7" path="res://scenes/levels/tile_map_forest.tscn" id="2_4ebpm"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="3_f7m86"]
@@ -107,7 +108,8 @@ _data = {
 "pre_argus": SubResource("Animation_obb0x")
 }
 
-[node name="Node" type="Node"]
+[node name="PreArgus" type="Node"]
+script = ExtResource("1_a2axj")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

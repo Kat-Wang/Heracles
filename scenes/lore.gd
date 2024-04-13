@@ -32,6 +32,5 @@ func main_finished():
 func ending_finished():
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
-
 func _on_skip_pressed():
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
