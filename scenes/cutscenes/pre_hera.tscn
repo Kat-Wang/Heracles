@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=3 uid="uid://ba1uldiv7kovx"]
+
+[ext_resource type="Script" path="res://scenes/cutscenes/pre_hera.gd" id="1_0f8s8"]
+[ext_resource type="PackedScene" uid="uid://cp730h4axm6xo" path="res://scenes/levels/cloud_tile_map.tscn" id="1_xy4xj"]
+[ext_resource type="PackedScene" uid="uid://4kwi8gl8esbb" path="res://scenes/levels/hell_resting_level.tscn" id="2_erhsg"]
+[ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="2_uil4q"]
+[ext_resource type="Texture2D" uid="uid://d2xlsyflpvjf3" path="res://assets/sprites/entities/hera/hera_idle.png" id="3_jb480"]
+[ext_resource type="Texture2D" uid="uid://bbd08fureus3f" path="res://assets/sprites/entities/herc/neutral_herc.png" id="4_6xotu"]
+[ext_resource type="Texture2D" uid="uid://dl4klmi2hwhch" path="res://assets/sprites/entities/hera/hera_pfp.png" id="5_y6ln5"]
+
+[sub_resource type="Animation" id="Animation_35yjx"]
+resource_name = "pre_hera"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ylivq"]
+_data = {
+"pre_hera": SubResource("Animation_35yjx")
+}
+
+[node name="PreHera" type="Node2D" node_paths=PackedStringArray("starting_position")]
+script = ExtResource("1_0f8s8")
+next_level = ExtResource("2_erhsg")
+starting_position = NodePath("Marker2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ylivq")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(960, 726)
+
+[node name="Cutscene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="CloudTileMap" parent="Cutscene" instance=ExtResource("1_xy4xj")]
+
+[node name="Herc" type="Sprite2D" parent="Cutscene"]
+position = Vector2(-189, 546)
+texture = ExtResource("2_uil4q")
+hframes = 2
+
+[node name="Hera" type="Sprite2D" parent="Cutscene"]
+position = Vector2(1287, 469)
+scale = Vector2(-0.7, 0.7)
+texture = ExtResource("3_jb480")
+flip_h = true
+hframes = 2
+
+[node name="ColorRect" type="ColorRect" parent="Cutscene"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = 769.0
+offset_right = 1793.0
+offset_bottom = 1021.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.239216, 0.203922, 0.509804, 0.368627)
+
+[node name="HercDialogue" type="Label" parent="Cutscene/ColorRect"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 133.0
+offset_top = -34.5
+offset_right = 509.0
+offset_bottom = 34.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = ". . ."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="HeraDialogue" type="Label" parent="Cutscene/ColorRect"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 133.0
+offset_top = -83.0
+offset_right = 1601.0
+offset_bottom = 58.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "What? No. He was ugly anyways."
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="HercPortrait" type="ColorRect" parent="Cutscene"]
+visible = false
+layout_mode = 0
+offset_left = 189.0
+offset_top = 544.0
+offset_right = 452.0
+offset_bottom = 807.0
+
+[node name="HercPFP" type="TextureRect" parent="Cutscene/HercPortrait"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.5
+offset_top = -229.5
+offset_right = 229.5
+offset_bottom = 270.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6xotu")
+
+[node name="HeraPortrait" type="ColorRect" parent="Cutscene"]
+visible = false
+layout_mode = 0
+offset_left = 1463.0
+offset_top = 544.0
+offset_right = 1726.0
+offset_bottom = 807.0
+
+[node name="HeraPFP" type="TextureRect" parent="Cutscene/HeraPortrait"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.5
+offset_top = -288.5
+offset_right = 312.5
+offset_bottom = 311.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_y6ln5")

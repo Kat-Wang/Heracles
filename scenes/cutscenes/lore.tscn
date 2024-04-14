@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2v3xou2ldy5w"]
+[gd_scene load_steps=14 format=3 uid="uid://c2v3xou2ldy5w"]
 
 [ext_resource type="Script" path="res://scenes/cutscenes/lore.gd" id="1_0pstl"]
 [ext_resource type="Texture2D" uid="uid://bbd08fureus3f" path="res://assets/sprites/entities/herc/neutral_herc.png" id="2_frqw1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dl4klmi2hwhch" path="res://assets/sprites/entities/hera/hera_pfp.png" id="3_33prs"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="4_pu56v"]
 [ext_resource type="Texture2D" uid="uid://qqcq2wxuolmk" path="res://assets/sprites/entities/hera/hera.png" id="5_jdbfp"]
+[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/font/PixelifySans-Regular.ttf" id="8_77lj1"]
 
 [sub_resource type="Animation" id="Animation_bho56"]
 length = 0.001
@@ -706,6 +707,7 @@ offset_top = -76.0
 offset_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("8_77lj1")
 theme_override_font_sizes/font_size = 50
 text = "Skip"
 
