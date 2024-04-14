@@ -30,6 +30,8 @@ var dash_available = true
 var dashing = false
 var current_health : int = 5
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var default_cam_position = Vector2(0, -186)
+var is_in_cutscene = false
 
 func _ready():
 	animation_tree.active = true
@@ -37,28 +39,34 @@ func _ready():
 	damagable.player_died.connect(signal_player_died)
 
 func _physics_process(delta):
-	if not is_on_floor():
-		velocity.y += gravity * delta
-		velocity.y = min(velocity.y, 980)
+	if is_in_cutscene:
+		self.visible = false
+	else:
+		self.visible = true
 		
-	var direction = Input.get_vector("left", "right", "up", "down")
-	
-	if dash_available and Input.is_action_pressed("dash"):
-		print(camera.position)
-		velocity.x = last_direction * DASH_SPEED
-		$DashCooldown.start()
-		$Dashing.start()
-		dash_available = false
-		dashing = true
-	elif direction.x != 0 && state_machine.check_if_can_move() && !dashing && state_machine.current_state != wall_state:
-		velocity.x = direction.x * SPEED
-		$Sprite2D.scale.x = sign(direction.x) 
-		last_direction = sign(direction.x)
-	elif state_machine.current_state != hit_state and !dashing:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	move_and_slide()
-	update_animation_parameters(direction)
+	if !is_in_cutscene:
+		if not is_on_floor():
+			velocity.y += gravity * delta
+			velocity.y = min(velocity.y, 980)
+			
+		var direction = Input.get_vector("left", "right", "up", "down")
+		
+		if dash_available and Input.is_action_pressed("dash"):
+			print(camera.position)
+			velocity.x = last_direction * DASH_SPEED
+			$DashCooldown.start()
+			$Dashing.start()
+			dash_available = false
+			dashing = true
+		elif direction.x != 0 && state_machine.check_if_can_move() && !dashing && state_machine.current_state != wall_state:
+			velocity.x = direction.x * SPEED
+			$Sprite2D.scale.x = sign(direction.x) 
+			last_direction = sign(direction.x)
+		elif state_machine.current_state != hit_state and !dashing:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		move_and_slide()
+		update_animation_parameters(direction)
 
 func update_animation_parameters(direction):
 	#Sets idling or walking

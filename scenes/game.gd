@@ -80,14 +80,14 @@ func transition(next_level:PackedScene):
 		
 		player.position = scene_instance.starting_position.position
 		
-		#checkpoint = scene_instance
-		#gos.checkpoint = scene_instance
-		#print(checkpoint)
-		
 		if scene_instance is ChallengeRoom:
 			scene_instance.timeout.connect(game_over)
 		if scene_instance is RestingLevel:
 			scene_instance.statue.save_checkpoint.connect(save_checkpoint)
+		if scene_instance is Cutscene:
+			player.is_in_cutscene = true
+		else:
+			player.is_in_cutscene = false
 	else:
 		game_over()
 
