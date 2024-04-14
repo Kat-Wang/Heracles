@@ -52,7 +52,6 @@ func _physics_process(delta):
 		var direction = Input.get_vector("left", "right", "up", "down")
 		
 		if dash_available and Input.is_action_pressed("dash"):
-			print(camera.position)
 			velocity.x = last_direction * DASH_SPEED
 			$DashCooldown.start()
 			$Dashing.start()

@@ -86,8 +86,16 @@ func transition(next_level:PackedScene):
 			scene_instance.statue.save_checkpoint.connect(save_checkpoint)
 		if scene_instance is Cutscene:
 			player.is_in_cutscene = true
+			player.camera.enabled = false
 		else:
 			player.is_in_cutscene = false
+			player.camera.enabled = true
+		
+		
+		print("Player: ", player.position)
+		print("Player Global: ", player.global_position)
+		print("Camera: ", player.camera.position)
+		print("Camera Global: ", player.camera.global_position)
 	else:
 		game_over()
 

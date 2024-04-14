@@ -15,7 +15,7 @@ func _ready():
 func _process(delta):
 	if not argus:
 		$StaticBody2D2/CollisionShape2D.disabled = true
+		pass
 		
 func transition():
-	print("transition")
 	level_complete.emit(next_level)
