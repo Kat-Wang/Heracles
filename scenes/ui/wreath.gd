@@ -6,7 +6,6 @@ signal wreath_collected
 
 @onready var sfx := $AudioStreamPlayer2D
 @onready var sprite := $AnimatedSprite2D
-@onready var collision := $CollisionShape2D
 @onready var timer := $Timer
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +14,6 @@ func _ready():
 	
 func collected():
 	timer.start()
-	collision.disabled = true
 	sprite.visible = false
 	sfx.play()
 	wreath_collected.emit()
