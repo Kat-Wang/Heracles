@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name BatProjectile
+
 @export var speed = 2.7
 
 # Called when the node enters the scene tree for the first time.
