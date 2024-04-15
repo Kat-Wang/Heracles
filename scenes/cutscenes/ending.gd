@@ -1,8 +1,10 @@
 extends CanvasLayer
 
+@onready var bgm := $AudioStreamPlayer2D
+
 func _ready():
 	$Chicken.play()
-	$AudioStreamPlayer2D.play()
+	bgm.play()
 
 func quit():
 	get_tree().quit()

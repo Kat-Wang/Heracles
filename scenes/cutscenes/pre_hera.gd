@@ -18,6 +18,7 @@ func _ready():
 	anim_player.play("pre_hera")
 	$Cutscene/Cat.play()
 	$Cutscene/BGM.play()
+	ending.bgm.stop()
 	happy.visible = false
 	unhappy_broke.visible = false
 	unhappy_rich.visible = false
