@@ -13,6 +13,7 @@ signal coin_collected
 @onready var attack_sfx := $SFX/Attack
 @onready var jump_sfx := $SFX/Jump
 @onready var land_sfx := $SFX/Land
+@onready var sword_hitting_sceptre_sfx := $SFX/SwordHittingSceptre
 @onready var coin_count : int = 0
 @onready var damagable := $Damageable
 @onready var camera := $Camera2D
@@ -144,3 +145,10 @@ func _on_dash_timer_timeout():
 
 func _on_dashing_timeout():
 	dashing = false
+
+func _on_sword_hit_box_area_entered(area):
+	if area is Sceptre:
+		sword_hitting_sceptre_sfx.play()
+		area.queue_free()
+	if area is BatProjectile:
+		area.queue_free()

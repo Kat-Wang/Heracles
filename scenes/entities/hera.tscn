@@ -1,13 +1,13 @@
-[gd_scene load_steps=40 format=3 uid="uid://bva30amydl0dh"]
+[gd_scene load_steps=42 format=3 uid="uid://bva30amydl0dh"]
 
 [ext_resource type="Script" path="res://scenes/entities/hera.gd" id="1_ho017"]
-[ext_resource type="Texture2D" uid="uid://d2xlsyflpvjf3" path="res://assets/sprites/entities/hera/hera_idle.png" id="1_u01f5"]
+[ext_resource type="Texture2D" uid="uid://vjvrhc0in0d" path="res://assets/sprites/entities/hera/hera_idle.png" id="1_u01f5"]
 [ext_resource type="Texture2D" uid="uid://b0v5xl4474eqk" path="res://assets/sprites/entities/hera/hera_attack.png" id="2_axnrg"]
 [ext_resource type="Script" path="res://scenes/entities/damageable.gd" id="2_ebo14"]
 [ext_resource type="Texture2D" uid="uid://ddjv6uf36rf16" path="res://assets/sprites/entities/hera/hera_damaged.png" id="3_85txo"]
 [ext_resource type="Script" path="res://scenes/entities/player_state_machine.gd" id="3_m0ogq"]
 [ext_resource type="Texture2D" uid="uid://bdncrpqt1t0l3" path="res://assets/sprites/entities/hera/hera_teleport_appear.png" id="4_wlui7"]
-[ext_resource type="Texture2D" uid="uid://b1fn6movtr8nr" path="res://assets/sprites/entities/hera/hera_death.png" id="4_xtx7r"]
+[ext_resource type="Texture2D" uid="uid://cysjpbie1rn72" path="res://assets/sprites/entities/hera/hera_death.png" id="4_xtx7r"]
 [ext_resource type="Texture2D" uid="uid://b4yhaysowma24" path="res://assets/sprites/entities/hera/hera_teleport_away.png" id="6_2bpie"]
 [ext_resource type="Script" path="res://scenes/entities/hit_state.gd" id="8_rcelb"]
 [ext_resource type="Script" path="res://scenes/entities/state.gd" id="9_4mqj3"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" path="res://scenes/entities/hera_appear.gd" id="12_ur7p3"]
 [ext_resource type="Script" path="res://scenes/entities/hera_disappear.gd" id="13_332rd"]
 [ext_resource type="Script" path="res://scenes/entities/hera_attack.gd" id="13_lxbor"]
+[ext_resource type="AudioStream" uid="uid://dm7y8w115ftum" path="res://assets/music/sfx/hera_attack_audio.wav" id="16_yhg3e"]
+[ext_resource type="AudioStream" uid="uid://iv7w7jcahjfi" path="res://assets/music/sfx/hera_teleport_audio.wav" id="17_f0xx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ijne"]
 size = Vector2(467, 684)
@@ -195,7 +197,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_8brpl"]
 resource_name = "teleport_in"
-length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -218,7 +219,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [5]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -227,10 +228,10 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_78t5q"]
@@ -334,7 +335,7 @@ states/attack/position = Vector2(669, 116)
 states/death/node = SubResource("AnimationNodeAnimation_fxy15")
 states/death/position = Vector2(941, 173)
 states/hit/node = SubResource("AnimationNodeAnimation_tkf33")
-states/hit/position = Vector2(511, 158)
+states/hit/position = Vector2(200, 173)
 states/idle/node = SubResource("AnimationNodeAnimation_4do08")
 states/idle/position = Vector2(511, 67)
 states/teleport_in/node = SubResource("AnimationNodeAnimation_b1aph")
@@ -363,6 +364,7 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_bb23l")
 }
@@ -388,6 +390,7 @@ knockback_speed = 300.0
 return_state = NodePath("../Disappear")
 
 [node name="Timer" type="Timer" parent="PlayerStateMachine/HitState"]
+wait_time = 0.4
 
 [node name="Ground" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("playerStateMachine", "return_state")]
 script = ExtResource("11_i3awe")
@@ -395,17 +398,18 @@ playerStateMachine = NodePath("..")
 return_state = NodePath("../Attack")
 
 [node name="Timer" type="Timer" parent="PlayerStateMachine/Ground"]
-wait_time = 2.5
+wait_time = 3.0
 one_shot = true
 autostart = true
 
 [node name="Die" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("9_4mqj3")
 
-[node name="Attack" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("playerStateMachine", "return_state")]
+[node name="Attack" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("playerStateMachine", "return_state", "attack_sfx")]
 script = ExtResource("13_lxbor")
 playerStateMachine = NodePath("..")
 return_state = NodePath("../Ground")
+attack_sfx = NodePath("../../SFX/Attack")
 
 [node name="ProjectileContainer" type="Node2D" parent="PlayerStateMachine/Attack"]
 scale = Vector2(0.7, 0.7)
@@ -419,20 +423,32 @@ playerStateMachine = NodePath("..")
 return_state = NodePath("../Ground")
 
 [node name="Timer" type="Timer" parent="PlayerStateMachine/Appear"]
-wait_time = 0.8
 one_shot = true
 autostart = true
 
-[node name="Disappear" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("damageable", "playerStateMachine", "return_state")]
+[node name="Disappear" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("damageable", "playerStateMachine", "return_state", "teleport_sfx")]
 script = ExtResource("13_332rd")
 damageable = NodePath("../../Damageable")
 playerStateMachine = NodePath("..")
 return_state = NodePath("../Appear")
+teleport_sfx = NodePath("../../SFX/Teleport")
 
 [node name="Timer" type="Timer" parent="PlayerStateMachine/Disappear"]
 wait_time = 1.2
 one_shot = true
 autostart = true
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("16_yhg3e")
+volume_db = 15.0
+max_distance = 8000.0
+
+[node name="Teleport" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("17_f0xx0")
+volume_db = 7.0
+max_distance = 10000.0
 
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="PlayerStateMachine/HitState/Timer" to="PlayerStateMachine/HitState" method="_on_timer_timeout"]

@@ -9,12 +9,12 @@ size = Vector2(106, 962.333)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvrqb"]
 size = Vector2(255, 167.5)
 
-[node name="HeraSceptre" type="Area2D"]
+[node name="Sceptre" type="Area2D"]
 scale = Vector2(0.3, 0.6)
 collision_layer = 4
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_7ct2o")
-speed = 17.0
+speed = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(67, 380)

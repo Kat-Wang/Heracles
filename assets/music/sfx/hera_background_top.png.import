@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cysjpbie1rn72"
-path="res://.godot/imported/hera_death.png-67b61cb6e4e0a2546ec0767808abcb40.ctex"
+uid="uid://ds3opdb8lws6o"
+path="res://.godot/imported/hera_background_top.png-70e29abc32796c7d9cbac9a5a03f55c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/entities/hera/hera_death.png"
-dest_files=["res://.godot/imported/hera_death.png-67b61cb6e4e0a2546ec0767808abcb40.ctex"]
+source_file="res://assets/music/sfx/hera_background_top.png"
+dest_files=["res://.godot/imported/hera_background_top.png-70e29abc32796c7d9cbac9a5a03f55c8.ctex"]
 
 [params]
 
