@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxfcxvl4lrej3"]
+
+[ext_resource type="Script" path="res://scenes/cutscenes/ending.gd" id="1_orqm3"]
+[ext_resource type="Texture2D" uid="uid://cd521r4jqtgq3" path="res://assets/sprites/deco/white_chicken_sheet.png" id="1_u3gjo"]
+[ext_resource type="Texture2D" uid="uid://buh2la8iefybk" path="res://assets/sprites/backgrounds/ending.png" id="2_c6oto"]
+[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/font/pixelify_sans_regular.ttf" id="3_omgfa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fouw8"]
+atlas = ExtResource("1_u3gjo")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6eo3"]
+atlas = ExtResource("1_u3gjo")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0npfd"]
+atlas = ExtResource("1_u3gjo")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8ft7"]
+atlas = ExtResource("1_u3gjo")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44s0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fouw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6eo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0npfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8ft7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ending" type="CanvasLayer"]
+script = ExtResource("1_orqm3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_c6oto")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1032.0
+offset_top = 128.0
+offset_right = 1848.0
+offset_bottom = 445.0
+theme_override_fonts/font = ExtResource("3_omgfa")
+theme_override_font_sizes/font_size = 135
+text = "Thank you for playing!"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Chicken" type="AnimatedSprite2D" parent="."]
+position = Vector2(1840, 992)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_44s0i")
