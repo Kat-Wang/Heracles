@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvt4xh1o7xduw"]
+[gd_scene load_steps=9 format=3 uid="uid://bvt4xh1o7xduw"]
 
 [ext_resource type="PackedScene" uid="uid://cp730h4axm6xo" path="res://scenes/levels/cloud_tile_map.tscn" id="1_lvjet"]
 [ext_resource type="Script" path="res://scenes/levels/hera_level.gd" id="1_x6pxq"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cjpnpsxhjmfxs" path="res://scenes/levels/death_zone.tscn" id="3_h4cye"]
 [ext_resource type="AudioStream" uid="uid://cqisuewi8nbjk" path="res://assets/music/bgm/hera_level_bgm.ogg" id="3_t8iov"]
 [ext_resource type="PackedScene" uid="uid://bva30amydl0dh" path="res://scenes/entities/hera.tscn" id="6_e50di"]
-[ext_resource type="PackedScene" uid="uid://fyw1uols0ael" path="res://scenes/entities/player.tscn" id="9_nw0di"]
 
 [node name="HeraLevel" type="Node2D" node_paths=PackedStringArray("starting_position")]
 script = ExtResource("1_x6pxq")
@@ -59,7 +58,7 @@ position = Vector2(13391, 2509)
 visible = false
 
 [node name="Hera" parent="." instance=ExtResource("6_e50di")]
-position = Vector2(629, 1667)
+position = Vector2(841, 1666)
 
 [node name="StartingPoint" type="Marker2D" parent="."]
 position = Vector2(323, 1813)
@@ -67,6 +66,3 @@ position = Vector2(323, 1813)
 [node name="Portal" parent="." instance=ExtResource("2_duhd8")]
 visible = false
 position = Vector2(11012, 1715)
-
-[node name="Player" parent="." instance=ExtResource("9_nw0di")]
-position = Vector2(283, 1833)
