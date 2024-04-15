@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvt4xh1o7xduw"]
+[gd_scene load_steps=9 format=3 uid="uid://bvt4xh1o7xduw"]
 
 [ext_resource type="PackedScene" uid="uid://cp730h4axm6xo" path="res://scenes/levels/cloud_tile_map.tscn" id="1_lvjet"]
 [ext_resource type="Script" path="res://scenes/levels/hera_level.gd" id="1_x6pxq"]
+[ext_resource type="PackedScene" uid="uid://bxfcxvl4lrej3" path="res://scenes/cutscenes/ending.tscn" id="2_cfoaa"]
 [ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="2_duhd8"]
 [ext_resource type="Texture2D" uid="uid://gjh7efhbs7cl" path="res://assets/sprites/backgrounds/hera_background.png" id="2_f8xhd"]
 [ext_resource type="PackedScene" uid="uid://cjpnpsxhjmfxs" path="res://scenes/levels/death_zone.tscn" id="3_h4cye"]
@@ -10,6 +11,7 @@
 
 [node name="HeraLevel" type="Node2D" node_paths=PackedStringArray("starting_position")]
 script = ExtResource("1_x6pxq")
+next_level = ExtResource("2_cfoaa")
 starting_position = NodePath("StartingPoint")
 
 [node name="Background" type="ParallaxBackground" parent="."]
@@ -29,7 +31,6 @@ layer_0/tile_data = PackedInt32Array(1572866, 65536, 10, 1572867, 131072, 10, 15
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_t8iov")
-volume_db = 10.0
 max_distance = 20000.0
 
 [node name="DeathZones" type="Node" parent="."]
