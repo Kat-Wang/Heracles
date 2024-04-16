@@ -9,7 +9,7 @@ class_name PlayerStateMachine
 var states : Array[State]
 
 func _ready():
-	print(character.name, "Current State: ", current_state)
+	#print("Current State: ", current_state)
 	
 	for child in get_children():
 		if(child is State):
@@ -45,7 +45,7 @@ func switch_states(new_state : State):
 			
 	current_state = new_state
 	current_state.on_enter()
-	print(character.name, " is switching to state: ", current_state)
+	#print(character.name, " is switching to state: ", current_state)
 
 func _input(event : InputEvent):
 	current_state.state_input(event)

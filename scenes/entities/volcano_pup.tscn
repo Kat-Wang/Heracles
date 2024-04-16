@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c1gwppnavdibh"]
+[gd_scene load_steps=30 format=3 uid="uid://c1gwppnavdibh"]
 
 [ext_resource type="Texture2D" uid="uid://dltlbqyw4hg43" path="res://assets/sprites/entities/lava_pup/volcano_pup_death.png" id="1_baorr"]
 [ext_resource type="Script" path="res://scenes/entities/volcano_pup.gd" id="1_o5vw8"]
@@ -11,96 +11,32 @@
 [ext_resource type="Script" path="res://scenes/entities/hit_state.gd" id="8_h6quj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mndi"]
-radius = 187.949
+radius = 1542.46
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4t5x"]
-radius = 94.0
-height = 206.0
+radius = 80.0
+height = 182.0
 
-[sub_resource type="Animation" id="Animation_5dc3m"]
-resource_name = "death"
-length = 0.8
+[sub_resource type="Animation" id="Animation_28khp"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/path = NodePath("../Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_baorr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [1, 2, 3, 4]
+"values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_o6fis"]
-resource_name = "idle"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_tvx3e")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_hm4ev"]
+[sub_resource type="Animation" id="Animation_3ppju"]
 resource_name = "attack"
-length = 0.6
+length = 0.2
+loop_mode = 1
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -132,25 +68,10 @@ tracks/2/path = NodePath("../Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2, 0]
-}
-
-[sub_resource type="Animation" id="Animation_jcx1k"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"values": [1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_2ghsf"]
@@ -192,86 +113,151 @@ tracks/2/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_5dc3m"]
+resource_name = "death"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_baorr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_o6fis"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_tvx3e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xb4jo"]
 _data = {
-"RESET": SubResource("Animation_jcx1k"),
-"attack": SubResource("Animation_hm4ev"),
+"RESET": SubResource("Animation_28khp"),
+"attack": SubResource("Animation_3ppju"),
+"damage": SubResource("Animation_2ghsf"),
 "death": SubResource("Animation_5dc3m"),
-"hit": SubResource("Animation_2ghsf"),
 "idle": SubResource("Animation_o6fis")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mbp1s"]
-animation = &"attack"
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_uw41v"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1etyl"]
-animation = &"death"
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_20q3c"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f3oat"]
-animation = &"hit"
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_k6ky7"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7f23x"]
-animation = &"idle"
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_20n67"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ofm6"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4xopi"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aertx"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1t3fd"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tu80i"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w3s0l"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yp4oo"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8eqvh"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ikrbr"]
-switch_mode = 2
-advance_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x44j8"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_su8lr"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8a3vp"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8q7nm"]
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_h1apd"]
-states/attack/node = SubResource("AnimationNodeAnimation_mbp1s")
-states/attack/position = Vector2(537, 187)
-states/death/node = SubResource("AnimationNodeAnimation_1etyl")
-states/death/position = Vector2(814, 170)
-states/hit/node = SubResource("AnimationNodeAnimation_f3oat")
-states/hit/position = Vector2(586, 92)
-states/idle/node = SubResource("AnimationNodeAnimation_7f23x")
-states/idle/position = Vector2(324, 106)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0ofm6"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_aertx"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_tu80i"), "idle", "hit", SubResource("AnimationNodeStateMachineTransition_yp4oo"), "hit", "idle", SubResource("AnimationNodeStateMachineTransition_ikrbr"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_su8lr"), "hit", "death", SubResource("AnimationNodeStateMachineTransition_8a3vp"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_8q7nm")]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vcg5a"]
+states/Start/position = Vector2(201, 98)
+states/attack/node = SubResource("AnimationNodeBlendSpace1D_uw41v")
+states/attack/position = Vector2(621, 98)
+states/damage/node = SubResource("AnimationNodeBlendSpace1D_20q3c")
+states/damage/position = Vector2(557, 183)
+states/death/node = SubResource("AnimationNodeBlendSpace1D_k6ky7")
+states/death/position = Vector2(336, 209)
+states/idle/node = SubResource("AnimationNodeBlendSpace1D_20n67")
+states/idle/position = Vector2(410, 102)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_4xopi"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_1t3fd"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_w3s0l"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_8eqvh"), "idle", "damage", SubResource("AnimationNodeStateMachineTransition_x44j8")]
 
 [sub_resource type="GDScript" id="GDScript_h8sd2"]
 script/source = "extends State
 
 class_name PupIdleState
 
-@export var attack_state : State
+@export var ShootingState : State
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	print(\"Idle State Active\")
+	next_state = ShootingState
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-	#var rand_num =  randi() % 200 + 1
-	#if rand_num == 5:
-		#emit_signal(\"interrupt_state\", ShootingState)
+	var rand_num =  randi() % 200 + 1
+	if rand_num == 5:
+		emit_signal(\"interrupt_state\", ShootingState)
 	#recieve signal from the main script when the player has entered into the area2D, then it will emit a signal to the Idle state for the state to change to emit a signal to change the state into the attack state.
 	#emit_signal()
-
-
-
-func _on_detection_area_body_entered(body):
-	next_state = attack_state
 "
 
 [sub_resource type="GDScript" id="GDScript_amgr0"]
@@ -279,14 +265,16 @@ script/source = "extends State
 
 class_name ShootingState
 
-@export var idle_state : State
-@export var playerStateMachine : PlayerStateMachine
+
+@export var PupIdleState : State
 
 # Called when the node enters the scene tree for the first time.
-func on_enter():
+func _ready():
 	print(\"Attack State entered\")
-	#playback.travel(\"attack\")
-	#next_state = PupIdleState
+	#on_exit()
+	#playback.travel(\"idle\")
+	next_state = PupIdleState
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -303,9 +291,14 @@ script = ExtResource("1_o5vw8")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-27, -122)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tvx3e")
+hframes = 2
+
 [node name="DetectionArea" type="Area2D" parent="."]
 position = Vector2(-16, -4)
 collision_layer = 2
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(-8, -4)
@@ -315,10 +308,6 @@ shape = SubResource("CircleShape2D_2mndi")
 position = Vector2(-25, -19)
 rotation = -3.14159
 shape = SubResource("CapsuleShape2D_m4t5x")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_tvx3e")
-hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationTree")
@@ -331,8 +320,12 @@ root_node = NodePath(".")
 libraries = {
 "": SubResource("AnimationLibrary_xb4jo")
 }
-tree_root = SubResource("AnimationNodeStateMachine_h1apd")
+tree_root = SubResource("AnimationNodeStateMachine_vcg5a")
 anim_player = NodePath("../AnimationPlayer")
+parameters/attack/blend_position = 0
+parameters/damage/blend_position = 0
+parameters/death/blend_position = 0
+parameters/idle/blend_position = 0
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("4_22smj")
@@ -344,32 +337,31 @@ current_state = NodePath("Idle")
 character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("attack_state")]
+[node name="Idle" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("ShootingState")]
 script = SubResource("GDScript_h8sd2")
-attack_state = NodePath("../Attack")
+ShootingState = NodePath("../Attack")
 
 [node name="Dead" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("7_m2sge")
 can_move = false
 
-[node name="Attack" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("idle_state", "playerStateMachine")]
+[node name="Attack" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("PupIdleState")]
 script = SubResource("GDScript_amgr0")
-idle_state = NodePath("../Idle")
-playerStateMachine = NodePath("..")
+PupIdleState = NodePath("../Idle")
 
 [node name="Timer" type="Timer" parent="PlayerStateMachine/Attack"]
 wait_time = 3.0
 
-[node name="Hit" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("damageable", "playerStateMachine", "dead_state", "return_state")]
+[node name="Hit" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("damageable", "playerStateMachine", "dead_state")]
 script = ExtResource("8_h6quj")
 damageable = NodePath("../../Damageable")
 playerStateMachine = NodePath("..")
 dead_state = NodePath("../Dead")
-knockback_speed = 100.0
-return_state = NodePath("../Idle")
+knockback_speed = 1.0
 
 [node name="Timer" type="Timer" parent="PlayerStateMachine/Hit"]
 
-[connection signal="body_entered" from="DetectionArea" to="PlayerStateMachine/Idle" method="_on_detection_area_body_entered"]
-[connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
-[connection signal="timeout" from="PlayerStateMachine/Hit/Timer" to="PlayerStateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

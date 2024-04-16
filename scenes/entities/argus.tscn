@@ -437,7 +437,7 @@ states/Start/position = Vector2(-13, 93)
 states/attack/node = SubResource("AnimationNodeBlendSpace1D_5qdaw")
 states/attack/position = Vector2(34.9313, 179.638)
 states/damage/node = SubResource("AnimationNodeBlendSpace1D_0ane3")
-states/damage/position = Vector2(394.913, 205.6)
+states/damage/position = Vector2(484.913, 216.6)
 states/death/node = SubResource("AnimationNodeAnimation_ygumm")
 states/death/position = Vector2(1000.58, 205.6)
 states/idle/node = SubResource("AnimationNodeBlendSpace1D_bn3of")
@@ -488,7 +488,7 @@ parameters/attack/blend_position = 0
 parameters/damage/blend_position = 0
 parameters/idle/blend_position = 0
 parameters/jump/blend_position = 0
-parameters/walk/blend_position = 0
+parameters/walk/blend_position = 0.00150156
 
 [node name="LaserContainer" type="Node2D" parent="."]
 position = Vector2(-84, 28)
