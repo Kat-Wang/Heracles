@@ -676,7 +676,7 @@ collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Sprite2D/HurtBox"]
 position = Vector2(11, -23.5)
-polygon = PackedVector2Array(46.619, -118.405, 46.619, 121.595, -46.7143, 121.595, -46.7143, 41.5952, -86.7143, -118.405)
+polygon = PackedVector2Array(51.619, -116.738, 51.619, 121.595, -46.7143, 121.595, -46.7143, 41.5952, -106.714, -116.738)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11.5, -23)
@@ -711,7 +711,7 @@ volume_db = -11.0
 
 [node name="SwordHittingSceptre" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("13_46txy")
-volume_db = 13.0
+volume_db = 3.0
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("12_j3nu0")

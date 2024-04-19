@@ -72,4 +72,5 @@ func play_ending():
 	#put that in and fade into it
 	# for post hera, transition to ending screen through portal
 	$Happy/BGM.stop
+	happy.visible = false
 	ending.visible = true

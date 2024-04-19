@@ -182,6 +182,36 @@ position = Vector2(-2004, 757)
 [node name="Coin6" parent="Coins" instance=ExtResource("10_5mrlb")]
 position = Vector2(-2324, 594)
 
+[node name="Coin7" parent="Coins" instance=ExtResource("10_5mrlb")]
+position = Vector2(2559, 1162)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("10_5mrlb")]
+position = Vector2(3441, 1162)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("10_5mrlb")]
+position = Vector2(2232, 704)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("10_5mrlb")]
+position = Vector2(3776, 704)
+
+[node name="Coin11" parent="Coins" instance=ExtResource("10_5mrlb")]
+position = Vector2(3920, 80)
+
+[node name="Coin12" parent="Coins" instance=ExtResource("10_5mrlb")]
+position = Vector2(2072, 80)
+
+[node name="Coin13" parent="Coins" instance=ExtResource("10_5mrlb")]
+position = Vector2(2632, -4.76837e-07)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("10_5mrlb")]
+position = Vector2(2632, -200)
+
+[node name="Coin15" parent="Coins" instance=ExtResource("10_5mrlb")]
+position = Vector2(3376, 0)
+
+[node name="Coin16" parent="Coins" instance=ExtResource("10_5mrlb")]
+position = Vector2(3376, -209)
+
 [node name="Deco" type="Node" parent="."]
 
 [node name="SignA" type="Sprite2D" parent="Deco"]
