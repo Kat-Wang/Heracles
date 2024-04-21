@@ -5,6 +5,7 @@ class_name Player
 signal healthChanged(current_health: int, healing: bool)
 signal player_death
 signal coin_collected
+signal wreath_collected
 
 @onready var direction = Vector2.RIGHT
 @onready var last_direction = 1
@@ -15,6 +16,7 @@ signal coin_collected
 @onready var land_sfx := $SFX/Land
 @onready var sword_hitting_sceptre_sfx := $SFX/SwordHittingSceptre
 @onready var coin_count : int = 0
+@onready var wreath_count : int = 0
 @onready var damagable := $Damageable
 @onready var camera := $Camera2D
 
@@ -122,7 +124,9 @@ func _on_hurt_box_area_entered(area):
 		heal(false)
 		area.collected()
 	elif area is Wreath:
+		wreath_count +=1
 		area.collected()
+		wreath_collected.emit()
 	else:
 		print("laval hurt")
 		current_health = current_health - damage
