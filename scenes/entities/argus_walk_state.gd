@@ -3,12 +3,17 @@ extends State
 class_name ArgusWalkState
 
 @export var jump_state : State
+@export var playerStateMachine : PlayerStateMachine
+
+var walk_timer : Timer
 
 func on_enter():
-	print("walk state activated")
+	playback.travel("walk")
+	
+	walk_timer = $WalkTimer
+	walk_timer.wait_time = randi_range(3.0, 10.0)
+	walk_timer.start()
 
-func state_process(delta):
-	#create 1 in 5 chance at each delta that Argus will jump
-	var rand_num =  randi() % 200 + 1
-	if rand_num == 5:
-		emit_signal("interrupt_state", jump_state)
+func _on_walk_timer_timeout():
+	print("walk timer timeout")
+	emit_signal("interrupt_state", jump_state)

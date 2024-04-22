@@ -6,10 +6,7 @@ class_name ArgusJumpState
 
 func on_enter():
 	print("jump state activated")
-	playback.travel("idle")
 	playback.travel("jump")
-	character.velocity.y -= 1500
+	character.velocity.y -= 700
 	next_state = landing_state
 	
-#func on_exit():
-	#playback.travel("idle")

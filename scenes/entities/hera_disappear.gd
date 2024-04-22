@@ -2,7 +2,7 @@ extends State
 
 class_name HeraDisappear
 
-var teleport_locations = [Vector2(2953,990), Vector2(5373,389), Vector2(8336,1026), Vector2(11090,1667)]
+var teleport_locations = [Vector2(2953,990), Vector2(5373,389), Vector2(7444, 550)]
 
 @onready var timer := $Timer
 @export var damageable : Damageable
