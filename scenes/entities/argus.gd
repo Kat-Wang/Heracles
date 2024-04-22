@@ -20,10 +20,9 @@ var timer: float = 0.0
 var interval: float = 1.0
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 var laser_scene = preload("res://scenes/entities/laser_eyes.tscn")
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 0.3
 
 func _ready():
 	animation_tree.active = true
