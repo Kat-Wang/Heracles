@@ -7,6 +7,7 @@ extends Node2D
 @onready var player := $Player.get_child(0)
 @onready var health_bar := $HUD/HealthBar
 @onready var coin_counter := $HUD/CoinCounter/Label
+@onready var wreath_counter := $HUD/wreath_counter/Label
 @onready var current_level := $CurrentLevel
 @onready var gos := $HUD/GameOver
 @onready var checkpoint = 0
@@ -20,7 +21,9 @@ func _ready():
 	player.position = current_level.get_child(0).starting_position.position
 	player.player_death.connect(game_over)
 	coin_counter.text = "0"
+	wreath_counter.text="0"
 	player.coin_collected.connect(update_coin_count)
+	player.wreath_collected.connect(update_wreath_count)
 	gos.retry.connect(retry)
 		
 func instantiate_player():
@@ -32,6 +35,7 @@ func instantiate_player():
 	player.heal(true)
 	player.player_death.connect(game_over)
 	player.coin_collected.connect(update_coin_count)
+	player.wreath_collected.connect(update_wreath_count)
 	
 func load_checkpoint(id):
 	instantiate_player()
@@ -107,6 +111,9 @@ func game_over():
 
 func update_coin_count():
 	coin_counter.text = str(player.coin_count)
+
+func update_wreath_count():
+	wreath_counter.text = str(player.wreath_count)
 	
 func save_checkpoint(id):
 	checkpoint = id
