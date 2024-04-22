@@ -35,6 +35,7 @@ offset_bottom = 111.0
 grow_horizontal = 0
 
 [node name="WreathCounter" parent="HUD" instance=ExtResource("5_3r31c")]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

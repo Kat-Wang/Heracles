@@ -70,6 +70,7 @@ func load_checkpoint(id):
 		gos.visible = false
 
 func transition(next_level:PackedScene):	
+	wreath_counter.visible = false
 	if next_level:
 		# Instantiating next level
 		var scene_instance = next_level.instantiate()
@@ -87,6 +88,7 @@ func transition(next_level:PackedScene):
 		
 		if scene_instance is ChallengeRoom:
 			scene_instance.timeout.connect(game_over)
+			wreath_counter.visible = true
 		if scene_instance is RestingLevel:
 			scene_instance.statue.save_checkpoint.connect(save_checkpoint)
 		if scene_instance is Cutscene:
