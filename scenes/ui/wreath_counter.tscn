@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgkwuwv8ky6oo"]
+[gd_scene load_steps=3 format=3 uid="uid://ccetlshlfso44"]
 
 [ext_resource type="Texture2D" uid="uid://djtpdqaamoboi" path="res://assets/sprites/hud/wreath_icon.png" id="1_nujei"]
+[ext_resource type="FontFile" uid="uid://c21nhjk8wkqso" path="res://assets/font/dpcomic.ttf" id="2_yfuby"]
 
-[node name="wreath_counter" type="HBoxContainer"]
+[node name="WreathCounter" type="HBoxContainer"]
 offset_left = 2.0
 offset_top = 4.0
 offset_right = 544.0
@@ -18,3 +19,5 @@ stretch_mode = 4
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yfuby")
+theme_override_font_sizes/font_size = 65

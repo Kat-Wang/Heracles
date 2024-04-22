@@ -58,7 +58,7 @@ position = Vector2(13391, 2509)
 visible = false
 
 [node name="Hera" parent="." instance=ExtResource("6_e50di")]
-position = Vector2(655, 1659)
+position = Vector2(883, 1666)
 
 [node name="StartingPoint" type="Marker2D" parent="."]
 position = Vector2(323, 1813)

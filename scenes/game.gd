@@ -7,7 +7,7 @@ extends Node2D
 @onready var player := $Player.get_child(0)
 @onready var health_bar := $HUD/HealthBar
 @onready var coin_counter := $HUD/CoinCounter/Label
-@onready var wreath_counter := $HUD/wreath_counter/Label
+@onready var wreath_counter := $HUD/WreathCounter/Label
 @onready var current_level := $CurrentLevel
 @onready var gos := $HUD/GameOver
 @onready var checkpoint = 0

@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://iv7w7jcahjfi" path="res://assets/music/sfx/hera_teleport_audio.wav" id="17_f0xx0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ijne"]
-size = Vector2(467, 684)
+size = Vector2(294.286, 684)
 
 [sub_resource type="Animation" id="Animation_jykia"]
 length = 0.001
@@ -351,7 +351,8 @@ script = ExtResource("1_ho017")
 hit_state = NodePath("PlayerStateMachine/HitState")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(29.5, 18)
+position = Vector2(-5.71427, 18)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6ijne")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

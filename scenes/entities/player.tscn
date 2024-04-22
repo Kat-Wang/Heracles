@@ -1,18 +1,19 @@
-[gd_scene load_steps=62 format=3 uid="uid://fyw1uols0ael"]
+[gd_scene load_steps=64 format=3 uid="uid://fyw1uols0ael"]
 
 [ext_resource type="Script" path="res://scenes/entities/player.gd" id="1_6xt7c"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="1_qs2yt"]
 [ext_resource type="Texture2D" uid="uid://dq77d6tu7uxid" path="res://assets/sprites/entities/herc/herc_walk.png" id="2_kmqsm"]
 [ext_resource type="Texture2D" uid="uid://ddukdy1ns6f88" path="res://assets/sprites/entities/herc/herc_jump_up.png" id="3_lxqan"]
+[ext_resource type="Texture2D" uid="uid://dvyf675unqcej" path="res://assets/sprites/entities/herc/herc_attack_long_range.png" id="3_onsr5"]
 [ext_resource type="Texture2D" uid="uid://pk0fjwa4iecp" path="res://assets/sprites/entities/herc/herc_fall.png" id="4_7kmal"]
+[ext_resource type="Texture2D" uid="uid://blhksowqw0p1k" path="res://assets/sprites/entities/herc/herc_death_long.png" id="4_iutgo"]
 [ext_resource type="Texture2D" uid="uid://br51t68mdjen8" path="res://assets/sprites/entities/herc/herc_take_damage.png" id="5_1apcd"]
-[ext_resource type="Texture2D" uid="uid://7u387e4kqqn8" path="res://assets/sprites/entities/herc/herc_attack.png" id="6_t01dy"]
 [ext_resource type="AudioStream" uid="uid://o6c2ncxnlj8w" path="res://assets/music/sfx/jump_sound.wav" id="8_lpgyv"]
-[ext_resource type="Texture2D" uid="uid://5hfig8ui1bkx" path="res://assets/sprites/entities/herc/herc_death.png" id="8_uxxxx"]
 [ext_resource type="Texture2D" uid="uid://cyy4pap4hboir" path="res://assets/sprites/entities/herc/herc_wall.png" id="9_y6441"]
 [ext_resource type="AudioStream" uid="uid://ds3sypbf0ss51" path="res://assets/music/sfx/attack_sound.wav" id="10_3gtlg"]
 [ext_resource type="AudioStream" uid="uid://bja3mbw86lslx" path="res://assets/music/sfx/land_sound.wav" id="10_bjalo"]
 [ext_resource type="Script" path="res://scenes/entities/player_state_machine.gd" id="10_c1krj"]
+[ext_resource type="Texture2D" uid="uid://g03wjkle5s06" path="res://assets/sprites/entities/herc/herc_dash.png" id="10_of5uq"]
 [ext_resource type="Script" path="res://scenes/entities/ground_state.gd" id="11_beks4"]
 [ext_resource type="Script" path="res://scenes/entities/air_state.gd" id="12_6g2ud"]
 [ext_resource type="Script" path="res://scenes/entities/player_damageable.gd" id="12_j3nu0"]
@@ -24,7 +25,7 @@
 [ext_resource type="Script" path="res://scenes/entities/state.gd" id="18_oqi7w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fmd02"]
-size = Vector2(168.344, 217.748)
+size = Vector2(217.952, 251.176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcyqs"]
 size = Vector2(101, 242)
@@ -141,7 +142,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_t01dy")]
+"values": [ExtResource("3_onsr5")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -158,7 +159,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_j3nyw"]
 resource_name = "death"
-length = 0.5
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -169,7 +170,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_uxxxx")]
+"values": [ExtResource("4_iutgo")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -181,7 +182,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [9]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -202,10 +203,10 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3, 0.375, 0.45, 0.525, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
 [sub_resource type="Animation" id="Animation_kjury"]
@@ -522,10 +523,51 @@ tracks/3/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_4nxbc"]
+resource_name = "dash"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_of5uq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.075),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_suirk"]
 _data = {
 "RESET": SubResource("Animation_vpbah"),
 "attack": SubResource("Animation_yul1j"),
+"dash": SubResource("Animation_4nxbc"),
 "death": SubResource("Animation_j3nyw"),
 "fall": SubResource("Animation_kjury"),
 "hit": SubResource("Animation_mhgbj"),
@@ -666,7 +708,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/SwordHitBox"]
-position = Vector2(167.172, -40.8738)
+position = Vector2(191.976, -24.1596)
 shape = SubResource("RectangleShape2D_fmd02")
 disabled = true
 
