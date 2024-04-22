@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvt4xh1o7xduw"]
+[gd_scene load_steps=11 format=3 uid="uid://bvt4xh1o7xduw"]
 
 [ext_resource type="PackedScene" uid="uid://cp730h4axm6xo" path="res://scenes/levels/cloud_tile_map.tscn" id="1_lvjet"]
 [ext_resource type="Script" path="res://scenes/levels/hera_level.gd" id="1_x6pxq"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://gjh7efhbs7cl" path="res://assets/sprites/backgrounds/hera_background.png" id="2_f8xhd"]
 [ext_resource type="PackedScene" uid="uid://cjpnpsxhjmfxs" path="res://scenes/levels/death_zone.tscn" id="3_h4cye"]
 [ext_resource type="AudioStream" uid="uid://cqisuewi8nbjk" path="res://assets/music/bgm/hera_level_bgm.ogg" id="3_t8iov"]
+[ext_resource type="Texture2D" uid="uid://ds3opdb8lws6o" path="res://assets/music/sfx/hera_background_top.png" id="4_grpla"]
+[ext_resource type="Texture2D" uid="uid://dsiykphv2fxdg" path="res://assets/music/sfx/hera_background_bottom.png" id="5_ip88l"]
 [ext_resource type="PackedScene" uid="uid://bva30amydl0dh" path="res://scenes/entities/hera.tscn" id="6_e50di"]
 
 [node name="HeraLevel" type="Node2D" node_paths=PackedStringArray("starting_position")]
@@ -26,8 +28,22 @@ position = Vector2(339, 1062)
 scale = Vector2(1.53299, 1.64738)
 texture = ExtResource("2_f8xhd")
 
+[node name="Top" type="ParallaxLayer" parent="Background"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Top"]
+position = Vector2(3573, -972)
+scale = Vector2(1.3516, 0.2)
+texture = ExtResource("4_grpla")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxLayer"]
+position = Vector2(3624.5, 3118)
+scale = Vector2(1.2957, 0.2)
+texture = ExtResource("5_ip88l")
+
 [node name="CloudTileMap" parent="." instance=ExtResource("1_lvjet")]
-layer_0/tile_data = PackedInt32Array(1572866, 65536, 10, 1572867, 131072, 10, 1572868, 196608, 10, 1572869, 262144, 10, 1572870, 65536, 10, 1572871, 131072, 10, 1572872, 196608, 10, 1572873, 262144, 10, 1572874, 65536, 10, 1572875, 131072, 10, 1572876, 196608, 10, 1572877, 262144, 10, 983072, 131072, 4, 983073, 196608, 4, 983074, 131072, 4, 983075, 196608, 4, 983076, 131072, 4, 983077, 196608, 4, 983078, 131072, 4, 983079, 196608, 4, 983080, 131072, 4, 983081, 196608, 4, 524349, 458752, 7, 524350, 524288, 7, 524351, 589824, 7, 524352, 458752, 7, 524353, 524288, 7, 524354, 589824, 7, 524355, 458752, 7, 524356, 524288, 7, 524357, 589824, 7, 524358, 458752, 7, 524359, 524288, 7, 524360, 589824, 7, 1376272, 131072, 1, 1376273, 131072, 1, 1376274, 131072, 1, 1179670, 131072, 4, 1179671, 196608, 4, 1179672, 131072, 4, 1179673, 196608, 4, 1179674, 131072, 4, 1179675, 196608, 4, 786475, 131072, 4, 786476, 196608, 4, 786477, 131072, 4, 786478, 196608, 4, 786479, 131072, 4, 786480, 196608, 4, 655413, 458752, 4, 655414, 524288, 4, 655415, 458752, 4, 655416, 524288, 4, 655437, 131072, 1, 655438, 131072, 1, 655439, 131072, 1, 852050, 65536, 10, 852051, 65536, 10, 852052, 131072, 10, 852053, 196608, 10, 852054, 262144, 10, 655448, 131072, 4, 655449, 196608, 4, 655450, 131072, 4, 655451, 196608, 4, 655452, 131072, 4, 655453, 196608, 4, 655454, 131072, 4, 655455, 196608, 4, 655456, 131072, 4, 655457, 196608, 4)
+layer_0/tile_data = PackedInt32Array(1572866, 65536, 10, 1572867, 131072, 10, 1572868, 196608, 10, 1572869, 262144, 10, 1572870, 65536, 10, 1572871, 131072, 10, 1572872, 196608, 10, 1572873, 262144, 10, 1572874, 65536, 10, 1572875, 131072, 10, 1572876, 196608, 10, 1572877, 262144, 10, 983072, 131072, 4, 983073, 196608, 4, 983074, 131072, 4, 983075, 196608, 4, 983076, 131072, 4, 983077, 196608, 4, 983078, 131072, 4, 983079, 196608, 4, 983080, 131072, 4, 983081, 196608, 4, 524349, 458752, 7, 524350, 524288, 7, 524351, 589824, 7, 524352, 458752, 7, 524353, 524288, 7, 524354, 589824, 7, 524355, 458752, 7, 524356, 524288, 7, 524357, 589824, 7, 524358, 458752, 7, 524359, 524288, 7, 524360, 589824, 7, 1376272, 131072, 1, 1376273, 131072, 1, 1376274, 131072, 1, 1179670, 131072, 4, 1179671, 196608, 4, 1179672, 131072, 4, 1179673, 196608, 4, 1179674, 131072, 4, 1179675, 196608, 4, 786475, 131072, 4, 786476, 196608, 4, 786477, 131072, 4, 786478, 196608, 4, 786479, 131072, 4, 786480, 196608, 4, 655413, 458752, 4, 655414, 524288, 4, 655415, 458752, 4, 655416, 524288, 4, 655448, 131072, 4, 655449, 196608, 4, 655450, 131072, 4, 655451, 196608, 4, 655452, 131072, 4, 655453, 196608, 4, 655454, 131072, 4, 655455, 196608, 4, 655456, 131072, 4, 655457, 196608, 4, 589899, 131072, 1, 589900, 131072, 1, 589901, 131072, 1, 655440, 65536, 10, 655441, 65536, 10, 655442, 131072, 10, 655443, 196608, 10, 655444, 262144, 10, 589924, 65536, 10, 589925, 65536, 10, 589926, 131072, 10, 589927, 196608, 10, 589928, 262144, 10)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_t8iov")
@@ -54,9 +70,6 @@ position = Vector2(-1463, 2509)
 [node name="DeathZone6" parent="DeathZones" instance=ExtResource("3_h4cye")]
 position = Vector2(13391, 2509)
 
-[node name="HeraPortal" parent="." instance=ExtResource("2_duhd8")]
-visible = false
-
 [node name="Hera" parent="." instance=ExtResource("6_e50di")]
 position = Vector2(883, 1666)
 
@@ -65,4 +78,4 @@ position = Vector2(323, 1813)
 
 [node name="Portal" parent="." instance=ExtResource("2_duhd8")]
 visible = false
-position = Vector2(8188, 443)
+position = Vector2(8202, 542)

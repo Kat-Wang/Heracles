@@ -15,13 +15,13 @@ signal coin_collected
 @onready var land_sfx := $SFX/Land
 @onready var damagable := $Damageable
 
-@export var max_health : int = 3
+@export var max_health : int = 5
 @export var damage : int = 1
 @export var hit_state : State
 
 const SPEED = 500
 
-var current_health : int = 3
+var current_health : int = 5
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
