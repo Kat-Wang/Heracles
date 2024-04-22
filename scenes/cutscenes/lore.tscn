@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2v3xou2ldy5w"]
+[gd_scene load_steps=17 format=3 uid="uid://c2v3xou2ldy5w"]
 
 [ext_resource type="Script" path="res://scenes/cutscenes/lore.gd" id="1_0pstl"]
 [ext_resource type="Texture2D" uid="uid://bbd08fureus3f" path="res://assets/sprites/entities/herc/neutral_herc.png" id="2_frqw1"]
@@ -482,6 +482,15 @@ _data = {
 "main": SubResource("Animation_axkif")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jppmj"]
+bg_color = Color(0.862745, 0.388235, 0.588235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mf6l5"]
+bg_color = Color(0.862745, 0.388235, 0.588235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opthx"]
+bg_color = Color(0.545098, 0.172549, 0.341176, 1)
+
 [node name="Lore" type="Node"]
 script = ExtResource("1_0pstl")
 
@@ -709,6 +718,9 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("8_77lj1")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_jppmj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mf6l5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_opthx")
 text = "Skip"
 
 [connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]

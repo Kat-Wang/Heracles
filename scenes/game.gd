@@ -31,6 +31,7 @@ func instantiate_player():
 	$Player.add_child(player_instance)
 	player = $Player.get_child(0)
 	player.healthChanged.connect(health_bar.updatePoms)
+	player.coin_count = int(coin_counter.text)
 	player.heal(true)
 	player.player_death.connect(game_over)
 	player.coin_collected.connect(update_coin_count)

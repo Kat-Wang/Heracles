@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://crcliepm5jq1n"]
+[gd_scene load_steps=3 format=3 uid="uid://crcliepm5jq1n"]
 
 [ext_resource type="Texture2D" uid="uid://4ejkndeixrw7" path="res://assets/sprites/hud/coin.png" id="1_wff77"]
+[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/font/pixelify_sans_regular.ttf" id="2_vri1j"]
 
 [node name="CoinCounter" type="HBoxContainer"]
 
@@ -13,6 +14,7 @@ stretch_mode = 4
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vri1j")
 theme_override_font_sizes/font_size = 60
 text = "
 "
