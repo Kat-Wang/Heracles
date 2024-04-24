@@ -61,6 +61,6 @@ shape = SubResource("CircleShape2D_q3ux7")
 stream = ExtResource("3_hitf3")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.7
+wait_time = 0.4
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

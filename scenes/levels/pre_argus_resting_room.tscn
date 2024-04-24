@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvbfreuu8huwj"]
+
+[ext_resource type="Texture2D" uid="uid://bvbgglyhlkckp" path="res://assets/sprites/backgrounds/argus_background_new.png" id="1_xs50y"]
+[ext_resource type="PackedScene" uid="uid://c7sfo0gpswmv7" path="res://scenes/levels/tile_map_forest.tscn" id="2_mfcx5"]
+[ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="3_t2h87"]
+
+[node name="PreArgusRestingRoom" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(-2384.32, -830.837)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(1.519, 1.519)
+texture = ExtResource("1_xs50y")
+centered = false
+
+[node name="ForestTileMap" parent="." instance=ExtResource("2_mfcx5")]
+layer_0/tile_data = PackedInt32Array(720896, 524288, 3, 720897, 589824, 3, 720898, 655360, 3, 720899, 524288, 3, 720900, 589824, 3, 720901, 655360, 3, 720902, 524288, 3, 720903, 589824, 3, 720904, 655360, 3, 720905, 524288, 3, 720906, 589824, 3, 720907, 655360, 3, 720908, 524288, 3, 720909, 589824, 3, 720910, 655360, 3, 720911, 524288, 3, 720912, 589824, 3, 720913, 655360, 3, 720914, 524288, 3, 720915, 589824, 3, 720916, 655360, 3, 720917, 524288, 3, 720918, 589824, 3, 720919, 655360, 3)
+
+[node name="Portal" parent="." instance=ExtResource("3_t2h87")]
+position = Vector2(1703, 703)

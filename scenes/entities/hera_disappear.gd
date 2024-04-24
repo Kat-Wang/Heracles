@@ -20,7 +20,7 @@ func on_enter():
 func _on_timer_timeout():
 	next_state = return_state
 
-	if damageable.health < 3:
+	if damageable.health < 5:
 		var idx = generate_teleport_idx()
 		character.global_position = teleport_locations[idx]
 		

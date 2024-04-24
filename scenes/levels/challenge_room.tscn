@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cjpnpsxhjmfxs" path="res://scenes/levels/death_zone.tscn" id="4_k6qh6"]
 [ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="5_2oof6"]
 [ext_resource type="AudioStream" uid="uid://y3sxul5ih5jl" path="res://assets/music/bgm/ancient-ruins-136473.mp3" id="6_e0ce3"]
-[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/font/pixelify_sans_regular.ttf" id="9_7qnrn"]
+[ext_resource type="FontFile" uid="uid://c21nhjk8wkqso" path="res://assets/font/dpcomic.ttf" id="9_55kdc"]
 [ext_resource type="AudioStream" uid="uid://ds5wnjnpbfmrk" path="res://assets/music/sfx/challenge_room_victory.mp3" id="9_gi6w2"]
 [ext_resource type="PackedScene" uid="uid://dm2kens52e5f0" path="res://scenes/ui/wreath.tscn" id="9_svcsb"]
 [ext_resource type="PackedScene" uid="uid://c1peh3ibjfsxt" path="res://scenes/ui/coin.tscn" id="10_5mrlb"]
@@ -101,7 +101,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("9_7qnrn")
+theme_override_fonts/font = ExtResource("9_55kdc")
 theme_override_font_sizes/font_size = 40
 
 [node name="IntroLabel" type="Label" parent="CanvasLayer"]
@@ -116,7 +116,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_7qnrn")
+theme_override_fonts/font = ExtResource("9_55kdc")
 theme_override_font_sizes/font_size = 50
 text = "Collect all 5 wreaths before time runs out!"
 
@@ -136,7 +136,7 @@ offset_right = 173.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("9_7qnrn")
+theme_override_fonts/font = ExtResource("9_55kdc")
 theme_override_font_sizes/font_size = 50
 text = "Good job! Progress to the portal on the right."
 

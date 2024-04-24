@@ -21,7 +21,7 @@ func _ready():
 	player.position = current_level.get_child(0).starting_position.position
 	player.player_death.connect(game_over)
 	coin_counter.text = "0"
-	wreath_counter.text="0"
+	wreath_counter.text= "0"
 	player.coin_collected.connect(update_coin_count)
 	player.wreath_collected.connect(update_wreath_count)
 	gos.retry.connect(retry)
@@ -70,8 +70,8 @@ func load_checkpoint(id):
 		gos.visible = false
 
 func transition(next_level:PackedScene):	
-	wreath_counter.visible = false
 	if next_level:
+		$HUD/WreathCounter.visible = false
 		# Instantiating next level
 		var scene_instance = next_level.instantiate()
 
@@ -88,7 +88,8 @@ func transition(next_level:PackedScene):
 		
 		if scene_instance is ChallengeRoom:
 			scene_instance.timeout.connect(game_over)
-			wreath_counter.visible = true
+			scene_instance.timeout.connect(game_over)
+			$HUD/WreathCounter.visible = true
 		if scene_instance is RestingLevel:
 			scene_instance.statue.save_checkpoint.connect(save_checkpoint)
 		if scene_instance is Cutscene:
@@ -110,6 +111,9 @@ func transition(next_level:PackedScene):
 
 func game_over():
 	gos.visible = true
+	player.current_health = 0
+	player.healthChanged.emit(player.current_health, false)
+	player.damagable.hit(500, Vector2.RIGHT)
 
 func update_coin_count():
 	coin_counter.text = str(player.coin_count)

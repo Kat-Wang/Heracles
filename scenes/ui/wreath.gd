@@ -14,9 +14,11 @@ func _ready():
 	$AnimatedSprite2D.play()
 	
 func collected():
-	timer.start()
 	sprite.visible = false
 	collision.disabled = true
+	#monitoring = false
+	#monitorable = false
+	timer.start()
 	sfx.play()
 	
 	wreath_collected.emit()
