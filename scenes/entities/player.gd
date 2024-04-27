@@ -155,5 +155,7 @@ func _on_sword_hit_box_area_entered(area):
 	if area is Sceptre:
 		sword_hitting_sceptre_sfx.play()
 		area.queue_free()
+	if area is Lava:
+		area.queue_free()
 	if area is BatProjectile:
 		area.queue_free()

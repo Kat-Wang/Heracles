@@ -429,7 +429,6 @@ hit_state = NodePath("PlayerStateMachine/Hit")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(12, 22.2857)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jxun7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -493,6 +492,7 @@ script = ExtResource("12_8g3pd")
 damageable = NodePath("../../Damageable")
 playerStateMachine = NodePath("..")
 dead_state = NodePath("../Die")
+knockback_speed = 300.0
 return_state = NodePath("../Walk")
 
 [node name="Timer" type="Timer" parent="PlayerStateMachine/Hit"]
@@ -517,5 +517,6 @@ volume_db = -15.0
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="on_hit" from="Damageable" to="PlayerStateMachine/Hit" method="_on_damageable_on_hit"]
 [connection signal="timeout" from="PlayerStateMachine/Walk/WalkTimer" to="PlayerStateMachine/Walk" method="_on_walk_timer_timeout"]
+[connection signal="argus_dead" from="PlayerStateMachine/Hit" to="." method="_on_hit_argus_dead"]
 [connection signal="timeout" from="PlayerStateMachine/Hit/Timer" to="PlayerStateMachine/Hit" method="_on_timer_timeout"]
 [connection signal="timeout" from="PlayerStateMachine/Jump/Timer" to="PlayerStateMachine/Jump" method="_on_timer_timeout"]

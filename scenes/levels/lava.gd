@@ -1,6 +1,8 @@
 extends RigidBody2D
-signal hit
 
+class_name Lava
+
+signal hit
 
 func _ready():
 	var mob_types = $AnimatedSprite2D.sprite_frames.get_animation_names()

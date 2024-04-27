@@ -19,7 +19,7 @@ var bat_projectile = preload("res://scenes/entities/bat_projectile.tscn")
 
 # chat gpt helped me with the timer to delay the laser
 @export var timer: float = 1.8
-var interval: float = 2.0
+var interval: float = 1.25
 
 func _ready():
 	animation_tree.active = true
