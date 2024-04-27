@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://bd76tkgn1rfrb"]
+
+[ext_resource type="Script" path="res://scenes/levels/statue.gd" id="1_ymh87"]
+[ext_resource type="Texture2D" uid="uid://cdtue6iegunbs" path="res://assets/sprites/tutorial/tutorial_save.png" id="2_v3bhm"]
+[ext_resource type="Texture2D" uid="uid://3iyge1eobvta" path="res://assets/sprites/backgrounds/statue.png" id="3_b35ru"]
+[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/font/pixelify_sans_regular.ttf" id="4_0chn3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43yww"]
+atlas = ExtResource("2_v3bhm")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai2l6"]
+atlas = ExtResource("2_v3bhm")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nec1p"]
+atlas = ExtResource("2_v3bhm")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqq6s"]
+atlas = ExtResource("2_v3bhm")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v162b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43yww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai2l6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nec1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqq6s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p82s7"]
+size = Vector2(171, 397)
+
+[node name="Statue" type="Area2D"]
+position = Vector2(993, 757)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ymh87")
+
+[node name="Interaction" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0.999999, -320)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_v162b")
+frame_progress = 0.685959
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_b35ru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 4.5)
+shape = SubResource("RectangleShape2D_p82s7")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -146.0
+offset_top = 195.0
+offset_right = 157.0
+offset_bottom = 238.0
+theme_override_colors/font_color = Color(0.168627, 0.105882, 0.184314, 1)
+theme_override_fonts/font = ExtResource("4_0chn3")
+theme_override_font_sizes/font_size = 35
+text = "Checkpoint Saved"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
