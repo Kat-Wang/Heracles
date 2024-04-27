@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxvfe56ujy2lo"]
+[gd_scene load_steps=4 format=3 uid="uid://gno0n4qwj4a6"]
 
 [ext_resource type="Texture2D" uid="uid://b7v2ey0ufnokn" path="res://assets/sprites/entities/bat/bat_projectile.png" id="1_c3k8p"]
 [ext_resource type="Script" path="res://scenes/entities/bat_projectile.gd" id="1_iymnt"]

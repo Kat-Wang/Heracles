@@ -1,0 +1,508 @@
+[gd_scene load_steps=16 format=3 uid="uid://bsbxqhqcm48yo"]
+
+[ext_resource type="Script" path="res://scenes/cutscenes/post_hera.gd" id="1_abmtt"]
+[ext_resource type="Texture2D" uid="uid://dldcoc5yf3v28" path="res://assets/sprites/backgrounds/lore_background.png" id="1_uevb2"]
+[ext_resource type="PackedScene" uid="uid://bxfcxvl4lrej3" path="res://scenes/cutscenes/ending.tscn" id="2_uro3f"]
+[ext_resource type="AudioStream" uid="uid://cfnwwavkbrj8r" path="res://assets/music/bgm/farm_life.wav" id="3_6bjfv"]
+[ext_resource type="Texture2D" uid="uid://1dkrkatjm1rb" path="res://assets/sprites/entities/herc/herc_angry.png" id="3_aw0wh"]
+[ext_resource type="PackedScene" uid="uid://cp730h4axm6xo" path="res://scenes/levels/cloud_tile_map.tscn" id="4_veqce"]
+[ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="5_3xdy4"]
+[ext_resource type="FontFile" uid="uid://c21nhjk8wkqso" path="res://assets/font/dpcomic.ttf" id="5_wo3b4"]
+[ext_resource type="AudioStream" uid="uid://iv7w7jcahjfi" path="res://assets/music/sfx/hera_teleport_audio.wav" id="6_ftfnj"]
+[ext_resource type="Texture2D" uid="uid://cr503vvsyeuwt" path="res://assets/sprites/entities/zeus/zeus_teleport_in.png" id="6_qx035"]
+[ext_resource type="Texture2D" uid="uid://bbd08fureus3f" path="res://assets/sprites/entities/herc/neutral_herc.png" id="8_mgit7"]
+[ext_resource type="Texture2D" uid="uid://q2jhoic7btrc" path="res://assets/sprites/entities/zeus/zeus_profile.png" id="9_oqmtu"]
+
+[sub_resource type="Animation" id="Animation_jn5gi"]
+resource_name = "post_hera"
+length = 50.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cutscene:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(26.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"transition"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cutscene/Herc:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2173, 540), Vector2(1250, 540)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cutscene/HercPortrait:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.2, 9.3, 20.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cutscene/ColorRect/HercDialogue:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.3, 9.2, 21.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cutscene/ColorRect/HercDialogue:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.1, 21),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Phew! Finally some peace and quiet. That lady was crazy...", "Bruh."]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cutscene/ColorRect/HercDialogue:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.3, 6.6, 9.1, 22.6, 24.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cutscene/Zeus:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(9.5, 9.7, 9.9, 10.1, 10.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cutscene/Zeus:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 9.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cutscene/ZeusPortrait:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 12, 20.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cutscene/ColorRect/ZeusDialogue:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 12.4, 20.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cutscene/ColorRect/ZeusDialogue:text")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(11.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Tell me about it, son. Glad you fixed that problem for me so I can enjoy my vacation."]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Cutscene/ColorRect/ZeusDialogue:visible_ratio")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(12.1, 18.5, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Cutscene/HercPortrait/HercPFP:texture")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(2.2, 14.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("8_mgit7"), ExtResource("3_aw0wh")]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Cutscene/ZeusTeleport:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(9.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_13dc6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cutscene:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cutscene/Herc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2173, 540)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cutscene/HercPortrait:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cutscene/ColorRect/HercDialogue:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cutscene/ColorRect/HercDialogue:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["!"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cutscene/Zeus:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cutscene/Zeus:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cutscene/ZeusPortrait:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cutscene/ColorRect/ZeusDialogue:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cutscene/ColorRect/ZeusDialogue:text")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Hmf. I suppose even worms can wriggle around, huh?"]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cutscene/HercPortrait/HercPFP:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_mgit7")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cutscene/ZeusTeleport:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tha4w"]
+_data = {
+"RESET": SubResource("Animation_13dc6"),
+"post_hera": SubResource("Animation_jn5gi")
+}
+
+[node name="PostHera" type="Node2D" node_paths=PackedStringArray("starting_position")]
+script = ExtResource("1_abmtt")
+next_level = ExtResource("2_uro3f")
+starting_position = NodePath("Marker2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tha4w")
+}
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6bjfv")
+volume_db = -1.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Cutscene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ZeusTeleport" type="AudioStreamPlayer2D" parent="Cutscene"]
+stream = ExtResource("6_ftfnj")
+volume_db = 7.0
+
+[node name="TextureRect" type="TextureRect" parent="Cutscene"]
+layout_mode = 1
+offset_left = -177.0
+offset_top = -37.0
+offset_right = 2127.0
+offset_bottom = 1259.0
+texture = ExtResource("1_uevb2")
+
+[node name="TextureRect" type="TextureRect" parent="Cutscene/TextureRect"]
+layout_mode = 1
+offset_left = 2302.0
+offset_right = 4606.0
+offset_bottom = 1296.0
+texture = ExtResource("1_uevb2")
+
+[node name="TextureRect2" type="TextureRect" parent="Cutscene/TextureRect"]
+layout_mode = 1
+offset_left = -2304.0
+offset_bottom = 1296.0
+texture = ExtResource("1_uevb2")
+
+[node name="CloudTileMap" parent="Cutscene" instance=ExtResource("4_veqce")]
+layer_0/tile_data = PackedInt32Array(524288, 65536, 10, 524289, 131072, 10, 524290, 196608, 10, 524291, 262144, 10, 524292, 458752, 7, 524293, 524288, 7, 524294, 589824, 7, 524295, 131072, 4, 524296, 196608, 4, 524297, 458752, 4, 524298, 524288, 4, 524299, 65536, 10, 524300, 131072, 10, 524301, 196608, 10, 524302, 262144, 10, 524303, 65536, 7, 524304, 131072, 7, 524305, 196608, 7, 524306, 131072, 1, 524307, 131072, 4, 524308, 196608, 4, 524309, 65536, 7, 524310, 131072, 7, 524311, 196608, 7, 524312, 65536, 10, 524313, 131072, 10, 524314, 196608, 10, 524315, 262144, 10, 524316, 458752, 7, 524317, 524288, 7, 524318, 589824, 7, 589822, 131072, 4, 589823, 196608, 4, 589820, 458752, 4, 589821, 524288, 4, 589817, 458752, 7, 589818, 524288, 7, 589819, 589824, 7, 589813, 65536, 10, 589814, 131072, 10, 589815, 196608, 10, 589816, 262144, 10)
+
+[node name="Herc" type="Sprite2D" parent="Cutscene"]
+position = Vector2(2173, 540)
+scale = Vector2(-1, 1)
+texture = ExtResource("5_3xdy4")
+hframes = 2
+
+[node name="Zeus" type="Sprite2D" parent="Cutscene"]
+position = Vector2(744, 400)
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("6_qx035")
+hframes = 5
+frame = 4
+
+[node name="ColorRect" type="ColorRect" parent="Cutscene"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 127.0
+offset_top = 769.0
+offset_right = 1753.0
+offset_bottom = 981.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.239216, 0.203922, 0.509804, 0.368627)
+
+[node name="HercDialogue" type="Label" parent="Cutscene/ColorRect"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 133.0
+offset_top = -34.5
+offset_right = 509.0
+offset_bottom = 34.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_wo3b4")
+theme_override_font_sizes/font_size = 50
+text = "!"
+
+[node name="ZeusDialogue" type="Label" parent="Cutscene/ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 137.0
+offset_top = -36.0
+offset_right = 1605.0
+offset_bottom = 33.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_wo3b4")
+theme_override_font_sizes/font_size = 50
+text = "Hmf. I suppose even worms can wriggle around, huh?"
+autowrap_mode = 2
+
+[node name="HercPortrait" type="ColorRect" parent="Cutscene"]
+visible = false
+offset_left = 1463.0
+offset_top = 544.0
+offset_right = 1726.0
+offset_bottom = 807.0
+
+[node name="HercPFP" type="TextureRect" parent="Cutscene/HercPortrait"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -229.5
+offset_top = -218.5
+offset_right = 270.5
+offset_bottom = 281.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_mgit7")
+flip_h = true
+
+[node name="ZeusPortrait" type="ColorRect" parent="Cutscene"]
+offset_left = 189.0
+offset_top = 544.0
+offset_right = 452.0
+offset_bottom = 807.0
+
+[node name="ZeusPFP" type="TextureRect" parent="Cutscene/ZeusPortrait"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -120.5
+offset_right = 488.5
+offset_bottom = 479.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.37, 0.42)
+texture = ExtResource("9_oqmtu")
+
+[connection signal="finished" from="BGM" to="." method="_on_audio_stream_player_2d_finished"]

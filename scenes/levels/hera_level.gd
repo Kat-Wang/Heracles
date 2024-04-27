@@ -9,12 +9,14 @@ signal level_complete(next_level:PackedScene)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bgm.play()
+	$Portal.monitoring = false
 	hera_portal.portal_entered.connect(transition)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not hera:
 		$Portal.visible = true
+		$Portal.monitoring = true
 
 func transition():
 	level_complete.emit(next_level)

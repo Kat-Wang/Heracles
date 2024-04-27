@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#signal laser_shot(laser_scene, location)
+signal argus_dead()
 
 @onready var direction = Vector2.RIGHT 
 @onready var laser_container = $LaserContainer
@@ -64,3 +64,5 @@ func shoot(laser_direction):
 	laser_container.add_child(laser)
 	attack_sfx.play()
 
+func _on_hit_argus_dead():
+	emit_signal("argus_dead")
