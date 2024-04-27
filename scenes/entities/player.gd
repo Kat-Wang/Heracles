@@ -125,11 +125,10 @@ func _on_hurt_box_area_entered(area):
 		heal(false)
 		area.collected()
 	elif area is Wreath:
-		wreath_count += 1
 		area.collected()
+		wreath_count += 1
 		wreath_collected.emit()
 	else:
-		print("laval hurt")
 		current_health = current_health - damage
 		$Damageable.hit(damage, Vector2.LEFT)
 		healthChanged.emit(current_health, false)

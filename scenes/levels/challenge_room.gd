@@ -6,6 +6,7 @@ signal level_complete(next_level:PackedScene)
 signal timeout
 
 @onready var bgm := $BGM
+@onready var wreath_sfx := $WreathSFX
 @onready var challenge_portal := $ChallengePortal
 @onready var countdown := $Countdown
 @onready var countdown_label := $CanvasLayer/TimerLabel
@@ -23,8 +24,12 @@ func _ready():
 	challenge_portal.portal_entered.connect(transition)
 	countdown_label.visible = false
 	challenge_portal.visible = false
+	challenge_portal.monitoring = false
 	victory_label.visible = false
 	intro_timer.start()
+	for wreath in $Wreaths.get_children():
+		wreath.wreath_collected.connect(play_wreath_sfx)
+		print("connecting")
 	
 func _process(delta):
 	countdown_label.text = str(round(countdown.time_left))
@@ -32,6 +37,7 @@ func _process(delta):
 	if $Wreaths.get_child_count() == 0:
 		victory_label.visible = true
 		challenge_portal.visible = true
+		challenge_portal.monitoring = true
 		countdown.stop()
 		countdown_label.visible = false
 		victory_sfx.play()
@@ -47,7 +53,7 @@ func _on_mob_timer_timeout():
 	
 	mob.position = mob_spawn_location.position
 	
-	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+	#var velocity = Vector2(radndf_range(150.0, 250.0), 0.0)
 	
 	add_child(mob)
 
@@ -59,3 +65,7 @@ func _on_intro_timer_timeout():
 	countdown_label.visible = true
 	intro_label.visible = false
 	$MobTimer.start()
+	
+func play_wreath_sfx():
+	wreath_sfx.play()
+	print("playing sfx")

@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dm2kens52e5f0"]
+[gd_scene load_steps=9 format=3 uid="uid://dm2kens52e5f0"]
 
 [ext_resource type="Script" path="res://scenes/ui/wreath.gd" id="1_3xh8t"]
 [ext_resource type="Texture2D" uid="uid://cknu7v6esvb45" path="res://assets/sprites/hud/wreath_sheet.png" id="2_1lmcm"]
-[ext_resource type="AudioStream" uid="uid://d4785yi5uw8d" path="res://assets/music/sfx/wreath_collection.mp3" id="3_hitf3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a02ib"]
 atlas = ExtResource("2_1lmcm")
@@ -56,11 +55,3 @@ frame_progress = 0.579102
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_q3ux7")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_hitf3")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.4
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
