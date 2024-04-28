@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://c2v3xou2ldy5w"]
 
 [ext_resource type="Script" path="res://scenes/cutscenes/lore.gd" id="1_0pstl"]
-[ext_resource type="Texture2D" uid="uid://bbd08fureus3f" path="res://assets/sprites/entities/herc/neutral_herc.png" id="2_frqw1"]
 [ext_resource type="Texture2D" uid="uid://dldcoc5yf3v28" path="res://assets/sprites/backgrounds/lore_background.png" id="2_mxhou"]
 [ext_resource type="AudioStream" uid="uid://cfnwwavkbrj8r" path="res://assets/music/bgm/farm_life.wav" id="2_uv7yc"]
 [ext_resource type="Texture2D" uid="uid://dl4klmi2hwhch" path="res://assets/sprites/entities/hera/hera_pfp.png" id="3_33prs"]
+[ext_resource type="Texture2D" uid="uid://wupscn7lq0d5" path="res://assets/sprites/entities/herc/confused_herc.png" id="3_goefk"]
 [ext_resource type="FontFile" uid="uid://c21nhjk8wkqso" path="res://assets/font/dpcomic.ttf" id="4_ctob5"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="4_pu56v"]
 [ext_resource type="Texture2D" uid="uid://qqcq2wxuolmk" path="res://assets/sprites/entities/hera/hera.png" id="5_jdbfp"]
@@ -214,6 +214,18 @@ tracks/16/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.980392, 0.980392, 0.980392, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Main/HercPortrait/HercPFP:texture")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_goefk")]
 }
 
 [sub_resource type="Animation" id="Animation_vbr31"]
@@ -473,6 +485,18 @@ tracks/10/keys = {
 "method": &"main_finished"
 }]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Main/HercPortrait/HercPFP:texture")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(6.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_goefk")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_unhto"]
 _data = {
@@ -638,7 +662,7 @@ offset_right = 229.5
 offset_bottom = 270.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_frqw1")
+texture = ExtResource("3_goefk")
 
 [node name="HeraPortrait" type="ColorRect" parent="Main"]
 visible = false
