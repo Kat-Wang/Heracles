@@ -1,10 +1,96 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvbfreuu8huwj"]
+[gd_scene load_steps=22 format=3 uid="uid://cvbfreuu8huwj"]
 
+[ext_resource type="Script" path="res://scenes/levels/pre_argus_resting_room.gd" id="1_f6w4c"]
 [ext_resource type="Texture2D" uid="uid://bvbgglyhlkckp" path="res://assets/sprites/backgrounds/argus_background_new.png" id="1_xs50y"]
+[ext_resource type="PackedScene" uid="uid://cj3inxoiw5qma" path="res://scenes/levels/level_1.tscn" id="2_jjxch"]
 [ext_resource type="PackedScene" uid="uid://c7sfo0gpswmv7" path="res://scenes/levels/tile_map_forest.tscn" id="2_mfcx5"]
 [ext_resource type="PackedScene" uid="uid://rknmfk1ar71a" path="res://scenes/utilities/portal.tscn" id="3_t2h87"]
+[ext_resource type="Script" path="res://scenes/levels/statue.gd" id="6_2s5ru"]
+[ext_resource type="Texture2D" uid="uid://cdtue6iegunbs" path="res://assets/sprites/tutorial/tutorial_save.png" id="7_fnyxb"]
+[ext_resource type="Texture2D" uid="uid://3iyge1eobvta" path="res://assets/sprites/backgrounds/statue.png" id="8_1ag6y"]
+[ext_resource type="FontFile" uid="uid://b1o3oapgqcytx" path="res://assets/font/pixelify_sans_regular.ttf" id="9_t1vdh"]
+[ext_resource type="Texture2D" uid="uid://kfpgma80vm4i" path="res://assets/sprites/deco/cat_sheet.png" id="10_28si4"]
 
-[node name="PreArgusRestingRoom" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4ye2"]
+atlas = ExtResource("7_fnyxb")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d50e"]
+atlas = ExtResource("7_fnyxb")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps7sr"]
+atlas = ExtResource("7_fnyxb")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwh22"]
+atlas = ExtResource("7_fnyxb")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_umebi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4ye2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d50e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps7sr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwh22")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tty6d"]
+size = Vector2(171, 397)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4kd8"]
+atlas = ExtResource("10_28si4")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awob1"]
+atlas = ExtResource("10_28si4")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6u0s"]
+atlas = ExtResource("10_28si4")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5l4e"]
+atlas = ExtResource("10_28si4")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08n85"]
+animations = [{
+"frames": [{
+"duration": 3.5,
+"texture": SubResource("AtlasTexture_w4kd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awob1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6u0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5l4e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PreArgusRestingRoom" type="Node2D" node_paths=PackedStringArray("starting_position")]
+script = ExtResource("1_f6w4c")
+id = 3
+next_level = ExtResource("2_jjxch")
+starting_position = NodePath("Marker2D")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(-2384.32, -830.837)
@@ -21,5 +107,53 @@ centered = false
 [node name="ForestTileMap" parent="." instance=ExtResource("2_mfcx5")]
 layer_0/tile_data = PackedInt32Array(720896, 524288, 3, 720897, 589824, 3, 720898, 655360, 3, 720899, 524288, 3, 720900, 589824, 3, 720901, 655360, 3, 720902, 524288, 3, 720903, 589824, 3, 720904, 655360, 3, 720905, 524288, 3, 720906, 589824, 3, 720907, 655360, 3, 720908, 524288, 3, 720909, 589824, 3, 720910, 655360, 3, 720911, 524288, 3, 720912, 589824, 3, 720913, 655360, 3, 720914, 524288, 3, 720915, 589824, 3, 720916, 655360, 3, 720917, 524288, 3, 720918, 589824, 3, 720919, 655360, 3)
 
-[node name="Portal" parent="." instance=ExtResource("3_t2h87")]
+[node name="RestingPortal" parent="." instance=ExtResource("3_t2h87")]
 position = Vector2(1703, 703)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(308, 747)
+
+[node name="Statue" type="Area2D" parent="."]
+position = Vector2(970, 677)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_2s5ru")
+
+[node name="Interaction" type="AnimatedSprite2D" parent="Statue"]
+visible = false
+position = Vector2(0.999999, -320)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_umebi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Statue"]
+texture = ExtResource("8_1ag6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statue"]
+position = Vector2(2.5, 4.5)
+shape = SubResource("RectangleShape2D_tty6d")
+
+[node name="Label" type="Label" parent="Statue"]
+visible = false
+offset_left = -146.0
+offset_top = 195.0
+offset_right = 157.0
+offset_bottom = 238.0
+theme_override_colors/font_color = Color(0.168627, 0.105882, 0.184314, 1)
+theme_override_fonts/font = ExtResource("9_t1vdh")
+theme_override_font_sizes/font_size = 35
+text = "Checkpoint Saved"
+
+[node name="Timer" type="Timer" parent="Statue"]
+wait_time = 3.0
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Cat" type="AnimatedSprite2D" parent="."]
+position = Vector2(973, 438)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_08n85")
+
+[connection signal="body_entered" from="Statue" to="Statue" method="_on_body_entered"]
+[connection signal="body_exited" from="Statue" to="Statue" method="_on_body_exited"]
+[connection signal="timeout" from="Statue/Timer" to="Statue" method="_on_timer_timeout"]

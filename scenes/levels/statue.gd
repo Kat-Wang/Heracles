@@ -18,7 +18,6 @@ func _process(delta):
 		timer.start()
 		label.visible = true
 		
-		
 
 func _on_body_entered(body):
 	$Interaction.visible = true

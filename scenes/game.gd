@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var resting_level_path = preload("res://scenes/levels/resting_level.tscn")
 @onready var hell_resting_level_path = preload("res://scenes/levels/hell_resting_level.tscn")
+@onready var pre_argus_resting_level_path = preload("res://scenes/levels/pre_argus_resting_room.tscn")
 @onready var player_path = preload("res://scenes/entities/player.tscn")
 
 @onready var player := $Player.get_child(0)
@@ -25,6 +26,7 @@ func _ready():
 	player.coin_collected.connect(update_coin_count)
 	player.wreath_collected.connect(update_wreath_count)
 	gos.retry.connect(retry)
+	$HUD/WreathCounter.visible = false
 		
 func instantiate_player():
 	var player_instance = player_path.instantiate()
@@ -54,7 +56,7 @@ func load_checkpoint(id):
 		player.position = resting_level.starting_position.position
 
 		gos.visible = false
-	else:
+	elif id == 2:
 		var hell_resting_level = hell_resting_level_path.instantiate()
 		# Discarding old level
 		var old_level = current_level.get_child(0)
@@ -68,10 +70,24 @@ func load_checkpoint(id):
 		player.position = hell_resting_level.starting_position.position
 
 		gos.visible = false
+	else:
+		print("loading pre argus resting")
+		var pre_argus_resting_level = pre_argus_resting_level_path.instantiate()
+		# Discarding old level
+		var old_level = current_level.get_child(0)
+		old_level.queue_free()
+
+		# Adding new level
+		current_level.add_child(pre_argus_resting_level)
+		
+		pre_argus_resting_level.connect("level_complete", transition)
+		
+		player.position = pre_argus_resting_level.starting_position.position
+
+		gos.visible = false
 
 func transition(next_level:PackedScene):	
 	if next_level:
-		$HUD/WreathCounter.visible = false
 		# Instantiating next level
 		var scene_instance = next_level.instantiate()
 
@@ -88,16 +104,16 @@ func transition(next_level:PackedScene):
 		
 		if scene_instance is ChallengeRoom:
 			scene_instance.timeout.connect(game_over)
-			scene_instance.timeout.connect(game_over)
 			$HUD/WreathCounter.visible = true
-		if scene_instance is RestingLevel:
+		elif scene_instance is RestingLevel:
 			scene_instance.statue.save_checkpoint.connect(save_checkpoint)
-		if scene_instance is Cutscene:
+		elif scene_instance is Cutscene:
 			player.is_in_cutscene = true
 			player.camera.enabled = false
 			if scene_instance is PreHera:
 				scene_instance.set_coins(int(coin_counter.text))
 		else:
+			$HUD/WreathCounter.visible = false
 			player.is_in_cutscene = false
 			player.camera.enabled = true
 		
@@ -131,3 +147,5 @@ func retry():
 		load_checkpoint(1)
 	if checkpoint == 2:
 		load_checkpoint(2)
+	if checkpoint == 3:
+		load_checkpoint(3)
