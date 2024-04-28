@@ -6,6 +6,7 @@ var in_statue := false
 
 @onready var timer := $Timer
 @onready var label := $Label
+@onready var save_sfx := $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,7 @@ func _process(delta):
 		save_checkpoint.emit(get_parent().id)
 		timer.start()
 		label.visible = true
+		save_sfx.play()
 		
 
 func _on_body_entered(body):
