@@ -56,10 +56,10 @@ expand_mode = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 2
-offset_left = 857.0
-offset_top = 470.0
-offset_right = 1601.0
-offset_bottom = 864.0
+offset_left = 881.0
+offset_top = 304.0
+offset_right = 1625.0
+offset_bottom = 698.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
@@ -78,6 +78,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_w7hkq")
 text = "Play"
 
 [node name="Quit" type="Button" parent="MarginContainer2/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_t32pw")
