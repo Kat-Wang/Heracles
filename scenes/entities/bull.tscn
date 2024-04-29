@@ -23,6 +23,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0.3, 0.3)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -16)]
+}
 
 [sub_resource type="Animation" id="Animation_sy5du"]
 resource_name = "death"
@@ -75,6 +87,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.625, 3.625)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, 28)]
+}
 
 [sub_resource type="Animation" id="Animation_34b2a"]
 resource_name = "hit"
@@ -114,6 +150,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.491169, 0.491132)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -8)]
 }
 
 [sub_resource type="Animation" id="Animation_nqwbk"]
@@ -180,6 +240,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0.3, 0.3)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -16)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yvifx"]
 _data = {
@@ -190,7 +262,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_it46g"]
-size = Vector2(235, 149)
+size = Vector2(218, 149)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1t837"]
 animation = &"death"
@@ -233,13 +305,13 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11, -7)
+position = Vector2(-8, -7)
 shape = SubResource("RectangleShape2D_it46g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(7, -15)
+position = Vector2(4, -16)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("5_upwv7")
+texture = ExtResource("3_7r5rf")
 hframes = 4
 
 [node name="LedgeCheckRight" type="RayCast2D" parent="."]
