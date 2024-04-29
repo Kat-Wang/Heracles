@@ -43,6 +43,7 @@ func load_checkpoint(id):
 	instantiate_player()
 	
 	if id == 1:
+		print("lo sientooooo")
 		var resting_level = resting_level_path.instantiate()
 		# Discarding old level
 		var old_level = current_level.get_child(0)
@@ -87,6 +88,7 @@ func load_checkpoint(id):
 		gos.visible = false
 
 func transition(next_level:PackedScene):	
+	print("transitioning")
 	if next_level:
 		# Instantiating next level
 		var scene_instance = next_level.instantiate()
@@ -107,6 +109,9 @@ func transition(next_level:PackedScene):
 			$HUD/WreathCounter.visible = true
 		elif scene_instance is RestingLevel:
 			scene_instance.statue.save_checkpoint.connect(save_checkpoint)
+			$HUD/WreathCounter.visible = false
+			player.is_in_cutscene = false
+			player.camera.enabled = true
 		elif scene_instance is Cutscene:
 			player.is_in_cutscene = true
 			player.camera.enabled = false
@@ -117,11 +122,11 @@ func transition(next_level:PackedScene):
 			player.is_in_cutscene = false
 			player.camera.enabled = true
 		
-		
-		print("Player: ", player.position)
-		print("Player Global: ", player.global_position)
-		print("Camera: ", player.camera.position)
-		print("Camera Global: ", player.camera.global_position)
+		#
+		#print("Player: ", player.position)
+		#print("Player Global: ", player.global_position)
+		#print("Camera: ", player.camera.position)
+		#print("Camera Global: ", player.camera.global_position)
 	else:
 		game_over()
 
@@ -144,6 +149,7 @@ func retry():
 	if checkpoint == 0:
 		get_tree().reload_current_scene()
 	if checkpoint == 1:
+		print("loading checkpoint 1")
 		load_checkpoint(1)
 	if checkpoint == 2:
 		load_checkpoint(2)
