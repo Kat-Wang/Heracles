@@ -30,7 +30,7 @@ func set_coins(coin_count):
 func yes():
 	cutscene.visible = false
 
-	if coins < 25:
+	if coins < 40:
 		play_unhappy_broke()
 	else:
 		play_happy()
