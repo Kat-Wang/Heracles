@@ -19,6 +19,7 @@ func _ready():
 	$Cutscene/Cat.play()
 	$Cutscene/BGM.play()
 	ending.bgm.stop()
+	cutscene.visible = true
 	happy.visible = false
 	unhappy_broke.visible = false
 	unhappy_rich.visible = false

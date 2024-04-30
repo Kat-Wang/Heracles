@@ -16,6 +16,6 @@ func _process(delta):
 func transition():
 	level_complete.emit(next_level)
 
-
 func _on_audio_stream_player_2d_finished():
 	transition()
+

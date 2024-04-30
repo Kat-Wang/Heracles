@@ -14,6 +14,7 @@ signal timeout
 @onready var intro_timer := $CanvasLayer/IntroTimer
 @onready var victory_label := $CanvasLayer/VictoryLabel
 @onready var victory_sfx := $CanvasLayer/VictorySFX
+@onready var victory_label_toggle = false
 
 @export var mob_scene: PackedScene
 

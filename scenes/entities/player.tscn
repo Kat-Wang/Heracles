@@ -683,7 +683,7 @@ hit_state = NodePath("PlayerStateMachine/Hit")
 wall_state = NodePath("PlayerStateMachine/Wall")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2.08165e-12, -186)
+position = Vector2(2.08165e-12, -283.333)
 process_callback = 0
 position_smoothing_enabled = true
 drag_vertical_enabled = true

@@ -2,8 +2,7 @@ extends Area2D
 
 class_name Sceptre
 
-@export var speed = 500
-
+@export var speed = 600
 
 func _ready():
 	pass

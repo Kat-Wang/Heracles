@@ -135,6 +135,14 @@ func game_over():
 	player.current_health = 0
 	player.healthChanged.emit(player.current_health, false)
 	player.damagable.hit(500, Vector2.RIGHT)
+	
+	#special cases
+	var current_level_scene = current_level.get_child(0)
+	
+	if current_level_scene is ChallengeRoom:
+		current_level_scene.victory_label.visible_ratio = 0
+	if current_level_scene is HeraLevel:
+		current_level_scene.victory_label.visible_ratio = 0
 
 func update_coin_count():
 	coin_counter.text = str(player.coin_count)

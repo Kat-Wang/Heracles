@@ -2,7 +2,7 @@ extends State
 
 class_name HeraAttackState
 
-var sceptre_spawn_locations = [Vector2(-100,0), Vector2(150,0), Vector2(300,0), Vector2(12100,0)]
+var sceptre_spawn_locations = [Vector2(-100,-100), Vector2(150,-100), Vector2(300,-100), Vector2(12100,-100)]
 
 @onready var sceptre_container = $ProjectileContainer
 @onready var timer := $Timer
