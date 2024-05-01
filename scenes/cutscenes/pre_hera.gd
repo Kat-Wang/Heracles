@@ -30,6 +30,7 @@ func set_coins(coin_count):
 	
 func yes():
 	cutscene.visible = false
+	$Cutscene/Prompt/Yes.disabled = true
 
 	if coins < 40:
 		play_unhappy_broke()
@@ -37,7 +38,8 @@ func yes():
 		play_happy()
 
 func no():
-		play_unhappy_rich()
+	$Cutscene/Prompt/No.disabled = true
+	play_unhappy_rich()
 
 func play_happy():
 		happy.visible = true
