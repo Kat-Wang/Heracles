@@ -144,7 +144,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("9_55kdc")
 theme_override_font_sizes/font_size = 50
-text = "Good job! Progress to the portal on the right."
+text = "Good job! Proceed to the portal on the right."
 
 [node name="VictorySFX" type="AudioStreamPlayer2D" parent="CanvasLayer"]
 position = Vector2(85, 0)
