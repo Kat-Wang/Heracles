@@ -30,7 +30,7 @@
 size = Vector2(217.952, 251.176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcyqs"]
-size = Vector2(101, 242)
+size = Vector2(101, 229.667)
 
 [sub_resource type="Animation" id="Animation_vpbah"]
 length = 0.001
@@ -723,7 +723,7 @@ position = Vector2(11, -23.5)
 polygon = PackedVector2Array(51.619, -116.738, 51.619, 121.595, -46.7143, 121.595, -46.7143, 41.5952, -106.714, -116.738)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11.5, -23)
+position = Vector2(11.5, -16.8333)
 shape = SubResource("RectangleShape2D_lcyqs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -755,7 +755,6 @@ volume_db = -11.0
 
 [node name="SwordHittingSceptre" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("13_46txy")
-volume_db = 3.0
 
 [node name="PomPickup" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("15_b58q5")

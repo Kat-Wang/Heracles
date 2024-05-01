@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bffe5jc32aom8"]
+[gd_scene load_steps=15 format=3 uid="uid://bffe5jc32aom8"]
 
 [ext_resource type="Script" path="res://scenes/cutscenes/post_hera.gd" id="1_abmtt"]
 [ext_resource type="Texture2D" uid="uid://dldcoc5yf3v28" path="res://assets/sprites/backgrounds/lore_background.png" id="1_uevb2"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cp730h4axm6xo" path="res://scenes/levels/cloud_tile_map.tscn" id="4_veqce"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="5_3xdy4"]
 [ext_resource type="FontFile" uid="uid://c21nhjk8wkqso" path="res://assets/font/dpcomic.ttf" id="5_wo3b4"]
-[ext_resource type="AudioStream" uid="uid://iv7w7jcahjfi" path="res://assets/music/sfx/hera_teleport_audio.wav" id="6_ftfnj"]
 [ext_resource type="Texture2D" uid="uid://csejy65todnmg" path="res://assets/sprites/entities/zeus/zeus_teleport_in.png" id="6_qx035"]
 [ext_resource type="Texture2D" uid="uid://bbd08fureus3f" path="res://assets/sprites/entities/herc/neutral_herc.png" id="8_mgit7"]
 [ext_resource type="Texture2D" uid="uid://1k4eai1e6tmr" path="res://assets/sprites/entities/zeus/zeus_profile.png" id="9_oqmtu"]
@@ -146,18 +145,6 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("8_mgit7")]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Cutscene/ZeusTeleport:playing")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_jn5gi"]
@@ -333,18 +320,6 @@ tracks/13/keys = {
 "update": 1,
 "values": [ExtResource("8_mgit7"), ExtResource("3_aw0wh")]
 }
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("Cutscene/ZeusTeleport:playing")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(5.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tha4w"]
 _data = {
@@ -373,10 +348,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="ZeusTeleport" type="AudioStreamPlayer2D" parent="Cutscene"]
-stream = ExtResource("6_ftfnj")
-volume_db = -5.0
 
 [node name="TextureRect" type="TextureRect" parent="Cutscene"]
 layout_mode = 1

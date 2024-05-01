@@ -113,11 +113,13 @@ func transition(next_level:PackedScene):
 			player.is_in_cutscene = false
 			player.camera.enabled = true
 		elif scene_instance is Cutscene:
+			$HUD.visible = false
 			player.is_in_cutscene = true
 			player.camera.enabled = false
 			if scene_instance is PreHera:
 				scene_instance.set_coins(int(coin_counter.text))
 		else:
+			$HUD.visible = true
 			$HUD/WreathCounter.visible = false
 			player.is_in_cutscene = false
 			player.camera.enabled = true
