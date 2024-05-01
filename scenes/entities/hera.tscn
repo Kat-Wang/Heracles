@@ -526,10 +526,12 @@ autostart = true
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("16_yhg3e")
+volume_db = -1.0
 max_distance = 8000.0
 
 [node name="Teleport" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("17_f0xx0")
+volume_db = -2.0
 max_distance = 10000.0
 
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
