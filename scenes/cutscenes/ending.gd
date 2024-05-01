@@ -8,9 +8,6 @@ func _ready():
 	bgm.play()
 	$CreditsPage.visible = false
 
-func quit():
-	get_tree().quit()
-
 func menu():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
