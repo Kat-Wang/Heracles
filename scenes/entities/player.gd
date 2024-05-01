@@ -15,6 +15,8 @@ signal wreath_collected
 @onready var jump_sfx := $SFX/Jump
 @onready var land_sfx := $SFX/Land
 @onready var sword_hitting_sceptre_sfx := $SFX/SwordHittingSceptre
+@onready var pom_sfx := $SFX/PomPickup
+@onready var coin_sfx := $SFX/CoinPickup
 @onready var coin_count : int = 0
 @onready var wreath_count : int = 0
 @onready var damagable := $Damageable
@@ -121,6 +123,7 @@ func _on_hurt_box_area_entered(area):
 		coin_count += 1
 		area.collected()
 		coin_collected.emit()
+		coin_sfx.play()
 	elif area is PomPickup:
 		heal(false)
 		area.collected()
@@ -143,6 +146,7 @@ func heal(full: bool):
 	else:
 		current_health = min(max_health, current_health + 1)
 		healthChanged.emit(current_health, true)
+		pom_sfx.play()
 
 func _on_dash_timer_timeout():
 	dash_available = true

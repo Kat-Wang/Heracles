@@ -5,7 +5,6 @@ class_name PreHera
 signal level_complete(next_level:PackedScene)
 
 @onready var anim_player := $AnimationPlayer
-@onready var bgm := $AudioStreamPlayer2D
 @onready var cutscene := $Cutscene
 @onready var happy := $Happy
 @onready var unhappy_broke := $UnhappyBroke

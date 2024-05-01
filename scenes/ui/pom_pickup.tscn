@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4baa80mo2gyh"]
+[gd_scene load_steps=6 format=3 uid="uid://c4baa80mo2gyh"]
 
 [ext_resource type="Script" path="res://scenes/ui/pom_pickup.gd" id="1_1n2yg"]
 [ext_resource type="Texture2D" uid="uid://c5cy14xvljmnd" path="res://assets/sprites/hud/pom_shard_sheet.png" id="2_2y413"]
-[ext_resource type="AudioStream" uid="uid://b1kplyi33hx27" path="res://assets/music/sfx/pom_pickup.wav" id="3_53xuq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l4el0"]
 atlas = ExtResource("2_2y413")
@@ -33,12 +32,3 @@ sprite_frames = SubResource("SpriteFrames_6kppv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_8jp7r")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_53xuq")
-volume_db = -3.0
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

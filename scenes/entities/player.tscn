@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://fyw1uols0ael"]
+[gd_scene load_steps=66 format=3 uid="uid://fyw1uols0ael"]
 
 [ext_resource type="Script" path="res://scenes/entities/player.gd" id="1_6xt7c"]
 [ext_resource type="Texture2D" uid="uid://bom47gris1qcq" path="res://assets/sprites/entities/herc/herc_idle.png" id="1_qs2yt"]
@@ -20,6 +20,8 @@
 [ext_resource type="AudioStream" uid="uid://d2bvakyrrra4h" path="res://assets/music/sfx/sword_hitting_sceptre.mp3" id="13_46txy"]
 [ext_resource type="Script" path="res://scenes/entities/landing_state.gd" id="13_pu10e"]
 [ext_resource type="Script" path="res://scenes/entities/attack.gd" id="14_030g6"]
+[ext_resource type="AudioStream" uid="uid://b1kplyi33hx27" path="res://assets/music/sfx/pom_pickup.wav" id="15_b58q5"]
+[ext_resource type="AudioStream" uid="uid://qaxl4id5sfkd" path="res://assets/music/sfx/coin_pickup.wav" id="16_qfji6"]
 [ext_resource type="Script" path="res://scenes/entities/wall_state.gd" id="16_wy706"]
 [ext_resource type="Script" path="res://scenes/entities/player_hit_state.gd" id="18_clpaf"]
 [ext_resource type="Script" path="res://scenes/entities/state.gd" id="18_oqi7w"]
@@ -754,6 +756,14 @@ volume_db = -11.0
 [node name="SwordHittingSceptre" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("13_46txy")
 volume_db = 3.0
+
+[node name="PomPickup" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("15_b58q5")
+volume_db = -3.0
+
+[node name="CoinPickup" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("16_qfji6")
+volume_db = -5.0
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("12_j3nu0")
