@@ -106,9 +106,11 @@ func transition(next_level:PackedScene):
 		
 		if scene_instance is ChallengeRoom:
 			scene_instance.timeout.connect(game_over)
+			$HUD.visible = true
 			$HUD/WreathCounter.visible = true
 		elif scene_instance is RestingLevel:
 			scene_instance.statue.save_checkpoint.connect(save_checkpoint)
+			$HUD.visible = true
 			$HUD/WreathCounter.visible = false
 			player.is_in_cutscene = false
 			player.camera.enabled = true
